@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="PaperCalcDV2Frame">
+		<title>PaperCalc 2 Development Version </title>
+		<centered>1</centered>
+		<bg>wxSYS_COLOUR_MENU</bg>
+		<id_arg>0</id_arg>
+		<object class="wxGridBagSizer" variable="GridBagSizer1" member="no">
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+					<label>Label</label>
+					<font>
+						<size>10</size>
+						<style>normal</style>
+						<weight>bold</weight>
+						<underlined>0</underlined>
+						<family>swiss</family>
+					</font>
+				</object>
+				<col>0</col>
+				<row>0</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT5" variable="StaticText5" member="yes">
+					<label>Label</label>
+					<font>
+						<size>10</size>
+						<style>normal</style>
+						<weight>bold</weight>
+						<underlined>0</underlined>
+						<family>swiss</family>
+					</font>
+				</object>
+				<col>0</col>
+				<row>5</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
+					<label>Label</label>
+					<font>
+						<size>10</size>
+						<style>normal</style>
+						<weight>bold</weight>
+						<underlined>0</underlined>
+						<family>swiss</family>
+					</font>
+				</object>
+				<col>1</col>
+				<row>2</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+					<label>Label</label>
+					<font>
+						<size>10</size>
+						<style>normal</style>
+						<weight>bold</weight>
+						<underlined>0</underlined>
+						<family>swiss</family>
+					</font>
+				</object>
+				<col>1</col>
+				<row>1</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT4" variable="StaticText4" member="yes">
+					<label>Label</label>
+					<font>
+						<size>10</size>
+						<style>normal</style>
+						<weight>bold</weight>
+						<underlined>0</underlined>
+						<family>swiss</family>
+					</font>
+				</object>
+				<col>0</col>
+				<row>4</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT6" variable="StaticText6" member="yes">
+					<label>Label</label>
+					<font>
+						<size>10</size>
+						<style>normal</style>
+						<weight>bold</weight>
+						<underlined>0</underlined>
+						<family>swiss</family>
+					</font>
+				</object>
+				<col>0</col>
+				<row>6</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="ID_CHOICE1" variable="Choice1" member="yes">
+					<content>
+						<item>Custom</item>
+						<item>A3 [ 297 x 420 ]</item>
+						<item>A4 [ 210 x 297 ]</item>
+						<item>A5 [ 148 x 210 ]</item>
+						<item>USA-A [215.9 x 279.4]</item>
+					</content>
+					<handler function="OnSizeSelect" entry="EVT_CHOICE" />
+				</object>
+				<colspan>4</colspan>
+				<col>1</col>
+				<row>0</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
+					<value>Text</value>
+					<handler function="OnSizeChanged" entry="EVT_TEXT" />
+				</object>
+				<colspan>2</colspan>
+				<col>2</col>
+				<row>1</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl2" member="yes">
+					<value>Text</value>
+					<handler function="OnSizeChanged" entry="EVT_TEXT" />
+				</object>
+				<colspan>2</colspan>
+				<col>2</col>
+				<row>2</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextCtrl3" member="yes">
+					<value>Text</value>
+				</object>
+				<colspan>3</colspan>
+				<col>1</col>
+				<row>4</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxTextCtrl" name="ID_TEXTCTRL4" variable="TextCtrl4" member="yes">
+					<value>Text</value>
+				</object>
+				<colspan>3</colspan>
+				<col>1</col>
+				<row>5</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxTextCtrl" name="ID_TEXTCTRL5" variable="TextCtrl5" member="yes">
+					<value>Text</value>
+				</object>
+				<colspan>3</colspan>
+				<col>1</col>
+				<row>6</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="ID_CHOICE2" variable="Choice2" member="yes" />
+				<col>4</col>
+				<row>1</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="ID_CHOICE3" variable="Choice3" member="yes" />
+				<col>4</col>
+				<row>2</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="ID_CHOICE4" variable="Choice4" member="yes" />
+				<col>4</col>
+				<row>5</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="ID_CHOICE5" variable="Choice5" member="yes" />
+				<col>4</col>
+				<row>4</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="ID_CHOICE6" variable="Choice6" member="yes" />
+				<col>4</col>
+				<row>6</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticLine" name="ID_STATICLINE1" variable="StaticLine1" member="yes">
+					<size>10,-1</size>
+				</object>
+				<colspan>5</colspan>
+				<col>0</col>
+				<row>3</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+		</object>
+		<object class="wxMenuBar" variable="MenuBar1" member="no">
+			<object class="wxMenu" variable="Menu1" member="yes">
+				<label>&amp;File</label>
+				<object class="wxMenuItem" name="idMenuHistory" variable="MenuItem2" member="yes">
+					<label>History</label>
+					<accel>F2</accel>
+				</object>
+				<object class="wxMenuItem" name="idMenuSolve" variable="MenuItem1" member="yes">
+					<label>Solve</label>
+					<accel>Return</accel>
+					<handler function="OnSolveSelected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="idMenuUpdate" variable="MenuItem6" member="yes">
+					<label>Update</label>
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="idMenuQuit" variable="MenuItem3" member="yes">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<handler function="OnQuit" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu3" member="yes">
+				<label>Settings</label>
+				<object class="wxMenuItem" name="idMenuPriceEnabled" variable="MenuItem4" member="yes">
+					<label>Enable PriceModule</label>
+					<checkable>1</checkable>
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu4" member="yes">
+				<label>Language</label>
+				<object class="wxMenuItem" name="idMenuLanguageEN" variable="MenuItem7" member="yes">
+					<label>English</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="idMenuLanguageCZ" variable="MenuItem8" member="yes">
+					<label>Czech</label>
+					<radio>1</radio>
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu2" member="yes">
+				<label>Help</label>
+				<object class="wxMenuItem" name="idMenuAbout" variable="MenuItem5" member="yes">
+					<label>About</label>
+					<accel>F1</accel>
+					<handler function="OnAbout" entry="EVT_MENU" />
+				</object>
+			</object>
+		</object>
+		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="StatusBar1" member="yes">
+			<fields>1</fields>
+			<widths>-1</widths>
+			<styles>wxSB_NORMAL</styles>
+		</object>
+	</object>
+</wxsmith>
