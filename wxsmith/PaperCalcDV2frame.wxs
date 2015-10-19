@@ -112,9 +112,18 @@
 				<object class="wxChoice" name="ID_CHOICE1" variable="Choice1" member="yes">
 					<content>
 						<item>Custom</item>
+						<item>Print B1 [ 700 x 1000 ]</item>
+						<item>Print B2 [ 500 x 700 ]</item>
+						<item>Print B1+ [ 720 x 1020 ]</item>
+						<item>Print A1 [ 610 x 860 ]</item>
+						<item>Print A2 [ 430 x 610 ]</item>
 						<item>A3 [ 297 x 420 ]</item>
 						<item>A4 [ 210 x 297 ]</item>
 						<item>A5 [ 148 x 210 ]</item>
+						<item>Custom 1 [ 480 x 650 ]</item>
+						<item>Custom 2 [ 460 x 640 ]</item>
+						<item>Custom 3 [ 430 x 610 ]</item>
+						<item>Custom 4 [ 450 x 640 ]</item>
 						<item>USA-A [215.9 x 279.4]</item>
 					</content>
 					<handler function="OnSizeSelect" entry="EVT_CHOICE" />
@@ -184,7 +193,14 @@
 				<option>1</option>
 			</object>
 			<object class="sizeritem">
-				<object class="wxChoice" name="ID_CHOICE2" variable="Choice2" member="yes" />
+				<object class="wxChoice" name="ID_CHOICE2" variable="Choice2" member="yes">
+					<content>
+						<item>1</item>
+						<item>2</item>
+						<item>3</item>
+						<item>4</item>
+					</content>
+				</object>
 				<col>4</col>
 				<row>1</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -192,7 +208,14 @@
 				<option>1</option>
 			</object>
 			<object class="sizeritem">
-				<object class="wxChoice" name="ID_CHOICE3" variable="Choice3" member="yes" />
+				<object class="wxChoice" name="ID_CHOICE3" variable="Choice3" member="yes">
+					<content>
+						<item>1</item>
+						<item>2</item>
+						<item>3</item>
+						<item>4</item>
+					</content>
+				</object>
 				<col>4</col>
 				<row>2</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -200,15 +223,11 @@
 				<option>1</option>
 			</object>
 			<object class="sizeritem">
-				<object class="wxChoice" name="ID_CHOICE4" variable="Choice4" member="yes" />
-				<col>4</col>
-				<row>5</row>
-				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-				<border>5</border>
-				<option>1</option>
-			</object>
-			<object class="sizeritem">
-				<object class="wxChoice" name="ID_CHOICE5" variable="Choice5" member="yes" />
+				<object class="wxChoice" name="ID_CHOICE4" variable="Choice4" member="yes">
+					<content>
+						<item>1</item>
+					</content>
+				</object>
 				<col>4</col>
 				<row>4</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -216,7 +235,25 @@
 				<option>1</option>
 			</object>
 			<object class="sizeritem">
-				<object class="wxChoice" name="ID_CHOICE6" variable="Choice6" member="yes" />
+				<object class="wxChoice" name="ID_CHOICE5" variable="Choice5" member="yes">
+					<content>
+						<item>1</item>
+						<item>2</item>
+					</content>
+				</object>
+				<col>4</col>
+				<row>5</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="ID_CHOICE6" variable="Choice6" member="yes">
+					<content>
+						<item>1</item>
+						<item>2</item>
+					</content>
+				</object>
 				<col>4</col>
 				<row>6</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>

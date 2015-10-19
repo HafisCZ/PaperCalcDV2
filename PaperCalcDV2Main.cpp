@@ -17,12 +17,41 @@
 #include <wx/string.h>
 //*)
 
-double paperFormats[6][2] = {
+// Required variables
+const float thPow3 = 1000000000;
+wxString ctrlTextDefault = _(" ");
+wxString rw;
+double rwLen, rwWid, rwGrm, rwCnt, rwWig;
+
+// Paper formats, in future maybe in .xml type file
+double paperFormats[15][2] = {
     {0,0},
+    {700,1000},
+    {500,700},
+    {720,1020},
+    {610,860},
+    {430,610},
     {297,420},
     {210,297},
     {148,210},
+    {480,650},
+    {460,640},
+    {430,610},
+    {450,640},
     {215.9,279.4}
+};
+
+// Units
+wxString lengthUnits[] = {
+    _("mm"), _("cm"), _("dm"), _("m")
+};
+
+wxString weightUnits[] = {
+    _("kg"), _("t")
+};
+
+wxString countUnits[] = {
+    _("arc"), _("kArc")
 };
 
 //(*IdInit(PaperCalcDV2Frame)
@@ -95,9 +124,18 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     GridBagSizer1->Add(StaticText6, wxGBPosition(6, 0), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Choice1 = new wxChoice(this, ID_CHOICE1, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE1"));
     Choice1->Append(_("Custom"));
+    Choice1->Append(_("Print B1 [ 700 x 1000 ]"));
+    Choice1->Append(_("Print B2 [ 500 x 700 ]"));
+    Choice1->Append(_("Print B1+ [ 720 x 1020 ]"));
+    Choice1->Append(_("Print A1 [ 610 x 860 ]"));
+    Choice1->Append(_("Print A2 [ 430 x 610 ]"));
     Choice1->Append(_("A3 [ 297 x 420 ]"));
     Choice1->Append(_("A4 [ 210 x 297 ]"));
     Choice1->Append(_("A5 [ 148 x 210 ]"));
+    Choice1->Append(_("Custom 1 [ 480 x 650 ]"));
+    Choice1->Append(_("Custom 2 [ 460 x 640 ]"));
+    Choice1->Append(_("Custom 3 [ 430 x 610 ]"));
+    Choice1->Append(_("Custom 4 [ 450 x 640 ]"));
     Choice1->Append(_("USA-A [215.9 x 279.4]"));
     GridBagSizer1->Add(Choice1, wxGBPosition(0, 1), wxGBSpan(1, 4), wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     TextCtrl1 = new wxTextCtrl(this, ID_TEXTCTRL1, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
@@ -111,14 +149,27 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     TextCtrl5 = new wxTextCtrl(this, ID_TEXTCTRL5, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL5"));
     GridBagSizer1->Add(TextCtrl5, wxGBPosition(6, 1), wxGBSpan(1, 3), wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Choice2 = new wxChoice(this, ID_CHOICE2, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE2"));
+    Choice2->Append(_("1"));
+    Choice2->Append(_("2"));
+    Choice2->Append(_("3"));
+    Choice2->Append(_("4"));
     GridBagSizer1->Add(Choice2, wxGBPosition(1, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Choice3 = new wxChoice(this, ID_CHOICE3, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE3"));
+    Choice3->Append(_("1"));
+    Choice3->Append(_("2"));
+    Choice3->Append(_("3"));
+    Choice3->Append(_("4"));
     GridBagSizer1->Add(Choice3, wxGBPosition(2, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Choice4 = new wxChoice(this, ID_CHOICE4, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE4"));
-    GridBagSizer1->Add(Choice4, wxGBPosition(5, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Choice4->Append(_("1"));
+    GridBagSizer1->Add(Choice4, wxGBPosition(4, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Choice5 = new wxChoice(this, ID_CHOICE5, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE5"));
-    GridBagSizer1->Add(Choice5, wxGBPosition(4, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Choice5->Append(_("1"));
+    Choice5->Append(_("2"));
+    GridBagSizer1->Add(Choice5, wxGBPosition(5, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Choice6 = new wxChoice(this, ID_CHOICE6, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE6"));
+    Choice6->Append(_("1"));
+    Choice6->Append(_("2"));
     GridBagSizer1->Add(Choice6, wxGBPosition(6, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticLine1 = new wxStaticLine(this, ID_STATICLINE1, wxDefaultPosition, wxSize(10,-1), wxLI_HORIZONTAL, _T("ID_STATICLINE1"));
     GridBagSizer1->Add(StaticLine1, wxGBPosition(3, 0), wxGBSpan(1, 5), wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -188,6 +239,27 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
 
     Choice1->SetSelection(0);
 
+    PushObjects(Choice2, lengthUnits, 4);
+    PushObjects(Choice3, lengthUnits, 4);
+    Choice2->SetSelection(0);
+    Choice3->SetSelection(0);
+
+    Choice4->SetString(0, _(L"g/m\u00B2"));
+    Choice4->SetSelection(0);
+
+    PushObjects(Choice5, countUnits, 2);
+    Choice5->SetSelection(0);
+
+    PushObjects(Choice6, weightUnits, 2);
+    Choice6->SetSelection(0);
+
+    TextCtrl1->ChangeValue(ctrlTextDefault);
+    TextCtrl2->ChangeValue(ctrlTextDefault);
+    TextCtrl3->ChangeValue(ctrlTextDefault);
+    TextCtrl4->ChangeValue(ctrlTextDefault);
+    TextCtrl5->ChangeValue(ctrlTextDefault);
+    // Unicode code as _(L"\u00E0")
+
     Fit();
 }
 
@@ -196,25 +268,103 @@ void PaperCalcDV2Frame::OnQuit(wxCommandEvent& event)
     Close();
 }
 
+// Replace default placeholders in wxChoice with wxString array data
+void PaperCalcDV2Frame::PushObjects(wxChoice *ch, wxString data[], int size)
+{
+    // For each index in wxString array
+    for (int i = 0; i < size; i++) {
+        // Add wxString into wxChoice object
+        ch->SetString(i, data[i]);
+    }
+}
+
 void PaperCalcDV2Frame::OnAbout(wxCommandEvent& event)
 {
     wxMessageBox( _("PaperCalcV2 by Martin 'Hafis' Halfar\nWebsite: http://code.mar21.eu/\nEmail: hafis@protonmail.com\nStability not guaranteed in Development state of this app"), _("About"));
 }
 
-void PaperCalcDV2Frame::OnSolveSelected(wxCommandEvent& event)
+bool PaperCalcDV2Frame::validate(wxString str, double *var)
 {
+    if(!(str).ToDouble(var)){
+        StatusBar1->SetLabel(_("Invalid input!"));
+        return false;
+    }
+    return true;
 }
 
-void PaperCalcDV2Frame::OnSizeSelect(wxCommandEvent& event)
+// EVENT :: Solve
+void PaperCalcDV2Frame::OnSolveSelected(wxCommandEvent& event)
 {
-    int formSz =  Choice1->GetSelection();
-    if (formSz != 0) {
-        TextCtrl1->ChangeValue(wxString::Format(wxT("%.2lf"), paperFormats[formSz][0]));
-        TextCtrl2->ChangeValue(wxString::Format(wxT("%.2lf"), paperFormats[formSz][1]));
+    if(validate(TextCtrl1->GetValue(), &rwLen) &&
+       validate(TextCtrl2->GetValue(), &rwWid) &&
+       validate(TextCtrl3->GetValue(), &rwGrm) &&
+       validate(TextCtrl4->GetValue(), &rwCnt) &&
+       validate(TextCtrl5->GetValue(), &rwWig)) {
+
+           StatusBar1->SetLabel(ctrlTextDefault);
+
+           rw = ctrlTextDefault;
+
+           parseDecScale(&rwLen, Choice2->GetSelection());
+           parseDecScale(&rwWid, Choice3->GetSelection());
+
+           parseThScale(&rwCnt, Choice5->GetSelection());
+
+           rw << (calculate(rwLen, rwWid, rwGrm, rwCnt, -1));
+
+           TextCtrl5->ChangeValue(rw);
     }
 }
 
+// EVENT :: Selecting size presets
+void PaperCalcDV2Frame::OnSizeSelect(wxCommandEvent& event)
+{
+    // Get selected index
+    int formSz =  Choice1->GetSelection();
+    if (formSz != 0) {
+        // Paste 'mm' size - length & width into proper cell from 2D array paperFormats
+        TextCtrl1->ChangeValue(wxString::Format(wxT("%.2lf"), paperFormats[formSz][0]));
+        TextCtrl2->ChangeValue(wxString::Format(wxT("%.2lf"), paperFormats[formSz][1]));
+        // Reset scaling to default 'mm' value
+        Choice2->SetSelection(0);
+        Choice3->SetSelection(0);
+    }
+}
+
+// EVENT :: Changing size preset to custom when W and H are changed by user
 void PaperCalcDV2Frame::OnSizeChanged(wxCommandEvent& event)
 {
     Choice1->SetSelection(0);
+}
+
+// Scaling to 'mm' in 10s
+void PaperCalcDV2Frame::parseDecScale (double *value, int scale) {
+    *value = ((*value) * pow(10, scale));
+}
+
+// Scaling to 'mm' in 1000s
+void PaperCalcDV2Frame::parseThScale (double *value, int scale) {
+    *value = ((*value) * pow(1000, scale));
+}
+
+// Solve function, take -1 as output parameter type & value >= 0 for valid input | else returns error code
+double PaperCalcDV2Frame::calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight) {
+    if (hLenght == -1) {
+        if (hWidth <= 0 || hGram <= 0 || hCount <= 0 || hWeight <= 0) return -200;
+        return ((hWeight * thPow3) / (hWidth * hGram * hCount));
+    } else if (hWidth == -1) {
+        if (hLenght <= 0 || hGram <= 0 || hCount <= 0 || hWeight <= 0) return -201;
+        return ((hWeight * thPow3) / (hLenght * hGram * hCount));
+    } else if (hGram == -1) {
+        if (hWidth <= 0 || hLenght <= 0 || hCount <= 0 || hWeight <= 0) return -202;
+        return ((hWeight * thPow3) / (hLenght * hWidth * hCount));
+    } else if (hCount == -1) {
+        if (hWidth <= 0 || hGram <= 0 || hLenght <= 0 || hWeight <= 0) return -203;
+        return ((hWeight * thPow3) / (hLenght * hWidth * hGram));
+    } else if (hWeight == -1) {
+        if (hWidth <= 0 || hGram <= 0 || hCount <= 0 || hLenght <= 0) return -204;
+        return ((hLenght * hWidth * hGram * hCount) / thPow3);
+    } else {
+        return -199;
+    }
 }

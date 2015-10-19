@@ -30,7 +30,13 @@ class PaperCalcDV2Frame: public wxFrame
 
     private:
 
+        // User functions
         void RedrawOnLaunch(void);
+        void parseDecScale (double *value, int scale);
+        void parseThScale (double *value, int scale);
+        void PushObjects(wxChoice *ch, wxString data[], int size);
+        bool validate(wxString str, double *var);
+        double calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight);
 
         //(*Handlers(PaperCalcDV2Frame)
         void OnQuit(wxCommandEvent& event);
@@ -38,6 +44,8 @@ class PaperCalcDV2Frame: public wxFrame
         void OnSolveSelected(wxCommandEvent& event);
         void OnSizeSelect(wxCommandEvent& event);
         void OnSizeChanged(wxCommandEvent& event);
+        void OnChoice4Select(wxCommandEvent& event);
+        void OnChoice2Select(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(PaperCalcDV2Frame)
