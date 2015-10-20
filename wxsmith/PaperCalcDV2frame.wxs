@@ -92,23 +92,6 @@
 				<option>1</option>
 			</object>
 			<object class="sizeritem">
-				<object class="wxStaticText" name="ID_STATICTEXT6" variable="StaticText6" member="yes">
-					<label>Label</label>
-					<font>
-						<size>10</size>
-						<style>normal</style>
-						<weight>bold</weight>
-						<underlined>0</underlined>
-						<family>swiss</family>
-					</font>
-				</object>
-				<col>0</col>
-				<row>6</row>
-				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-				<border>5</border>
-				<option>1</option>
-			</object>
-			<object class="sizeritem">
 				<object class="wxChoice" name="ID_CHOICE1" variable="Choice1" member="yes">
 					<content>
 						<item>Custom</item>
@@ -200,6 +183,7 @@
 						<item>3</item>
 						<item>4</item>
 					</content>
+					<handler function="OnSolveSelected" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
 				<row>1</row>
@@ -215,21 +199,10 @@
 						<item>3</item>
 						<item>4</item>
 					</content>
+					<handler function="OnSolveSelected" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
 				<row>2</row>
-				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-				<border>5</border>
-				<option>1</option>
-			</object>
-			<object class="sizeritem">
-				<object class="wxChoice" name="ID_CHOICE4" variable="Choice4" member="yes">
-					<content>
-						<item>1</item>
-					</content>
-				</object>
-				<col>4</col>
-				<row>4</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
@@ -268,6 +241,38 @@
 				<col>0</col>
 				<row>3</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT7" variable="StaticText7" member="yes">
+					<label>Label</label>
+				</object>
+				<col>4</col>
+				<row>4</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="ID_CHOICE7" variable="Choice7" member="yes">
+					<content>
+						<item>1</item>
+						<item>2</item>
+						<item>3</item>
+					</content>
+					<font>
+						<size>10</size>
+						<style>normal</style>
+						<weight>bold</weight>
+						<underlined>0</underlined>
+						<family>swiss</family>
+						<face></face>
+					</font>
+				</object>
+				<col>0</col>
+				<row>6</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
 			</object>

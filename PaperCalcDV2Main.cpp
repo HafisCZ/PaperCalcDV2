@@ -54,13 +54,16 @@ wxString countUnits[] = {
     _("arc"), _("kArc")
 };
 
+wxString calcTypes[] = {
+    _("Weight"), _("Count"), _("Gram")
+};
+
 //(*IdInit(PaperCalcDV2Frame)
 const long PaperCalcDV2Frame::ID_STATICTEXT1 = wxNewId();
 const long PaperCalcDV2Frame::ID_STATICTEXT5 = wxNewId();
 const long PaperCalcDV2Frame::ID_STATICTEXT3 = wxNewId();
 const long PaperCalcDV2Frame::ID_STATICTEXT2 = wxNewId();
 const long PaperCalcDV2Frame::ID_STATICTEXT4 = wxNewId();
-const long PaperCalcDV2Frame::ID_STATICTEXT6 = wxNewId();
 const long PaperCalcDV2Frame::ID_CHOICE1 = wxNewId();
 const long PaperCalcDV2Frame::ID_TEXTCTRL1 = wxNewId();
 const long PaperCalcDV2Frame::ID_TEXTCTRL2 = wxNewId();
@@ -69,10 +72,11 @@ const long PaperCalcDV2Frame::ID_TEXTCTRL4 = wxNewId();
 const long PaperCalcDV2Frame::ID_TEXTCTRL5 = wxNewId();
 const long PaperCalcDV2Frame::ID_CHOICE2 = wxNewId();
 const long PaperCalcDV2Frame::ID_CHOICE3 = wxNewId();
-const long PaperCalcDV2Frame::ID_CHOICE4 = wxNewId();
 const long PaperCalcDV2Frame::ID_CHOICE5 = wxNewId();
 const long PaperCalcDV2Frame::ID_CHOICE6 = wxNewId();
 const long PaperCalcDV2Frame::ID_STATICLINE1 = wxNewId();
+const long PaperCalcDV2Frame::ID_STATICTEXT7 = wxNewId();
+const long PaperCalcDV2Frame::ID_CHOICE7 = wxNewId();
 const long PaperCalcDV2Frame::idMenuHistory = wxNewId();
 const long PaperCalcDV2Frame::idMenuSolve = wxNewId();
 const long PaperCalcDV2Frame::idMenuUpdate = wxNewId();
@@ -118,10 +122,6 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     wxFont StaticText4Font(10,wxSWISS,wxFONTSTYLE_NORMAL,wxBOLD,false,wxEmptyString,wxFONTENCODING_DEFAULT);
     StaticText4->SetFont(StaticText4Font);
     GridBagSizer1->Add(StaticText4, wxGBPosition(4, 0), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText6 = new wxStaticText(this, ID_STATICTEXT6, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT6"));
-    wxFont StaticText6Font(10,wxSWISS,wxFONTSTYLE_NORMAL,wxBOLD,false,wxEmptyString,wxFONTENCODING_DEFAULT);
-    StaticText6->SetFont(StaticText6Font);
-    GridBagSizer1->Add(StaticText6, wxGBPosition(6, 0), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Choice1 = new wxChoice(this, ID_CHOICE1, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE1"));
     Choice1->Append(_("Custom"));
     Choice1->Append(_("Print B1 [ 700 x 1000 ]"));
@@ -160,9 +160,6 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Choice3->Append(_("3"));
     Choice3->Append(_("4"));
     GridBagSizer1->Add(Choice3, wxGBPosition(2, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    Choice4 = new wxChoice(this, ID_CHOICE4, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE4"));
-    Choice4->Append(_("1"));
-    GridBagSizer1->Add(Choice4, wxGBPosition(4, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Choice5 = new wxChoice(this, ID_CHOICE5, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE5"));
     Choice5->Append(_("1"));
     Choice5->Append(_("2"));
@@ -173,6 +170,15 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     GridBagSizer1->Add(Choice6, wxGBPosition(6, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticLine1 = new wxStaticLine(this, ID_STATICLINE1, wxDefaultPosition, wxSize(10,-1), wxLI_HORIZONTAL, _T("ID_STATICLINE1"));
     GridBagSizer1->Add(StaticLine1, wxGBPosition(3, 0), wxGBSpan(1, 5), wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText7 = new wxStaticText(this, ID_STATICTEXT7, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT7"));
+    GridBagSizer1->Add(StaticText7, wxGBPosition(4, 4), wxDefaultSpan, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Choice7 = new wxChoice(this, ID_CHOICE7, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE7"));
+    Choice7->Append(_("1"));
+    Choice7->Append(_("2"));
+    Choice7->Append(_("3"));
+    wxFont Choice7Font(10,wxSWISS,wxFONTSTYLE_NORMAL,wxBOLD,false,wxEmptyString,wxFONTENCODING_DEFAULT);
+    Choice7->SetFont(Choice7Font);
+    GridBagSizer1->Add(Choice7, wxGBPosition(6, 0), wxDefaultSpan, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SetSizer(GridBagSizer1);
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
@@ -214,7 +220,9 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Connect(ID_CHOICE1,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSizeSelect);
     Connect(ID_TEXTCTRL1,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSizeChanged);
     Connect(ID_TEXTCTRL2,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSizeChanged);
-    Connect(idMenuSolve,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolveSelected);
+    Connect(ID_CHOICE2,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
+    Connect(ID_CHOICE3,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
+    Connect(idMenuSolve,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnAbout);
     //*)
@@ -235,7 +243,8 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     StaticText3->SetLabel(_("Width:"));
     StaticText4->SetLabel(_("Gram:"));
     StaticText5->SetLabel(_("Amount:"));
-    StaticText6->SetLabel(_("Weight:"));
+    //wxUNUSED::StaticText6->SetLabel(_("Weight:"));
+    StaticText7->SetLabel(_(L"g/m\u00B2"));
 
     Choice1->SetSelection(0);
 
@@ -244,14 +253,14 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     Choice2->SetSelection(0);
     Choice3->SetSelection(0);
 
-    Choice4->SetString(0, _(L"g/m\u00B2"));
-    Choice4->SetSelection(0);
-
     PushObjects(Choice5, countUnits, 2);
     Choice5->SetSelection(0);
 
     PushObjects(Choice6, weightUnits, 2);
     Choice6->SetSelection(0);
+
+    PushObjects(Choice7, calcTypes, 3);
+    Choice7->SetSelection(0);
 
     TextCtrl1->ChangeValue(ctrlTextDefault);
     TextCtrl2->ChangeValue(ctrlTextDefault);
@@ -293,7 +302,7 @@ bool PaperCalcDV2Frame::validate(wxString str, double *var)
 }
 
 // EVENT :: Solve
-void PaperCalcDV2Frame::OnSolveSelected(wxCommandEvent& event)
+void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
 {
     if(validate(TextCtrl1->GetValue(), &rwLen) &&
        validate(TextCtrl2->GetValue(), &rwWid) &&
@@ -310,7 +319,10 @@ void PaperCalcDV2Frame::OnSolveSelected(wxCommandEvent& event)
 
            parseThScale(&rwCnt, Choice5->GetSelection());
 
-           rw << (calculate(rwLen, rwWid, rwGrm, rwCnt, -1));
+           double parsedOutput = calculate(rwLen, rwWid, rwGrm, rwCnt, -1);
+           parseThScale(&parsedOutput, -Choice6->GetSelection());
+
+           rw << (parsedOutput);
 
            TextCtrl5->ChangeValue(rw);
     }
@@ -338,17 +350,20 @@ void PaperCalcDV2Frame::OnSizeChanged(wxCommandEvent& event)
 }
 
 // Scaling to 'mm' in 10s
-void PaperCalcDV2Frame::parseDecScale (double *value, int scale) {
+void PaperCalcDV2Frame::parseDecScale (double *value, int scale)
+{
     *value = ((*value) * pow(10, scale));
 }
 
 // Scaling to 'mm' in 1000s
-void PaperCalcDV2Frame::parseThScale (double *value, int scale) {
+void PaperCalcDV2Frame::parseThScale (double *value, int scale)
+{
     *value = ((*value) * pow(1000, scale));
 }
 
 // Solve function, take -1 as output parameter type & value >= 0 for valid input | else returns error code
-double PaperCalcDV2Frame::calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight) {
+double PaperCalcDV2Frame::calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight)
+{
     if (hLenght == -1) {
         if (hWidth <= 0 || hGram <= 0 || hCount <= 0 || hWeight <= 0) return -200;
         return ((hWeight * thPow3) / (hWidth * hGram * hCount));

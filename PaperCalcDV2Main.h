@@ -41,11 +41,9 @@ class PaperCalcDV2Frame: public wxFrame
         //(*Handlers(PaperCalcDV2Frame)
         void OnQuit(wxCommandEvent& event);
         void OnAbout(wxCommandEvent& event);
-        void OnSolveSelected(wxCommandEvent& event);
+        void OnSolve(wxCommandEvent& event);
         void OnSizeSelect(wxCommandEvent& event);
         void OnSizeChanged(wxCommandEvent& event);
-        void OnChoice4Select(wxCommandEvent& event);
-        void OnChoice2Select(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(PaperCalcDV2Frame)
@@ -54,7 +52,6 @@ class PaperCalcDV2Frame: public wxFrame
         static const long ID_STATICTEXT3;
         static const long ID_STATICTEXT2;
         static const long ID_STATICTEXT4;
-        static const long ID_STATICTEXT6;
         static const long ID_CHOICE1;
         static const long ID_TEXTCTRL1;
         static const long ID_TEXTCTRL2;
@@ -63,10 +60,11 @@ class PaperCalcDV2Frame: public wxFrame
         static const long ID_TEXTCTRL5;
         static const long ID_CHOICE2;
         static const long ID_CHOICE3;
-        static const long ID_CHOICE4;
         static const long ID_CHOICE5;
         static const long ID_CHOICE6;
         static const long ID_STATICLINE1;
+        static const long ID_STATICTEXT7;
+        static const long ID_CHOICE7;
         static const long idMenuHistory;
         static const long idMenuSolve;
         static const long idMenuUpdate;
@@ -88,16 +86,16 @@ class PaperCalcDV2Frame: public wxFrame
         wxMenuItem* MenuItem2;
         wxChoice* Choice3;
         wxMenu* Menu3;
-        wxStaticText* StaticText6;
         wxMenuItem* MenuItem1;
         wxMenuItem* MenuItem4;
         wxStaticText* StaticText1;
         wxStaticText* StaticText3;
         wxMenu* Menu1;
+        wxChoice* Choice7;
         wxMenuItem* MenuItem3;
         wxStaticText* StaticText5;
+        wxStaticText* StaticText7;
         wxStatusBar* StatusBar1;
-        wxChoice* Choice4;
         wxMenuItem* MenuItem6;
         wxStaticLine* StaticLine1;
         wxTextCtrl* TextCtrl2;
