@@ -5,7 +5,7 @@
 		<centered>1</centered>
 		<bg>wxSYS_COLOUR_MENU</bg>
 		<id_arg>0</id_arg>
-		<object class="wxGridBagSizer" variable="GridBagSizer1" member="no">
+		<object class="wxGridBagSizer" variable="GridBagSizer1" member="yes">
 			<object class="sizeritem">
 				<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
 					<label>Label</label>
@@ -183,7 +183,7 @@
 						<item>3</item>
 						<item>4</item>
 					</content>
-					<handler function="OnSolveSelected" entry="EVT_CHOICE" />
+					<handler function="OnSolve" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
 				<row>1</row>
@@ -199,7 +199,7 @@
 						<item>3</item>
 						<item>4</item>
 					</content>
-					<handler function="OnSolveSelected" entry="EVT_CHOICE" />
+					<handler function="OnSolve" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
 				<row>2</row>
@@ -213,6 +213,7 @@
 						<item>1</item>
 						<item>2</item>
 					</content>
+					<handler function="OnSolve" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
 				<row>5</row>
@@ -226,6 +227,7 @@
 						<item>1</item>
 						<item>2</item>
 					</content>
+					<handler function="OnSolve" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
 				<row>6</row>
@@ -269,6 +271,7 @@
 						<family>swiss</family>
 						<face></face>
 					</font>
+					<handler function="OnCalcTypeChanged" entry="EVT_CHOICE" />
 				</object>
 				<col>0</col>
 				<row>6</row>
@@ -277,50 +280,52 @@
 				<option>1</option>
 			</object>
 		</object>
-		<object class="wxMenuBar" variable="MenuBar1" member="no">
+		<object class="wxMenuBar" variable="MenuBar1" member="yes">
 			<object class="wxMenu" variable="Menu1" member="yes">
-				<label>&amp;File</label>
+				<label>1</label>
 				<object class="wxMenuItem" name="idMenuHistory" variable="MenuItem2" member="yes">
-					<label>History</label>
+					<label>1</label>
 					<accel>F2</accel>
 				</object>
 				<object class="wxMenuItem" name="idMenuSolve" variable="MenuItem1" member="yes">
-					<label>Solve</label>
+					<label>2</label>
 					<accel>Return</accel>
-					<handler function="OnSolveSelected" entry="EVT_MENU" />
+					<handler function="OnSolve" entry="EVT_MENU" />
 				</object>
 				<object class="wxMenuItem" name="idMenuUpdate" variable="MenuItem6" member="yes">
-					<label>Update</label>
+					<label>3</label>
 				</object>
 				<object class="separator" />
 				<object class="wxMenuItem" name="idMenuQuit" variable="MenuItem3" member="yes">
-					<label>Quit</label>
+					<label>4</label>
 					<accel>Alt-F4</accel>
 					<handler function="OnQuit" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu3" member="yes">
-				<label>Settings</label>
+				<label>2</label>
 				<object class="wxMenuItem" name="idMenuPriceEnabled" variable="MenuItem4" member="yes">
-					<label>Enable PriceModule</label>
+					<label>1</label>
 					<checkable>1</checkable>
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu4" member="yes">
-				<label>Language</label>
+				<label>3</label>
 				<object class="wxMenuItem" name="idMenuLanguageEN" variable="MenuItem7" member="yes">
-					<label>English</label>
+					<label>1</label>
+					<handler function="OnEnglish" entry="EVT_MENU" />
 					<radio>1</radio>
 				</object>
 				<object class="wxMenuItem" name="idMenuLanguageCZ" variable="MenuItem8" member="yes">
-					<label>Czech</label>
+					<label>2</label>
+					<handler function="OnCzech" entry="EVT_MENU" />
 					<radio>1</radio>
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu2" member="yes">
-				<label>Help</label>
+				<label>4</label>
 				<object class="wxMenuItem" name="idMenuAbout" variable="MenuItem5" member="yes">
-					<label>About</label>
+					<label>1</label>
 					<accel>F1</accel>
 					<handler function="OnAbout" entry="EVT_MENU" />
 				</object>

@@ -17,11 +17,42 @@
 #include <wx/string.h>
 //*)
 
+/*
+* Prototype XYZZ
+* X - Application release ID
+* Y - 1 means BETA release, otherwise FINAL
+* Z - Build number (04 means fourth released build)
+*/
+const int prototype = 2104;
+
 // Required variables
 const float thPow3 = 1000000000;
 wxString ctrlTextDefault = _(" ");
 wxString rw;
 double rwLen, rwWid, rwGrm, rwCnt, rwWig;
+
+// Language pack for EN and CZ, usage: langPack[1][language] return required
+wxString langPack[][2] = {
+    {_("#HAFISCZDEV"),_("#HAFISCZDEV")},
+    {_("File"),_("Soubor")},
+    {_("History"),_("Historie")},
+    {_("Solve"),_(L"Vypo\u010D\u00EDst")},
+    {_("Update"),_("Aktualizace")},
+    {_("Quit"),_("Konec")},
+    {_("Settings"),_(L"Nastaven\u00ED")},
+    {_("Enable PriceModule"),_("")},
+    {_("Language"),_("Jazyk")},
+    {_("English"),_(L"Angli\u010Dtina")},
+    {_("Czech"),_(L"\u010Ce\u0161tina")},
+    {_("Help"),_(L"N\u00E1pov\u0115da")},
+    {_("About"),_("O programu")},
+    {_("Size:"),_("Velikost:")},
+    {_("Length:"),_(L"D\u00E9lka:")},
+    {_("Width:"),_(L"\u0160\u00ED\u0159ka:")},
+    {_("Gram:"),_(L"Gram\u00E1\u017E:")},
+    {_("Weight:"),_("Hmotnost:")},
+    {_("Count:"),_(L"Po\u010Det")},
+};
 
 // Paper formats, in future maybe in .xml type file
 double paperFormats[15][2] = {
@@ -96,9 +127,6 @@ END_EVENT_TABLE()
 PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
 {
     //(*Initialize(PaperCalcDV2Frame)
-    wxGridBagSizer* GridBagSizer1;
-    wxMenuBar* MenuBar1;
-
     Create(parent, wxID_ANY, _("PaperCalc 2 Development Version "), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_MENU));
     GridBagSizer1 = new wxGridBagSizer(0, 0);
@@ -182,30 +210,30 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     SetSizer(GridBagSizer1);
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
-    MenuItem2 = new wxMenuItem(Menu1, idMenuHistory, _("History\tF2"), wxEmptyString, wxITEM_NORMAL);
+    MenuItem2 = new wxMenuItem(Menu1, idMenuHistory, _("1\tF2"), wxEmptyString, wxITEM_NORMAL);
     Menu1->Append(MenuItem2);
-    MenuItem1 = new wxMenuItem(Menu1, idMenuSolve, _("Solve\tReturn"), wxEmptyString, wxITEM_NORMAL);
+    MenuItem1 = new wxMenuItem(Menu1, idMenuSolve, _("2\tReturn"), wxEmptyString, wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
-    MenuItem6 = new wxMenuItem(Menu1, idMenuUpdate, _("Update"), wxEmptyString, wxITEM_NORMAL);
+    MenuItem6 = new wxMenuItem(Menu1, idMenuUpdate, _("3"), wxEmptyString, wxITEM_NORMAL);
     Menu1->Append(MenuItem6);
     Menu1->AppendSeparator();
-    MenuItem3 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), wxEmptyString, wxITEM_NORMAL);
+    MenuItem3 = new wxMenuItem(Menu1, idMenuQuit, _("4\tAlt-F4"), wxEmptyString, wxITEM_NORMAL);
     Menu1->Append(MenuItem3);
-    MenuBar1->Append(Menu1, _("&File"));
+    MenuBar1->Append(Menu1, _("1"));
     Menu3 = new wxMenu();
-    MenuItem4 = new wxMenuItem(Menu3, idMenuPriceEnabled, _("Enable PriceModule"), wxEmptyString, wxITEM_CHECK);
+    MenuItem4 = new wxMenuItem(Menu3, idMenuPriceEnabled, _("1"), wxEmptyString, wxITEM_CHECK);
     Menu3->Append(MenuItem4);
-    MenuBar1->Append(Menu3, _("Settings"));
+    MenuBar1->Append(Menu3, _("2"));
     Menu4 = new wxMenu();
-    MenuItem7 = new wxMenuItem(Menu4, idMenuLanguageEN, _("English"), wxEmptyString, wxITEM_RADIO);
+    MenuItem7 = new wxMenuItem(Menu4, idMenuLanguageEN, _("1"), wxEmptyString, wxITEM_RADIO);
     Menu4->Append(MenuItem7);
-    MenuItem8 = new wxMenuItem(Menu4, idMenuLanguageCZ, _("Czech"), wxEmptyString, wxITEM_RADIO);
+    MenuItem8 = new wxMenuItem(Menu4, idMenuLanguageCZ, _("2"), wxEmptyString, wxITEM_RADIO);
     Menu4->Append(MenuItem8);
-    MenuBar1->Append(Menu4, _("Language"));
+    MenuBar1->Append(Menu4, _("3"));
     Menu2 = new wxMenu();
-    MenuItem5 = new wxMenuItem(Menu2, idMenuAbout, _("About\tF1"), wxEmptyString, wxITEM_NORMAL);
+    MenuItem5 = new wxMenuItem(Menu2, idMenuAbout, _("1\tF1"), wxEmptyString, wxITEM_NORMAL);
     Menu2->Append(MenuItem5);
-    MenuBar1->Append(Menu2, _("Help"));
+    MenuBar1->Append(Menu2, _("4"));
     SetMenuBar(MenuBar1);
     StatusBar1 = new wxStatusBar(this, ID_STATUSBAR1, 0, _T("ID_STATUSBAR1"));
     int __wxStatusBarWidths_1[1] = { -1 };
@@ -222,8 +250,13 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Connect(ID_TEXTCTRL2,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSizeChanged);
     Connect(ID_CHOICE2,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(ID_CHOICE3,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
+    Connect(ID_CHOICE5,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
+    Connect(ID_CHOICE6,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
+    Connect(ID_CHOICE7,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnCalcTypeChanged);
     Connect(idMenuSolve,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnQuit);
+    Connect(idMenuLanguageEN,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnEnglish);
+    Connect(idMenuLanguageCZ,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnCzech);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnAbout);
     //*)
 
@@ -238,13 +271,7 @@ PaperCalcDV2Frame::~PaperCalcDV2Frame()
 
 void PaperCalcDV2Frame::RedrawOnLaunch() {
 
-    StaticText1->SetLabel(_("Size:"));
-    StaticText2->SetLabel(_("Length:"));
-    StaticText3->SetLabel(_("Width:"));
-    StaticText4->SetLabel(_("Gram:"));
-    StaticText5->SetLabel(_("Amount:"));
-    //wxUNUSED::StaticText6->SetLabel(_("Weight:"));
-    StaticText7->SetLabel(_(L"g/m\u00B2"));
+    ExchangeLanguage(langPack, 0);
 
     Choice1->SetSelection(0);
 
@@ -267,7 +294,6 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     TextCtrl3->ChangeValue(ctrlTextDefault);
     TextCtrl4->ChangeValue(ctrlTextDefault);
     TextCtrl5->ChangeValue(ctrlTextDefault);
-    // Unicode code as _(L"\u00E0")
 
     Fit();
 }
@@ -382,4 +408,50 @@ double PaperCalcDV2Frame::calculate (double hLenght, double hWidth, double hGram
     } else {
         return -199;
     }
+}
+
+void PaperCalcDV2Frame::ExchangeLanguage(wxString pack[][2], int l)
+{
+    //Labels
+    StaticText1->SetLabel(pack[13][l]);
+    StaticText2->SetLabel(pack[14][l]);
+    StaticText3->SetLabel(pack[15][l]);
+    StaticText4->SetLabel(pack[16][l]);
+    StaticText5->SetLabel(pack[18][l]);
+    StaticText7->SetLabel(_(L"g/m\u00B2"));
+
+    //Toolbar
+    MenuBar1->SetMenuLabel(0, pack[1][l]);
+    MenuBar1->SetMenuLabel(1, pack[6][l]);
+    MenuBar1->SetMenuLabel(2, pack[8][l]);
+    MenuBar1->SetMenuLabel(3, pack[11][l]);
+
+    //Sub-Toolbar
+    MenuItem1->SetItemLabel(pack[3][l] + _("\tReturn"));
+    MenuItem2->SetItemLabel(pack[2][l] + _("\tF2"));
+    MenuItem3->SetItemLabel(pack[5][l] + _("\tAlt-F4"));
+    //MenuItem4->SetItemLabel(pack[7][l]);
+    MenuItem5->SetItemLabel(pack[12][l] + _("\tF1"));
+    MenuItem6->SetItemLabel(pack[4][l]);
+    MenuItem7->SetItemLabel(pack[9][l] + _("\t"));
+    MenuItem8->SetItemLabel(pack[10][l] + _("\t"));
+
+    Fit();
+}
+
+void PaperCalcDV2Frame::OnCalcTypeChanged(wxCommandEvent& event)
+{
+    if (GridBagSizer1->SetItemPosition((size_t) 2, *(new wxGBPosition(7,0)))) {
+        Fit();
+    }
+}
+
+void PaperCalcDV2Frame::OnEnglish(wxCommandEvent& event)
+{
+    ExchangeLanguage(langPack, 0);
+}
+
+void PaperCalcDV2Frame::OnCzech(wxCommandEvent& event)
+{
+    ExchangeLanguage(langPack, 1);
 }

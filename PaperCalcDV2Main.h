@@ -35,6 +35,7 @@ class PaperCalcDV2Frame: public wxFrame
         void parseDecScale (double *value, int scale);
         void parseThScale (double *value, int scale);
         void PushObjects(wxChoice *ch, wxString data[], int size);
+        void ExchangeLanguage(wxString pack[][2], int l);
         bool validate(wxString str, double *var);
         double calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight);
 
@@ -44,6 +45,9 @@ class PaperCalcDV2Frame: public wxFrame
         void OnSolve(wxCommandEvent& event);
         void OnSizeSelect(wxCommandEvent& event);
         void OnSizeChanged(wxCommandEvent& event);
+        void OnCalcTypeChanged(wxCommandEvent& event);
+        void OnEnglish(wxCommandEvent& event);
+        void OnCzech(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(PaperCalcDV2Frame)
@@ -85,6 +89,7 @@ class PaperCalcDV2Frame: public wxFrame
         wxStaticText* StaticText2;
         wxMenuItem* MenuItem2;
         wxChoice* Choice3;
+        wxGridBagSizer* GridBagSizer1;
         wxMenu* Menu3;
         wxMenuItem* MenuItem1;
         wxMenuItem* MenuItem4;
@@ -101,6 +106,7 @@ class PaperCalcDV2Frame: public wxFrame
         wxTextCtrl* TextCtrl2;
         wxChoice* Choice6;
         wxTextCtrl* TextCtrl1;
+        wxMenuBar* MenuBar1;
         wxTextCtrl* TextCtrl5;
         wxMenu* Menu2;
         wxStaticText* StaticText4;
