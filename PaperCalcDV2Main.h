@@ -37,6 +37,9 @@ class PaperCalcDV2Frame: public wxFrame
         void PushObjects(wxChoice *ch, wxString data[], int size);
         void ExchangeLanguage(wxString pack[][2], int l);
         bool validate(wxString str, double *var);
+        bool PlaceToSizer(wxTextCtrl *w, int x, int y);
+        bool PlaceToSizer(wxStaticText *w, int x, int y);
+        bool PlaceToSizer(wxChoice *w, int x, int y);
         double calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight);
 
         //(*Handlers(PaperCalcDV2Frame)

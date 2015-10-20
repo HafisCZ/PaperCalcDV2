@@ -23,7 +23,7 @@
 * Y - 1 means BETA release, otherwise FINAL
 * Z - Build number (04 means fourth released build)
 */
-const int prototype = 2104;
+const int prototype = 2106;
 
 // Required variables
 const float thPow3 = 1000000000;
@@ -51,7 +51,7 @@ wxString langPack[][2] = {
     {_("Width:"),_(L"\u0160\u00ED\u0159ka:")},
     {_("Gram:"),_(L"Gram\u00E1\u017E:")},
     {_("Weight:"),_("Hmotnost:")},
-    {_("Count:"),_(L"Po\u010Det")},
+    {_("Count:"),_(L"Po\u010Det:")},
 };
 
 // Paper formats, in future maybe in .xml type file
@@ -83,10 +83,6 @@ wxString weightUnits[] = {
 
 wxString countUnits[] = {
     _("arc"), _("kArc")
-};
-
-wxString calcTypes[] = {
-    _("Weight"), _("Count"), _("Gram")
 };
 
 //(*IdInit(PaperCalcDV2Frame)
@@ -286,7 +282,6 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     PushObjects(Choice6, weightUnits, 2);
     Choice6->SetSelection(0);
 
-    PushObjects(Choice7, calcTypes, 3);
     Choice7->SetSelection(0);
 
     TextCtrl1->ChangeValue(ctrlTextDefault);
@@ -436,14 +431,70 @@ void PaperCalcDV2Frame::ExchangeLanguage(wxString pack[][2], int l)
     MenuItem7->SetItemLabel(pack[9][l] + _("\t"));
     MenuItem8->SetItemLabel(pack[10][l] + _("\t"));
 
+    Choice7->SetString(0, pack[17][l]);
+    Choice7->SetString(1, pack[18][l]);
+    Choice7->SetString(2, pack[16][l]);
+
     Fit();
 }
 
 void PaperCalcDV2Frame::OnCalcTypeChanged(wxCommandEvent& event)
 {
-    if (GridBagSizer1->SetItemPosition((size_t) 2, *(new wxGBPosition(7,0)))) {
-        Fit();
+    PlaceToSizer(TextCtrl3, 20, 1);
+    PlaceToSizer(StaticText7, 20, 4);
+    PlaceToSizer(TextCtrl4, 21, 1);
+    PlaceToSizer(Choice5, 21, 4);
+    PlaceToSizer(TextCtrl5, 22, 1);
+    PlaceToSizer(Choice6, 12, 4);
+    Fit();
+    switch (Choice7->GetCurrentSelection()) {
+        case 0 : {
+            PlaceToSizer(TextCtrl3, 4, 1);
+            PlaceToSizer(StaticText7, 4, 4);
+            PlaceToSizer(TextCtrl4, 5, 1);
+            PlaceToSizer(Choice5, 5, 4);
+            PlaceToSizer(TextCtrl5, 6, 1);
+            PlaceToSizer(Choice6, 6, 4);
+            break;
+        }
+        case 1 : {
+            PlaceToSizer(TextCtrl3, 4, 1);
+            PlaceToSizer(StaticText7, 4, 4);
+            PlaceToSizer(TextCtrl4, 6, 1);
+            PlaceToSizer(Choice5, 6, 4);
+            PlaceToSizer(TextCtrl5, 5, 1);
+            PlaceToSizer(Choice6, 5, 4);
+            break;
+        }
+        case 2 : {
+            PlaceToSizer(TextCtrl3, 6, 1);
+            PlaceToSizer(StaticText7, 6, 4);
+            PlaceToSizer(TextCtrl4, 4, 1);
+            PlaceToSizer(Choice5, 4, 4);
+            PlaceToSizer(TextCtrl5, 5, 1);
+            PlaceToSizer(Choice6, 5, 4);
+            break;
+        }
     }
+    Fit();
+}
+
+// Move wxChoice at X Y coordinates
+bool PaperCalcDV2Frame::PlaceToSizer(wxChoice *w, int x, int y)
+{
+    return (GridBagSizer1->SetItemPosition(w, *(new wxGBPosition(x,y))));
+}
+
+// Move wxStaticText at X Y coordinates
+bool PaperCalcDV2Frame::PlaceToSizer(wxStaticText *w, int x, int y)
+{
+    return (GridBagSizer1->SetItemPosition(w, *(new wxGBPosition(x,y))));
+}
+
+// Move wxTextCtrl at X Y coordinates
+bool PaperCalcDV2Frame::PlaceToSizer(wxTextCtrl *w, int x, int y)
+{
+    return (GridBagSizer1->SetItemPosition(w, *(new wxGBPosition(x,y))));
 }
 
 void PaperCalcDV2Frame::OnEnglish(wxCommandEvent& event)
