@@ -178,10 +178,10 @@
 			<object class="sizeritem">
 				<object class="wxChoice" name="ID_CHOICE2" variable="Choice2" member="yes">
 					<content>
+						<item>0</item>
 						<item>1</item>
 						<item>2</item>
 						<item>3</item>
-						<item>4</item>
 					</content>
 					<handler function="OnSolve" entry="EVT_CHOICE" />
 				</object>
@@ -269,7 +269,6 @@
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
-						<face></face>
 					</font>
 					<handler function="OnCalcTypeChanged" entry="EVT_CHOICE" />
 				</object>
@@ -294,6 +293,7 @@
 				</object>
 				<object class="wxMenuItem" name="idMenuUpdate" variable="MenuItem6" member="yes">
 					<label>3</label>
+					<handler function="OnUpdate" entry="EVT_MENU" />
 				</object>
 				<object class="separator" />
 				<object class="wxMenuItem" name="idMenuQuit" variable="MenuItem3" member="yes">
@@ -313,12 +313,12 @@
 				<label>3</label>
 				<object class="wxMenuItem" name="idMenuLanguageEN" variable="MenuItem7" member="yes">
 					<label>1</label>
-					<handler function="OnEnglish" entry="EVT_MENU" />
+					<handler function="OnLanguageChanged" entry="EVT_MENU" />
 					<radio>1</radio>
 				</object>
 				<object class="wxMenuItem" name="idMenuLanguageCZ" variable="MenuItem8" member="yes">
 					<label>2</label>
-					<handler function="OnCzech" entry="EVT_MENU" />
+					<handler function="OnLanguageChanged" entry="EVT_MENU" />
 					<radio>1</radio>
 				</object>
 			</object>

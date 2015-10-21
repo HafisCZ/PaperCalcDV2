@@ -32,14 +32,12 @@ class PaperCalcDV2Frame: public wxFrame
 
         // User functions
         void RedrawOnLaunch(void);
-        void parseDecScale (double *value, int scale);
         void parseThScale (double *value, int scale);
-        void PushObjects(wxChoice *ch, wxString data[], int size);
+        void parseDecScale (double *value, int scale);
         void ExchangeLanguage(wxString pack[][2], int l);
+        void PushObjects(wxChoice *ch, wxString data[], int size);
         bool validate(wxString str, double *var);
-        bool PlaceToSizer(wxTextCtrl *w, int x, int y);
-        bool PlaceToSizer(wxStaticText *w, int x, int y);
-        bool PlaceToSizer(wxChoice *w, int x, int y);
+        bool PlaceToSizer(wxControl *w, int x, int y);
         double calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight);
 
         //(*Handlers(PaperCalcDV2Frame)
@@ -49,8 +47,8 @@ class PaperCalcDV2Frame: public wxFrame
         void OnSizeSelect(wxCommandEvent& event);
         void OnSizeChanged(wxCommandEvent& event);
         void OnCalcTypeChanged(wxCommandEvent& event);
-        void OnEnglish(wxCommandEvent& event);
-        void OnCzech(wxCommandEvent& event);
+        void OnLanguageChanged(wxCommandEvent& event);
+        void OnUpdate(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(PaperCalcDV2Frame)
