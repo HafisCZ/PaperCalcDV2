@@ -31,6 +31,7 @@ class PaperCalcDV2Frame: public wxFrame
     private:
 
         // User functions
+        void ThrowError(int id);
         void RedrawOnLaunch(void);
         void parseThScale (double *value, int scale);
         void parseDecScale (double *value, int scale);
@@ -49,6 +50,7 @@ class PaperCalcDV2Frame: public wxFrame
         void OnCalcTypeChanged(wxCommandEvent& event);
         void OnLanguageChanged(wxCommandEvent& event);
         void OnUpdate(wxCommandEvent& event);
+        void OnClear(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(PaperCalcDV2Frame)
@@ -77,6 +79,7 @@ class PaperCalcDV2Frame: public wxFrame
         static const long idMenuPriceEnabled;
         static const long idMenuLanguageEN;
         static const long idMenuLanguageCZ;
+        static const long ID_MENUITEM1;
         static const long idMenuAbout;
         static const long ID_STATUSBAR1;
         //*)
@@ -110,6 +113,7 @@ class PaperCalcDV2Frame: public wxFrame
         wxMenuBar* MenuBar1;
         wxTextCtrl* TextCtrl5;
         wxMenu* Menu2;
+        wxMenuItem* MenuItem9;
         wxStaticText* StaticText4;
         wxTextCtrl* TextCtrl3;
         wxChoice* Choice1;

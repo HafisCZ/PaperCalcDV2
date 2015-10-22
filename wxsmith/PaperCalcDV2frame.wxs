@@ -324,6 +324,10 @@
 			</object>
 			<object class="wxMenu" variable="Menu2" member="yes">
 				<label>4</label>
+				<object class="wxMenuItem" name="ID_MENUITEM1" variable="MenuItem9" member="yes">
+					<label>2</label>
+					<handler function="OnClear" entry="EVT_MENU" />
+				</object>
 				<object class="wxMenuItem" name="idMenuAbout" variable="MenuItem5" member="yes">
 					<label>1</label>
 					<accel>F1</accel>
