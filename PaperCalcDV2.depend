@@ -879,7 +879,7 @@
 1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\theme.h
 	"wx/string.h"
 
-1445536139 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
+1445702395 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
 	<wx/stattext.h>
 	<wx/menu.h>
 	<wx/textctrl.h>
@@ -1362,11 +1362,11 @@
 
 1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\rcdefs.h
 
-1445536334 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
+1445709460 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
+	<string>
 	"PaperCalcDV2Main.h"
 	<wx/msgdlg.h>
 	<stdio.h>
-	<wininet.h>
 	<string.h>
 	<wx/settings.h>
 	<wx/font.h>

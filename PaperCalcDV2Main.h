@@ -31,6 +31,7 @@ class PaperCalcDV2Frame: public wxFrame
     private:
 
         // User functions
+        void EnableCost(bool e);
         void ThrowError(int id);
         void RedrawOnLaunch(void);
         void parseThScale (double *value, int scale);
@@ -51,6 +52,7 @@ class PaperCalcDV2Frame: public wxFrame
         void OnLanguageChanged(wxCommandEvent& event);
         void OnUpdate(wxCommandEvent& event);
         void OnClear(wxCommandEvent& event);
+        void OnCostEnabled(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(PaperCalcDV2Frame)
@@ -72,6 +74,16 @@ class PaperCalcDV2Frame: public wxFrame
         static const long ID_STATICLINE1;
         static const long ID_STATICTEXT7;
         static const long ID_CHOICE7;
+        static const long ID_STATICLINE2;
+        static const long ID_STATICTEXT6;
+        static const long ID_TEXTCTRL6;
+        static const long ID_CHOICE4;
+        static const long ID_STATICTEXT8;
+        static const long ID_TEXTCTRL7;
+        static const long ID_STATICTEXT9;
+        static const long ID_STATICTEXT10;
+        static const long ID_TEXTCTRL8;
+        static const long ID_CHOICE8;
         static const long idMenuHistory;
         static const long idMenuSolve;
         static const long idMenuUpdate;
@@ -85,7 +97,9 @@ class PaperCalcDV2Frame: public wxFrame
         //*)
 
         //(*Declarations(PaperCalcDV2Frame)
+        wxStaticText* StaticText10;
         wxChoice* Choice5;
+        wxStaticText* StaticText9;
         wxMenuItem* MenuItem8;
         wxTextCtrl* TextCtrl4;
         wxMenuItem* MenuItem7;
@@ -95,20 +109,28 @@ class PaperCalcDV2Frame: public wxFrame
         wxChoice* Choice3;
         wxGridBagSizer* GridBagSizer1;
         wxMenu* Menu3;
+        wxStaticText* StaticText6;
+        wxTextCtrl* TextCtrl6;
         wxMenuItem* MenuItem1;
         wxMenuItem* MenuItem4;
+        wxStaticText* StaticText8;
         wxStaticText* StaticText1;
         wxStaticText* StaticText3;
         wxMenu* Menu1;
         wxChoice* Choice7;
+        wxChoice* Choice8;
+        wxStaticLine* StaticLine2;
         wxMenuItem* MenuItem3;
         wxStaticText* StaticText5;
         wxStaticText* StaticText7;
         wxStatusBar* StatusBar1;
+        wxChoice* Choice4;
         wxMenuItem* MenuItem6;
+        wxTextCtrl* TextCtrl8;
         wxStaticLine* StaticLine1;
         wxTextCtrl* TextCtrl2;
         wxChoice* Choice6;
+        wxTextCtrl* TextCtrl7;
         wxTextCtrl* TextCtrl1;
         wxMenuBar* MenuBar1;
         wxTextCtrl* TextCtrl5;
