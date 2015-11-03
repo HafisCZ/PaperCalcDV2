@@ -28,14 +28,16 @@
 * Y - 1 means BETA release, otherwise FINAL
 * Z - Build number (04 means fourth released build)
 */
-const int prototype = 2109;
+const int prototype = 2110;
 
 // Required variables
 const float thPow3 = 1000000000;
 wxString ctrlTextDefault = _("");
-double rwLen, rwWid, rwGrm, rwCnt, rwWig;
+double rwLen, rwWid, rwGrm, rwCnt, rwWig, rcWig, rcCnt, rcEur, rcCst;
 int clMode = 0;
+int csMode = 0;
 int ln = 0;
+bool costEnabled = false;
 
 // Language pack for EN and CZ, usage: langPack[1][language] return required
 wxString langPack[][2] = {
@@ -62,8 +64,9 @@ wxString langPack[][2] = {
        _(L"PaperCalcV2\nAutor: Martin 'Hafis' Halfar\nWeb: http://code.mar21.eu/\nEmail: hafis@protonmail.com\nStabilita nen\u00ED v t\u00E9to f\u00E1zi v\u00FDvoje zaru\u010Dena")},
     {_("Clear"),_(L"Vy\u010Distit")},
     {_("Cost:"),_("Cena:")},
-    {_("Cost/Unit:"),_(L"Cena/Jednotka:")},
-    {_("Rate:"),_("Kurz:")}
+    {_("Cost/Weight:"),_(L"Cena/V\u00E1ha:")},
+    {_("Rate:"),_("Kurz:")},
+    {_("Cost/Count:"),_(L"Cena/Po\u010Det:")}
 };
 
 // Paper formats, in future maybe in .xml type file
@@ -107,9 +110,14 @@ wxString costCurr[] = {
     _(L"K\u010D"), _(L"\u20AC")
 };
 
-wxString costPerUnit[] = {
-    _(L"K\u010D/kg"), _(L"K\u010D/arc"), _(L"\u20AC/kg"), _(L"\u20AC/arc"),
-    _(L"K\u010D/t"), _(L"K\u010D/kArc"), _(L"\u20AC/t"), _(L"\u20AC/kArc")
+wxString costPerWeightUnit[] = {
+    _(L"K\u010D/kg"), _(L"K\u010D/t"),
+    _(L"\u20AC/kg"), _(L"\u20AC/t")
+};
+
+wxString costPerCountUnit[] = {
+     _(L"K\u010D/arc"), _(L"K\u010D/kArc"),
+     _(L"\u20AC/arc"), _(L"\u20AC/kArc")
 };
 
 //(*IdInit(PaperCalcDV2Frame)
@@ -139,8 +147,11 @@ const long PaperCalcDV2Frame::ID_STATICTEXT8 = wxNewId();
 const long PaperCalcDV2Frame::ID_TEXTCTRL7 = wxNewId();
 const long PaperCalcDV2Frame::ID_STATICTEXT9 = wxNewId();
 const long PaperCalcDV2Frame::ID_STATICTEXT10 = wxNewId();
+const long PaperCalcDV2Frame::ID_STATICTEXT11 = wxNewId();
 const long PaperCalcDV2Frame::ID_TEXTCTRL8 = wxNewId();
+const long PaperCalcDV2Frame::ID_TEXTCTRL9 = wxNewId();
 const long PaperCalcDV2Frame::ID_CHOICE8 = wxNewId();
+const long PaperCalcDV2Frame::ID_CHOICE9 = wxNewId();
 const long PaperCalcDV2Frame::idMenuHistory = wxNewId();
 const long PaperCalcDV2Frame::idMenuSolve = wxNewId();
 const long PaperCalcDV2Frame::idMenuUpdate = wxNewId();
@@ -255,29 +266,37 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Choice4->Append(_("2"));
     Choice4->Append(_("3"));
     Choice4->Append(_("4"));
-    Choice4->Append(_("5"));
-    Choice4->Append(_("6"));
-    Choice4->Append(_("7"));
-    Choice4->Append(_("8"));
     GridBagSizer1->Add(Choice4, wxGBPosition(8, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText8 = new wxStaticText(this, ID_STATICTEXT8, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT8"));
     wxFont StaticText8Font(10,wxSWISS,wxFONTSTYLE_NORMAL,wxBOLD,false,wxEmptyString,wxFONTENCODING_DEFAULT);
     StaticText8->SetFont(StaticText8Font);
-    GridBagSizer1->Add(StaticText8, wxGBPosition(9, 0), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    GridBagSizer1->Add(StaticText8, wxGBPosition(11, 0), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     TextCtrl7 = new wxTextCtrl(this, ID_TEXTCTRL7, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL7"));
-    GridBagSizer1->Add(TextCtrl7, wxGBPosition(9, 1), wxGBSpan(1, 3), wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    GridBagSizer1->Add(TextCtrl7, wxGBPosition(10, 1), wxGBSpan(1, 3), wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText9 = new wxStaticText(this, ID_STATICTEXT9, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT9"));
-    GridBagSizer1->Add(StaticText9, wxGBPosition(9, 4), wxDefaultSpan, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    GridBagSizer1->Add(StaticText9, wxGBPosition(10, 4), wxDefaultSpan, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText10 = new wxStaticText(this, ID_STATICTEXT10, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT10"));
     wxFont StaticText10Font(10,wxSWISS,wxFONTSTYLE_NORMAL,wxBOLD,false,wxEmptyString,wxFONTENCODING_DEFAULT);
     StaticText10->SetFont(StaticText10Font);
     GridBagSizer1->Add(StaticText10, wxGBPosition(10, 0), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText11 = new wxStaticText(this, ID_STATICTEXT11, _("Label"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT11"));
+    wxFont StaticText11Font(10,wxSWISS,wxFONTSTYLE_NORMAL,wxBOLD,false,wxEmptyString,wxFONTENCODING_DEFAULT);
+    StaticText11->SetFont(StaticText11Font);
+    GridBagSizer1->Add(StaticText11, wxGBPosition(9, 0), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     TextCtrl8 = new wxTextCtrl(this, ID_TEXTCTRL8, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL8"));
-    GridBagSizer1->Add(TextCtrl8, wxGBPosition(10, 1), wxGBSpan(1, 3), wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    GridBagSizer1->Add(TextCtrl8, wxGBPosition(11, 1), wxGBSpan(1, 3), wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrl9 = new wxTextCtrl(this, ID_TEXTCTRL9, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL9"));
+    GridBagSizer1->Add(TextCtrl9, wxGBPosition(9, 1), wxGBSpan(1, 3), wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Choice8 = new wxChoice(this, ID_CHOICE8, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE8"));
     Choice8->Append(_("1"));
     Choice8->Append(_("2"));
-    GridBagSizer1->Add(Choice8, wxGBPosition(10, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    GridBagSizer1->Add(Choice8, wxGBPosition(11, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Choice9 = new wxChoice(this, ID_CHOICE9, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_CHOICE9"));
+    Choice9->Append(_("5"));
+    Choice9->Append(_("6"));
+    Choice9->Append(_("7"));
+    Choice9->Append(_("8"));
+    GridBagSizer1->Add(Choice9, wxGBPosition(9, 4), wxDefaultSpan, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     SetSizer(GridBagSizer1);
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
@@ -321,6 +340,9 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Connect(ID_CHOICE1,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSizeSelect);
     Connect(ID_TEXTCTRL1,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSizeChanged);
     Connect(ID_TEXTCTRL2,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSizeChanged);
+    Connect(ID_TEXTCTRL3,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
+    Connect(ID_TEXTCTRL4,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
+    Connect(ID_TEXTCTRL5,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(ID_CHOICE2,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(ID_CHOICE3,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(ID_CHOICE5,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
@@ -351,7 +373,8 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     PushObjects(Choice3, lengthUnits, 4);
     PushObjects(Choice5, countUnits, 2);
     PushObjects(Choice6, weightUnits, 2);
-    PushObjects(Choice4, costPerUnit, 8);
+    PushObjects(Choice4, costPerWeightUnit, 4);
+    PushObjects(Choice9, costPerCountUnit, 4);
     PushObjects(Choice8, costCurr, 2);
 
     ExchangeLanguage(langPack, 0);
@@ -364,6 +387,7 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     Choice6->SetSelection(0);
     Choice7->SetSelection(0);
     Choice8->SetSelection(0);
+    Choice9->SetSelection(0);
 
     TextCtrl1->ChangeValue(ctrlTextDefault);
     TextCtrl2->ChangeValue(ctrlTextDefault);
@@ -373,6 +397,7 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     TextCtrl6->ChangeValue(ctrlTextDefault);
     TextCtrl7->ChangeValue(ctrlTextDefault);
     TextCtrl8->ChangeValue(ctrlTextDefault);
+    TextCtrl9->ChangeValue(ctrlTextDefault);
 
     EnableCost(false);
 
@@ -381,12 +406,15 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
 
 void PaperCalcDV2Frame::OnQuit(wxCommandEvent& event)
 {
+    // Close window
     Close();
 }
 
 void PaperCalcDV2Frame::PushObjects(wxChoice *ch, wxString data[], int size)
 {
+    // For every wxString object in array
     for (int i = 0; i < size; i++) {
+        // Rename item on position i with matching string
         ch->SetString(i, data[i]);
     }
 }
@@ -462,6 +490,26 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
             }
         }
     }
+
+    if (costEnabled) {
+        switch (csMode) {
+
+            case 0 : {
+                if (!validate(TextCtrl5->GetValue(), &rwWig) || !validate(TextCtrl6->GetValue(), &rcWig)) {
+                    ThrowError(-300);
+                    return;
+                } else {
+                    parseThScale(&rwWig, Choice5->GetSelection());
+                    //output = calculate(rwLen, rwWid, rwGrm, rwCnt, -1);
+                    //parseThScale(&output, -Choice6->GetSelection());
+                    //rw << (output);
+                    //TextCtrl5->ChangeValue(rw);
+                }
+                break;
+            }
+
+        }
+    }
 }
 
 // EVENT :: Selecting size presets
@@ -502,6 +550,19 @@ void PaperCalcDV2Frame::parseThScale (double *value, int scale)
     *value = ((*value) * pow(1000, scale));
 }
 
+/** \brief This is a brief description.
+ *
+ * \param	value Pointer to variable which holds used value
+ * \param	scale Scaling parameter for thousands, 1000^i
+ * \param   eur EUR/CZK exchange rate
+ *
+ * Function used to downscale double amounts, for example: cost per weight unit or cost per amount unit
+ */
+void PaperCalcDV2Frame::cparseThScale (double *value, int scale, double eur)
+{
+    *value = (((*value) / pow(1000, scale % 2)) / (scale > 1 ? eur : 1));
+}
+
 // Solve function, take -1 as output parameter type & value >= 0 for valid input
 double PaperCalcDV2Frame::calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight)
 {
@@ -534,6 +595,7 @@ void PaperCalcDV2Frame::ExchangeLanguage(wxString pack[][2], int l)
     StaticText8->SetLabel(pack[23][l]);
     StaticText9->SetLabel(_(L"K\u010D/\u20AC"));
     StaticText10->SetLabel(pack[21][l]);
+    StaticText11->SetLabel(pack[24][l]);
 
     //Toolbar
     MenuBar1->SetMenuLabel(0, pack[1][l]);
@@ -605,10 +667,10 @@ bool PaperCalcDV2Frame::PlaceToSizer(wxControl *w, int x, int y)
     return (GridBagSizer1->SetItemPosition(w, *(new wxGBPosition(x,y))));
 }
 
-// Language exchange event - 123 EN, 124 CZ
+// Language exchange event
 void PaperCalcDV2Frame::OnLanguageChanged(wxCommandEvent& event)
 {
-    ExchangeLanguage(langPack, ((event.GetId() == 133) ? 0 : 1));
+    ExchangeLanguage(langPack, (MenuItem7->IsChecked() ? 0 : 1));
 }
 
 // Check for update
@@ -625,6 +687,10 @@ void PaperCalcDV2Frame::OnClear(wxCommandEvent& event)
     TextCtrl3->Clear();
     TextCtrl4->Clear();
     TextCtrl5->Clear();
+    TextCtrl6->Clear();
+    TextCtrl7->Clear();
+    TextCtrl8->Clear();
+    TextCtrl9->Clear();
 }
 
 void PaperCalcDV2Frame::OnCostEnabled(wxCommandEvent& event)
@@ -634,6 +700,8 @@ void PaperCalcDV2Frame::OnCostEnabled(wxCommandEvent& event)
 
 void PaperCalcDV2Frame::EnableCost(bool e)
 {
+    costEnabled = e;
+
     StaticLine2->Show(e);
     StaticText6->Show(e);
     TextCtrl6->Show(e);
@@ -644,6 +712,9 @@ void PaperCalcDV2Frame::EnableCost(bool e)
     StaticText10->Show(e);
     TextCtrl8->Show(e);
     Choice8->Show(e);
+    StaticText11->Show(e);
+    TextCtrl9->Show(e);
+    Choice9->Show(e);
 
     Fit();
 }

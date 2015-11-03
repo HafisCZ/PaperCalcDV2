@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1445192526 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2app.cpp
+1445188926 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2app.cpp
 	"PaperCalcDV2App.h"
 	"PaperCalcDV2Main.h"
 	<wx/image.h>
 
-1445192526 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2app.h
+1445188926 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2app.h
 	<wx/app.h>
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\app.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\app.h
 	"wx/event.h"
 	"wx/eventfilter.h"
 	"wx/build.h"
@@ -27,7 +27,7 @@
 	"wx/os2/app.h"
 	"wx/univ/theme.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\event.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\event.h
 	"wx/defs.h"
 	"wx/cpp.h"
 	"wx/object.h"
@@ -43,7 +43,7 @@
 	"wx/meta/convertible.h"
 	"wx/meta/removeref.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\defs.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\defs.h
 	"wx/platform.h"
 	"wx/version.h"
 	"wx/dlimpexp.h"
@@ -56,7 +56,7 @@
 	"wx/msw/winundef.h"
 	"wx/features.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\platform.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\platform.h
 	<unistd.h>
 	<TargetConditionals.h>
 	<AvailabilityMacros.h>
@@ -71,21 +71,21 @@
 	<AvailabilityMacros.h>
 	"wx/chkconf.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\android\config_android.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\android\config_android.h
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\compiler.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\compiler.h
 
-1412500750 c:\users\hafis\desktop\wxwid\lib\gcc_lib\mswu\wx\setup.h
+1412497150 c:\users\hafis\desktop\wxwid\lib\gcc_lib\mswu\wx\setup.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\libraries.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\libraries.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\libraries.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\libraries.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\gccpriv.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\gccpriv.h
 	<_mingw.h>
 	<w32api.h>
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\chkconf.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\chkconf.h
 	"wx/msw/wince/chkconf.h"
 	"wx/msw/chkconf.h"
 	"wx/gtk/chkconf.h"
@@ -100,32 +100,32 @@
 	"wx/unix/chkconf.h"
 	"wx/univ/chkconf.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\chkconf.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\chkconf.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\chkconf.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\chkconf.h
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\android\chkconf.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\android\chkconf.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\unix\chkconf.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\unix\chkconf.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\chkconf.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\chkconf.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\version.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\version.h
 	"wx/cpp.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\cpp.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\cpp.h
 	"wx/compiler.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\dlimpexp.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\dlimpexp.h
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\debug.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\debug.h
 	<assert.h>
 	<limits.h>
 	"wx/chartype.h"
 	"wx/cpp.h"
 	"wx/dlimpexp.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\chartype.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\chartype.h
 	"wx/platform.h"
 	<sys/types.h>
 	<wchar.h>
@@ -139,26 +139,26 @@
 	<tchar.h>
 	<ctype.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\windowid.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\windowid.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\winundef.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\winundef.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\features.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\features.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\object.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\object.h
 	"wx/memory.h"
 	"wx/xti.h"
 	"wx/rtti.h"
 	"wx/xti2.h"
 	"wx/msw/msvcrt.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\memory.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\memory.h
 	"wx/defs.h"
 	"wx/string.h"
 	"wx/msgout.h"
 	<stddef.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\string.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\string.h
 	"wx/defs.h"
 	<ctype.h>
 	<stdio.h>
@@ -181,7 +181,7 @@
 	"wx/iosfwrap.h"
 	"wx/crt.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\wxcrtbase.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\wxcrtbase.h
 	"wx/chartype.h"
 	<stdio.h>
 	<string.h>
@@ -190,7 +190,7 @@
 	<time.h>
 	<io.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\strvararg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\strvararg.h
 	"wx/platform.h"
 	"wx/cpp.h"
 	"wx/chartype.h"
@@ -202,7 +202,7 @@
 	<tr1/type_traits>
 	"wx/stringimpl.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\strconv.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\strconv.h
 	"wx/defs.h"
 	"wx/chartype.h"
 	"wx/buffer.h"
@@ -210,24 +210,24 @@
 	<stdlib.h>
 	"wx/fontenc.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\buffer.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\buffer.h
 	"wx/chartype.h"
 	"wx/wxcrtbase.h"
 	<stdlib.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\typeinfo.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\typeinfo.h
 	"wx/defs.h"
 	<typeinfo>
 	<string.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\fontenc.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\fontenc.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\unichar.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\unichar.h
 	"wx/defs.h"
 	"wx/chartype.h"
 	"wx/stringimpl.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\stringimpl.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\stringimpl.h
 	"wx/defs.h"
 	"wx/chartype.h"
 	"wx/wxcrtbase.h"
@@ -236,39 +236,39 @@
 	<string>
 	"wx/afterstd.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\beforestd.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\beforestd.h
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\afterstd.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\afterstd.h
 	"wx/msw/winundef.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\stringops.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\stringops.h
 	"wx/chartype.h"
 	"wx/stringimpl.h"
 	"wx/unichar.h"
 	"wx/buffer.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\tls.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\tls.h
 	"wx/defs.h"
 	"wx/msw/tls.h"
 	"wx/os2/tls.h"
 	"wx/unix/tls.h"
 	<stdlib.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\tls.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\tls.h
 	"wx/msw/wrapwin.h"
 	"wx/thread.h"
 	"wx/vector.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wrapwin.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wrapwin.h
 	"wx/platform.h"
 	<winsock2.h>
 	<windows.h>
 	"wx/msw/winundef.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\thread.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\thread.h
 	"wx/defs.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\vector.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\vector.h
 	"wx/defs.h"
 	<vector>
 	<algorithm>
@@ -279,59 +279,59 @@
 	<new>
 	"wx/afterstd.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\scopeguard.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\scopeguard.h
 	"wx/defs.h"
 	"wx/except.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\except.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\except.h
 	"wx/defs.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\meta\movable.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\meta\movable.h
 	"wx/meta/pod.h"
 	"wx/string.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\meta\pod.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\meta\pod.h
 	"wx/defs.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\meta\if.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\meta\if.h
 	"wx/defs.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\unix\tls.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\unix\tls.h
 	<pthread.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\iosfwrap.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\iosfwrap.h
 	<iostream.h>
 	<iosfwd>
 	"wx/msw/winundef.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\crt.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\crt.h
 	"wx/defs.h"
 	"wx/chartype.h"
 	"wx/wxcrt.h"
 	"wx/wxcrtvararg.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\wxcrt.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\wxcrt.h
 	"wx/wxcrtbase.h"
 	"wx/string.h"
 	<string.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\wxcrtvararg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\wxcrtvararg.h
 	"wx/wxcrt.h"
 	"wx/strvararg.h"
 	"wx/string.h"
 	<stdarg.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msgout.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msgout.h
 	"wx/defs.h"
 	"wx/chartype.h"
 	"wx/strvararg.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\xti.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\xti.h
 	"wx/defs.h"
 	"wx/xtitypes.h"
 	"wx/xtihandler.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\xtitypes.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\xtitypes.h
 	"wx/defs.h"
 	"wx/string.h"
 	"wx/hashmap.h"
@@ -341,7 +341,7 @@
 	"wx/log.h"
 	<typeinfo>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\hashmap.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\hashmap.h
 	"wx/string.h"
 	"wx/wxcrt.h"
 	<unordered_map>
@@ -350,7 +350,7 @@
 	<hash_map>
 	<stddef.h>
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\arrstr.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\arrstr.h
 	"wx/defs.h"
 	"wx/string.h"
 	"wx/dynarray.h"
@@ -358,23 +358,23 @@
 	<iterator>
 	"wx/afterstd.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\dynarray.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\dynarray.h
 	"wx/defs.h"
 	"wx/beforestd.h"
 	<vector>
 	<algorithm>
 	"wx/afterstd.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\flags.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\flags.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\intl.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\intl.h
 	"wx/defs.h"
 	"wx/string.h"
 	"wx/translation.h"
 	"wx/fontenc.h"
 	"wx/language.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\translation.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\translation.h
 	"wx/defs.h"
 	"wx/string.h"
 	"wx/buffer.h"
@@ -383,17 +383,17 @@
 	"wx/strconv.h"
 	"wx/scopedptr.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\language.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\language.h
 	"wx/defs.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\scopedptr.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\scopedptr.h
 	"wx/defs.h"
 	"wx/checkeddelete.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\checkeddelete.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\checkeddelete.h
 	"wx/cpp.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\log.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\log.h
 	"wx/defs.h"
 	"wx/cpp.h"
 	"wx/string.h"
@@ -407,26 +407,26 @@
 	"wx/generic/logg.h"
 	"wx/cocoa/log.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\logg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\logg.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\xtihandler.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\xtihandler.h
 	"wx/defs.h"
 	"wx/xti.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\rtti.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\rtti.h
 	"wx/memory.h"
 	"wx/flags.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\xti2.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\xti2.h
 	"wx/xtiprop.h"
 	"wx/xtictor.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\xtiprop.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\xtiprop.h
 	"wx/defs.h"
 	"wx/xti.h"
 	"wx/any.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\any.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\any.h
 	"wx/defs.h"
 	<new>
 	"wx/string.h"
@@ -436,7 +436,7 @@
 	"wx/datetime.h"
 	"wx/variant.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\list.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\list.h
 	"wx/defs.h"
 	"wx/object.h"
 	"wx/string.h"
@@ -447,7 +447,7 @@
 	<list>
 	"wx/afterstd.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\datetime.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\datetime.h
 	"wx/defs.h"
 	"wx/msw/wince/time.h"
 	<time.h>
@@ -456,9 +456,9 @@
 	"wx/anystr.h"
 	"wx/dynarray.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\time.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\time.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\longlong.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\longlong.h
 	"wx/defs.h"
 	"wx/string.h"
 	<limits.h>
@@ -466,10 +466,10 @@
 	<limits>
 	"wx/strvararg.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\anystr.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\anystr.h
 	"wx/string.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\variant.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\variant.h
 	"wx/defs.h"
 	"wx/object.h"
 	"wx/string.h"
@@ -481,20 +481,20 @@
 	"wx/iosfwrap.h"
 	"wx/any.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\xtictor.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\xtictor.h
 	"wx/defs.h"
 	"wx/xti.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\msvcrt.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\msvcrt.h
 	<stdlib.h>
 	<crtdbg.h>
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\clntdata.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\clntdata.h
 	"wx/defs.h"
 	"wx/string.h"
 	"wx/hashmap.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\gdicmn.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\gdicmn.h
 	"wx/defs.h"
 	"wx/list.h"
 	"wx/string.h"
@@ -502,14 +502,14 @@
 	"wx/hashmap.h"
 	"wx/math.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\math.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\math.h
 	"wx/defs.h"
 	<math.h>
 	<cmath>
 	<float.h>
 	<ieeefp.h>
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\cursor.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\cursor.h
 	"wx/defs.h"
 	"wx/msw/cursor.h"
 	"wx/motif/cursor.h"
@@ -522,18 +522,18 @@
 	"wx/os2/cursor.h"
 	"wx/utils.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\cursor.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\cursor.h
 	"wx/msw/gdiimage.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\gdiimage.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\gdiimage.h
 	"wx/gdiobj.h"
 	"wx/gdicmn.h"
 	"wx/list.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\gdiobj.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\gdiobj.h
 	"wx/object.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\utils.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\utils.h
 	"wx/object.h"
 	"wx/list.h"
 	"wx/filefn.h"
@@ -549,7 +549,7 @@
 	<unistd.h>
 	<stdio.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\filefn.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\filefn.h
 	"wx/list.h"
 	"wx/arrstr.h"
 	"wx/msw/wince/time.h"
@@ -576,7 +576,7 @@
 	<fcntl.h>
 	<sys/types.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\private.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\private.h
 	"wx/msw/wrapwin.h"
 	"wx/msw/microwin.h"
 	"wx/log.h"
@@ -584,9 +584,9 @@
 	"wx/gdicmn.h"
 	"wx/colour.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\microwin.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\microwin.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\window.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\window.h
 	"wx/event.h"
 	"wx/list.h"
 	"wx/cursor.h"
@@ -610,7 +610,7 @@
 	"wx/os2/window.h"
 	"wx/univ/window.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\font.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\font.h
 	"wx/defs.h"
 	"wx/fontenc.h"
 	"wx/gdiobj.h"
@@ -625,10 +625,10 @@
 	"wx/cocoa/font.h"
 	"wx/os2/font.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\font.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\font.h
 	"wx/gdicmn.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\colour.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\colour.h
 	"wx/defs.h"
 	"wx/gdiobj.h"
 	"wx/variant.h"
@@ -642,13 +642,13 @@
 	"wx/cocoa/colour.h"
 	"wx/os2/colour.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\colour.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\colour.h
 	"wx/object.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\colour.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\colour.h
 	"wx/object.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\region.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\region.h
 	"wx/gdiobj.h"
 	"wx/gdicmn.h"
 	"wx/msw/region.h"
@@ -660,13 +660,13 @@
 	"wx/cocoa/region.h"
 	"wx/os2/region.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\region.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\region.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\validate.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\validate.h
 	"wx/defs.h"
 	"wx/event.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\palette.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\palette.h
 	"wx/defs.h"
 	"wx/object.h"
 	"wx/gdiobj.h"
@@ -676,16 +676,16 @@
 	"wx/osx/palette.h"
 	"wx/os2/palette.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\palette.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\palette.h
 	"wx/gdiobj.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\paletteg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\paletteg.h
 	"wx/defs.h"
 	"wx/object.h"
 	"wx/gdiobj.h"
 	"wx/gdicmn.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\accel.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\accel.h
 	"wx/defs.h"
 	"wx/object.h"
 	"wx/generic/accel.h"
@@ -697,28 +697,28 @@
 	"wx/generic/accel.h"
 	"wx/os2/accel.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\accel.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\accel.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\accel.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\accel.h
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\access.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\access.h
 	"wx/defs.h"
 	"wx/variant.h"
 	"wx/msw/ole/access.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\ole\access.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\ole\access.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\window.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\window.h
 	"wx/settings.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\settings.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\settings.h
 	"wx/colour.h"
 	"wx/font.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\window.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\window.h
 	"wx/bitmap.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\bitmap.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\bitmap.h
 	"wx/string.h"
 	"wx/gdicmn.h"
 	"wx/colour.h"
@@ -735,7 +735,7 @@
 	"wx/os2/bitmap.h"
 	"wx/generic/mask.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\image.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\image.h
 	"wx/defs.h"
 	"wx/object.h"
 	"wx/string.h"
@@ -755,105 +755,105 @@
 	"wx/imagxpm.h"
 	"wx/imagiff.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\stream.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\stream.h
 	"wx/defs.h"
 	<stdio.h>
 	"wx/object.h"
 	"wx/string.h"
 	"wx/filefn.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imagbmp.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imagbmp.h
 	"wx/image.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imagpng.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imagpng.h
 	"wx/defs.h"
 	"wx/image.h"
 	"wx/versioninfo.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\versioninfo.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\versioninfo.h
 	"wx/string.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imaggif.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imaggif.h
 	"wx/image.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imagpcx.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imagpcx.h
 	"wx/image.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imagjpeg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imagjpeg.h
 	"wx/defs.h"
 	"wx/image.h"
 	"wx/versioninfo.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imagtga.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imagtga.h
 	"wx/image.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imagtiff.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imagtiff.h
 	"wx/defs.h"
 	"wx/image.h"
 	"wx/versioninfo.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imagpnm.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imagpnm.h
 	"wx/image.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imagxpm.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imagxpm.h
 	"wx/image.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\imagiff.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\imagiff.h
 	"wx/image.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\bitmap.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\bitmap.h
 	"wx/msw/gdiimage.h"
 	"wx/math.h"
 	"wx/palette.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\mask.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\mask.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\meta\implicitconversion.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\meta\implicitconversion.h
 	"wx/defs.h"
 	"wx/meta/if.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\mousestate.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\mousestate.h
 	"wx/gdicmn.h"
 	"wx/kbdstate.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\kbdstate.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\kbdstate.h
 	"wx/defs.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\platinfo.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\platinfo.h
 	"wx/string.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\tracker.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\tracker.h
 	"wx/defs.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\meta\convertible.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\meta\convertible.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\meta\removeref.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\meta\removeref.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\eventfilter.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\eventfilter.h
 	"wx/defs.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\build.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\build.h
 	"wx/version.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\cmdargs.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\cmdargs.h
 	"wx/arrstr.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\init.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\init.h
 	"wx/defs.h"
 	"wx/chartype.h"
 	"wx/msw/init.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\init.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\init.h
 	"wx/msw/wrapwin.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\unix\app.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\unix\app.h
 	<signal.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\app.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\app.h
 	"wx/event.h"
 	"wx/icon.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\icon.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\icon.h
 	"wx/iconloc.h"
 	"wx/msw/icon.h"
 	"wx/motif/icon.h"
@@ -867,19 +867,19 @@
 	"wx/os2/icon.h"
 	"wx/variant.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\iconloc.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\iconloc.h
 	"wx/string.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\icon.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\icon.h
 	"wx/msw/gdiimage.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\icon.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\icon.h
 	"wx/bitmap.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\theme.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\theme.h
 	"wx/string.h"
 
-1445702395 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
+1446580117 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
 	<wx/stattext.h>
 	<wx/menu.h>
 	<wx/textctrl.h>
@@ -889,7 +889,7 @@
 	<wx/frame.h>
 	<wx/statusbr.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\stattext.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\stattext.h
 	"wx/defs.h"
 	"wx/control.h"
 	"wx/univ/stattext.h"
@@ -901,7 +901,7 @@
 	"wx/cocoa/stattext.h"
 	"wx/os2/stattext.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\control.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\control.h
 	"wx/defs.h"
 	"wx/window.h"
 	"wx/univ/control.h"
@@ -913,29 +913,29 @@
 	"wx/cocoa/control.h"
 	"wx/os2/control.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\control.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\control.h
 	"wx/univ/inphand.h"
 	"wx/univ/inpcons.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\inphand.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\inphand.h
 	"wx/univ/inpcons.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\inpcons.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\inpcons.h
 	"wx/object.h"
 	"wx/event.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\control.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\control.h
 	"wx/dynarray.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\stattext.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\stattext.h
 	"wx/generic/stattextg.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\stattextg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\stattextg.h
 	"wx/stattext.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\stattext.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\stattext.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\menu.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\menu.h
 	"wx/defs.h"
 	"wx/list.h"
 	"wx/window.h"
@@ -949,7 +949,7 @@
 	"wx/cocoa/menu.h"
 	"wx/os2/menu.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\menuitem.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\menuitem.h
 	"wx/defs.h"
 	"wx/object.h"
 	"wx/univ/menuitem.h"
@@ -961,31 +961,31 @@
 	"wx/cocoa/menuitem.h"
 	"wx/os2/menuitem.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\menuitem.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\menuitem.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\menuitem.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\menuitem.h
 	"wx/ownerdrw.h"
 	"wx/bitmap.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\ownerdrw.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\ownerdrw.h
 	"wx/defs.h"
 	"wx/font.h"
 	"wx/colour.h"
 	"wx/msw/ownerdrw.h"
 	"wx/os2/ownerdrw.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\ownerdrw.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\ownerdrw.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\menu.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\menu.h
 	"wx/accel.h"
 	"wx/dynarray.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\menu.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\menu.h
 	"wx/accel.h"
 	"wx/dynarray.h"
 	"wx/arrstr.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\textctrl.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\textctrl.h
 	"wx/defs.h"
 	"wx/control.h"
 	"wx/textentry.h"
@@ -1003,7 +1003,7 @@
 	"wx/cocoa/textctrl.h"
 	"wx/os2/textctrl.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\textentry.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\textentry.h
 	"wx/filefn.h"
 	"wx/gdicmn.h"
 	"wx/gtk/textentry.h"
@@ -1012,51 +1012,51 @@
 	"wx/motif/textentry.h"
 	"wx/os2/textentry.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\textentry.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\textentry.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\ioswrap.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\ioswrap.h
 	"wx/beforestd.h"
 	<iostream.h>
 	<iostream>
 	"wx/afterstd.h"
 	"wx/msw/winundef.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\textctrl.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\textctrl.h
 	"wx/scrolwin.h"
 	"wx/univ/inphand.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\scrolwin.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\scrolwin.h
 	"wx/panel.h"
 	"wx/gtk/scrolwin.h"
 	"wx/gtk1/scrolwin.h"
 	"wx/generic/scrolwin.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\panel.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\panel.h
 	"wx/window.h"
 	"wx/containr.h"
 	"wx/univ/panel.h"
 	"wx/msw/panel.h"
 	"wx/generic/panelg.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\containr.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\containr.h
 	"wx/defs.h"
 	"wx/event.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\panel.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\panel.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\panel.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\panel.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\panelg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\panelg.h
 	"wx/bitmap.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\scrolwin.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\scrolwin.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\textctrlce.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\textctrlce.h
 	"wx/dynarray.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\textctrl.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\textctrl.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\statline.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\statline.h
 	"wx/defs.h"
 	"wx/control.h"
 	"wx/univ/statline.h"
@@ -1068,13 +1068,13 @@
 	"wx/cocoa/statline.h"
 	"wx/generic/statline.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\statline.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\statline.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\statline.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\statline.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\statline.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\statline.h
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\choice.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\choice.h
 	"wx/defs.h"
 	"wx/ctrlsub.h"
 	"wx/univ/choice.h"
@@ -1087,19 +1087,19 @@
 	"wx/cocoa/choice.h"
 	"wx/os2/choice.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\ctrlsub.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\ctrlsub.h
 	"wx/defs.h"
 	"wx/arrstr.h"
 	"wx/control.h"
 	"wx/msw/ctrlsub.h"
 	"wx/motif/ctrlsub.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\ctrlsub.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\ctrlsub.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\choice.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\choice.h
 	"wx/combobox.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\combobox.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\combobox.h
 	"wx/defs.h"
 	"wx/textctrl.h"
 	"wx/ctrlsub.h"
@@ -1113,10 +1113,10 @@
 	"wx/cocoa/combobox.h"
 	"wx/os2/combobox.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\combobox.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\combobox.h
 	"wx/combo.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\combo.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\combo.h
 	"wx/defs.h"
 	"wx/control.h"
 	"wx/renderer.h"
@@ -1125,17 +1125,17 @@
 	"wx/msw/combo.h"
 	"wx/generic/combo.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\renderer.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\renderer.h
 	"wx/gdicmn.h"
 	"wx/colour.h"
 	"wx/font.h"
 	"wx/bitmap.h"
 	"wx/string.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\combo.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\combo.h
 	"wx/timer.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\timer.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\timer.h
 	"wx/defs.h"
 	"wx/object.h"
 	"wx/longlong.h"
@@ -1143,27 +1143,27 @@
 	"wx/stopwatch.h"
 	"wx/utils.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\stopwatch.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\stopwatch.h
 	"wx/defs.h"
 	"wx/longlong.h"
 	"wx/time.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\time.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\time.h
 	"wx/longlong.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\combo.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\combo.h
 	"wx/dcbuffer.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\dcbuffer.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\dcbuffer.h
 	"wx/dcmemory.h"
 	"wx/dcclient.h"
 	"wx/window.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\dcmemory.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\dcmemory.h
 	"wx/dc.h"
 	"wx/bitmap.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\dc.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\dc.h
 	"wx/object.h"
 	"wx/intl.h"
 	"wx/cursor.h"
@@ -1179,7 +1179,7 @@
 	"wx/region.h"
 	"wx/affinematrix2d.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\brush.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\brush.h
 	"wx/defs.h"
 	"wx/object.h"
 	"wx/gdiobj.h"
@@ -1193,9 +1193,9 @@
 	"wx/cocoa/brush.h"
 	"wx/os2/brush.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\brush.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\brush.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\pen.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\pen.h
 	"wx/gdiobj.h"
 	"wx/gdicmn.h"
 	"wx/msw/pen.h"
@@ -1207,45 +1207,45 @@
 	"wx/cocoa/pen.h"
 	"wx/os2/pen.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\pen.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\pen.h
 	"wx/gdiobj.h"
 	"wx/gdicmn.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\affinematrix2d.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\affinematrix2d.h
 	"wx/defs.h"
 	"wx/affinematrix2dbase.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\affinematrix2dbase.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\affinematrix2dbase.h
 	"wx/defs.h"
 	"wx/geometry.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\geometry.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\geometry.h
 	"wx/defs.h"
 	"wx/utils.h"
 	"wx/gdicmn.h"
 	"wx/math.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\dcclient.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\dcclient.h
 	"wx/dc.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\combobox.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\combobox.h
 	"wx/choice.h"
 	"wx/textentry.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\choicece.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\choicece.h
 	"wx/defs.h"
 	"wx/dynarray.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\choice.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\choice.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\gbsizer.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\gbsizer.h
 	"wx/sizer.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\sizer.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\sizer.h
 	"wx/defs.h"
 	"wx/window.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\frame.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\frame.h
 	"wx/toplevel.h"
 	"wx/statusbr.h"
 	"wx/univ/frame.h"
@@ -1257,7 +1257,7 @@
 	"wx/cocoa/frame.h"
 	"wx/os2/frame.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\toplevel.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\toplevel.h
 	"wx/nonownedwnd.h"
 	"wx/iconbndl.h"
 	"wx/weakref.h"
@@ -1272,36 +1272,36 @@
 	"wx/motif/toplevel.h"
 	"wx/univ/toplevel.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\nonownedwnd.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\nonownedwnd.h
 	"wx/window.h"
 	"wx/dfb/nonownedwnd.h"
 	"wx/gtk/nonownedwnd.h"
 	"wx/osx/nonownedwnd.h"
 	"wx/msw/nonownedwnd.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\nonownedwnd.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\nonownedwnd.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\iconbndl.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\iconbndl.h
 	"wx/gdiobj.h"
 	"wx/gdicmn.h"
 	"wx/icon.h"
 	"wx/dynarray.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\weakref.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\weakref.h
 	"wx/tracker.h"
 	"wx/meta/convertible.h"
 	"wx/meta/int2type.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\meta\int2type.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\meta\int2type.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\toplevel.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\toplevel.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\toplevel.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\toplevel.h
 	"wx/univ/inpcons.h"
 	"wx/univ/inphand.h"
 	"wx/icon.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\statusbr.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\statusbr.h
 	"wx/defs.h"
 	"wx/control.h"
 	"wx/list.h"
@@ -1312,15 +1312,15 @@
 	"wx/osx/statusbr.h"
 	"wx/generic/statusbr.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\statusbr.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\statusbr.h
 	"wx/univ/inpcons.h"
 	"wx/arrstr.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\statusbar.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\statusbar.h
 	"wx/vector.h"
 	"wx/tooltip.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\tooltip.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\tooltip.h
 	"wx/defs.h"
 	"wx/msw/tooltip.h"
 	"wx/gtk/tooltip.h"
@@ -1329,40 +1329,40 @@
 	"wx/cocoa/tooltip.h"
 	"wx/os2/tooltip.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\tooltip.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\tooltip.h
 	"wx/object.h"
 	"wx/gdicmn.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\statusbr.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\statusbr.h
 	"wx/defs.h"
 	"wx/pen.h"
 	"wx/arrstr.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\frame.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\frame.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\frame.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\frame.h
 
-1385320476 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\resource.rc
+1385316876 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\resource.rc
 	"wx/msw/wx.rc"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wx.rc
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wx.rc
 	<windows.h>
 	"wx/msw/wince/wince.rc"
 	"wx/msw/rcdefs.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\wince.rc
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\wince.rc
 	<commctrl.h>
 	"wx/msw/wince/resources.h"
 	"wx/msw/wince/smartphone.rc"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\resources.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\resources.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\smartphone.rc
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\wince\smartphone.rc
 	<aygshell.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\rcdefs.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\rcdefs.h
 
-1445709460 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
+1446576770 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
 	<string>
 	"PaperCalcDV2Main.h"
 	<wx/msgdlg.h>
@@ -1373,7 +1373,7 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msgdlg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msgdlg.h
 	"wx/defs.h"
 	"wx/dialog.h"
 	"wx/stockitem.h"
@@ -1385,7 +1385,7 @@
 	"wx/osx/msgdlg.h"
 	"wx/os2/msgdlg.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\dialog.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\dialog.h
 	"wx/toplevel.h"
 	"wx/containr.h"
 	"wx/sharedptr.h"
@@ -1398,29 +1398,29 @@
 	"wx/cocoa/dialog.h"
 	"wx/os2/dialog.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\sharedptr.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\sharedptr.h
 	"wx/defs.h"
 	"wx/atomic.h"
 
-1412500748 c:\users\hafis\desktop\wxwid\include\wx\atomic.h
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\atomic.h
 	"wx/defs.h"
 	"wx/msw/wrapwin.h"
 	"libkern/OSAtomic.h"
 	<atomic.h>
 	"wx/thread.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\univ\dialog.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\dialog.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\dialog.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\dialog.h
 	"wx/panel.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\stockitem.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\stockitem.h
 	"wx/defs.h"
 	"wx/chartype.h"
 	"wx/string.h"
 	"wx/accel.h"
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\generic\msgdlgg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\msgdlgg.h
 
-1412500750 c:\users\hafis\desktop\wxwid\include\wx\msw\msgdlg.h
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\msgdlg.h
 

@@ -37,6 +37,7 @@ class PaperCalcDV2Frame: public wxFrame
         void parseThScale (double *value, int scale);
         void parseDecScale (double *value, int scale);
         void ExchangeLanguage(wxString pack[][2], int l);
+        void cparseThScale (double *value, int scale, double eur);
         void PushObjects(wxChoice *ch, wxString data[], int size);
         bool validate(wxString str, double *var);
         bool PlaceToSizer(wxControl *w, int x, int y);
@@ -82,8 +83,11 @@ class PaperCalcDV2Frame: public wxFrame
         static const long ID_TEXTCTRL7;
         static const long ID_STATICTEXT9;
         static const long ID_STATICTEXT10;
+        static const long ID_STATICTEXT11;
         static const long ID_TEXTCTRL8;
+        static const long ID_TEXTCTRL9;
         static const long ID_CHOICE8;
+        static const long ID_CHOICE9;
         static const long idMenuHistory;
         static const long idMenuSolve;
         static const long idMenuUpdate;
@@ -114,11 +118,13 @@ class PaperCalcDV2Frame: public wxFrame
         wxMenuItem* MenuItem1;
         wxMenuItem* MenuItem4;
         wxStaticText* StaticText8;
+        wxStaticText* StaticText11;
         wxStaticText* StaticText1;
         wxStaticText* StaticText3;
         wxMenu* Menu1;
         wxChoice* Choice7;
         wxChoice* Choice8;
+        wxChoice* Choice9;
         wxStaticLine* StaticLine2;
         wxMenuItem* MenuItem3;
         wxStaticText* StaticText5;
@@ -132,6 +138,7 @@ class PaperCalcDV2Frame: public wxFrame
         wxChoice* Choice6;
         wxTextCtrl* TextCtrl7;
         wxTextCtrl* TextCtrl1;
+        wxTextCtrl* TextCtrl9;
         wxMenuBar* MenuBar1;
         wxTextCtrl* TextCtrl5;
         wxMenu* Menu2;
