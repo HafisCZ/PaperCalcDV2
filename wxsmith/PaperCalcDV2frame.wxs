@@ -313,6 +313,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL6" variable="TextCtrl6" member="yes">
 					<value>Text</value>
+					<handler function="OnSolve" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -329,6 +330,7 @@
 						<item>3</item>
 						<item>4</item>
 					</content>
+					<handler function="OnSolve" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
 				<row>8</row>
@@ -356,6 +358,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL7" variable="TextCtrl7" member="yes">
 					<value>Text</value>
+					<handler function="OnSolve" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -400,7 +403,6 @@
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
-						<face></face>
 					</font>
 				</object>
 				<col>0</col>
@@ -412,6 +414,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL8" variable="TextCtrl8" member="yes">
 					<value>Text</value>
+					<handler function="OnSolve" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -423,6 +426,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL9" variable="TextCtrl9" member="yes">
 					<value>Text</value>
+					<handler function="OnSolve" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -437,6 +441,7 @@
 						<item>1</item>
 						<item>2</item>
 					</content>
+					<handler function="OnSolve" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
 				<row>11</row>
@@ -452,6 +457,7 @@
 						<item>7</item>
 						<item>8</item>
 					</content>
+					<handler function="OnSolve" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
 				<row>9</row>
@@ -487,7 +493,16 @@
 				<label>2</label>
 				<object class="wxMenuItem" name="idMenuPriceEnabled" variable="MenuItem4" member="yes">
 					<label>1</label>
+					<accel>F5</accel>
 					<handler function="OnCostEnabled" entry="EVT_MENU" />
+					<checkable>1</checkable>
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="idChangeCostType" variable="MenuItem10" member="yes">
+					<label>2</label>
+					<accel>F6</accel>
+					<enabled>0</enabled>
+					<handler function="OnCostWayChanged" entry="EVT_MENU" />
 					<checkable>1</checkable>
 				</object>
 			</object>

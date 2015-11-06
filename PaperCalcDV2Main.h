@@ -54,6 +54,7 @@ class PaperCalcDV2Frame: public wxFrame
         void OnUpdate(wxCommandEvent& event);
         void OnClear(wxCommandEvent& event);
         void OnCostEnabled(wxCommandEvent& event);
+        void OnCostWayChanged(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(PaperCalcDV2Frame)
@@ -93,6 +94,7 @@ class PaperCalcDV2Frame: public wxFrame
         static const long idMenuUpdate;
         static const long idMenuQuit;
         static const long idMenuPriceEnabled;
+        static const long idChangeCostType;
         static const long idMenuLanguageEN;
         static const long idMenuLanguageCZ;
         static const long ID_MENUITEM1;
@@ -124,6 +126,7 @@ class PaperCalcDV2Frame: public wxFrame
         wxMenu* Menu1;
         wxChoice* Choice7;
         wxChoice* Choice8;
+        wxMenuItem* MenuItem10;
         wxChoice* Choice9;
         wxStaticLine* StaticLine2;
         wxMenuItem* MenuItem3;
