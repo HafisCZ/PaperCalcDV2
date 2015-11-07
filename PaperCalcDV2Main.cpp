@@ -1,6 +1,3 @@
-// *** ADDED BY HEADER FIXUP ***
-#include <string>
-// *** END ***
 /***************************************************************
  * Name:      PaperCalcDV2Main.cpp
  * Purpose:   Code for Application Frame
@@ -13,6 +10,7 @@
  **************************************************************/
 
 #include "PaperCalcDV2Main.h"
+#include "PCDV2History.h"
 #include <wx/msgdlg.h>
 #include <stdio.h>
 #include <string.h>
@@ -62,8 +60,8 @@ wxString langPack[][2] = {
     {_("Gram:"),_(L"Gram\u00E1\u017E:")},
     {_("Weight:"),_("Hmotnost:")},
     {_("Count:"),_(L"Po\u010Det:")},
-    {_("PaperCalcV2\nAuthor: Martin 'Hafis' Halfar\nWebsite: http://code.mar21.eu/\nEmail: hafis@protonmail.com\nStability not guaranteed in Development state of this app"),
-       _(L"PaperCalcV2\nAutor: Martin 'Hafis' Halfar\nWeb: http://code.mar21.eu/\nEmail: hafis@protonmail.com\nStabilita nen\u00ED v t\u00E9to f\u00E1zi v\u00FDvoje zaru\u010Dena")},
+    {_("PaperCalcV2\nAuthor: Martin 'Hafis' Halfar\nWebsite: http://code.mar21.eu/\nEmail: hafis@protonmail.com\nStability not guaranteed in Development state of this app\n\nLicense CC BY-NC-ND\nhttp://creativecommons.org/licenses/by-nc-nd/4.0/"),
+       _(L"PaperCalcV2\nAutor: Martin 'Hafis' Halfar\nWeb: http://code.mar21.eu/\nEmail: hafis@protonmail.com\nStabilita nen\u00ED v t\u00E9to f\u00E1zi v\u00FDvoje zaru\u010Dena\n\nLicence: CC BY-NC-ND\nhttp://creativecommons.org/licenses/by-nc-nd/4.0/")},
     {_("Clear"),_(L"Vy\u010Distit")},
     {_("Cost:"),_("Cena:")},
     {_("Cost/Weight:"),_(L"Cena/V\u00E1ha:")},
@@ -370,6 +368,7 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Connect(ID_TEXTCTRL9,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(ID_CHOICE8,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(ID_CHOICE9,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
+    Connect(idMenuHistory,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnHistoryOpened);
     Connect(idMenuSolve,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(idMenuUpdate,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnUpdate);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnQuit);
@@ -827,4 +826,10 @@ void PaperCalcDV2Frame::OnCostWayChanged(wxCommandEvent& event)
     Choice8->Show(true);
 
     this->Fit();
+}
+
+void PaperCalcDV2Frame::OnHistoryOpened(wxCommandEvent& event)
+{
+	PCDV2History *sframe = new PCDV2History(NULL, 0);
+	sframe->Show(true);
 }

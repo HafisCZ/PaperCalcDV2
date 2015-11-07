@@ -52,6 +52,7 @@
 					<Add library="libwxjpeg.a" />
 					<Add library="libwxtiff.a" />
 					<Add library="libwxzlib.a" />
+					<Add library="C:\Users\Hafis\Desktop\WXWID\lib\gcc_lib\libwxmsw30u_adv.a" />
 					<Add directory="C:/Users/Hafis/Desktop/WXWID/lib/gcc_lib" />
 				</Linker>
 			</Target>
@@ -84,12 +85,21 @@
 			<Add library="libwsock32.a" />
 			<Add library="libodbc32.a" />
 		</Linker>
+		<Unit filename="PCDV2History.cpp">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="PCDV2History.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="PaperCalcDV2App.cpp" />
 		<Unit filename="PaperCalcDV2App.h" />
 		<Unit filename="PaperCalcDV2Main.cpp" />
 		<Unit filename="PaperCalcDV2Main.h" />
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="wxsmith/PCDV2History.wxs">
+			<Option target="Release" />
 		</Unit>
 		<Unit filename="wxsmith/PaperCalcDV2frame.wxs" />
 		<Extensions>
@@ -101,6 +111,7 @@
 				<gui name="wxWidgets" src="PaperCalcDV2App.cpp" main="PaperCalcDV2Frame" init_handlers="necessary" language="CPP" />
 				<resources>
 					<wxFrame wxs="wxsmith/PaperCalcDV2frame.wxs" src="PaperCalcDV2Main.cpp" hdr="PaperCalcDV2Main.h" fwddecl="0" i18n="1" name="PaperCalcDV2Frame" language="CPP" />
+					<wxFrame wxs="wxsmith/PCDV2History.wxs" src="PCDV2History.cpp" hdr="PCDV2History.h" fwddecl="0" i18n="1" name="PCDV2History" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>

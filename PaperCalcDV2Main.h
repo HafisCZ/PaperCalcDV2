@@ -4,7 +4,7 @@
  * Author:    Martin 'Hafis' Halfar (hafis@protonmail.com)
  * Created:   2015-10-18
  * Copyright: Martin 'Hafis' Halfar (hafiscz.github.io)
- * License:
+ * License:   CC BY-NC-ND
  **************************************************************/
 
 #ifndef PAPERCALCDV2MAIN_H
@@ -55,6 +55,7 @@ class PaperCalcDV2Frame: public wxFrame
         void OnClear(wxCommandEvent& event);
         void OnCostEnabled(wxCommandEvent& event);
         void OnCostWayChanged(wxCommandEvent& event);
+        void OnHistoryOpened(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(PaperCalcDV2Frame)

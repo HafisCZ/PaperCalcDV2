@@ -879,7 +879,7 @@
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\theme.h
 	"wx/string.h"
 
-1446826311 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
+1446924292 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
 	<wx/stattext.h>
 	<wx/menu.h>
 	<wx/textctrl.h>
@@ -1362,9 +1362,9 @@
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\rcdefs.h
 
-1446830483 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
-	<string>
+1446925050 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
 	"PaperCalcDV2Main.h"
+	"PCDV2History.h"
 	<wx/msgdlg.h>
 	<stdio.h>
 	<string.h>
@@ -1423,4 +1423,61 @@
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\msgdlgg.h
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\msgdlg.h
+
+1446925529 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.cpp
+	"PCDV2History.h"
+	<wx/settings.h>
+	<wx/intl.h>
+	<wx/string.h>
+
+1446925529 c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.h
+	<wx/menu.h>
+	<wx/textctrl.h>
+	<wx/statline.h>
+	<wx/hyperlink.h>
+	<wx/gbsizer.h>
+	<wx/frame.h>
+	<wx/statusbr.h>
+
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\button.h
+	"wx/defs.h"
+	"wx/anybutton.h"
+	"wx/univ/button.h"
+	"wx/msw/button.h"
+	"wx/motif/button.h"
+	"wx/gtk/button.h"
+	"wx/gtk1/button.h"
+	"wx/osx/button.h"
+	"wx/cocoa/button.h"
+	"wx/os2/button.h"
+
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\anybutton.h
+	"wx/defs.h"
+	"wx/bitmap.h"
+	"wx/control.h"
+	"wx/univ/anybutton.h"
+	"wx/msw/anybutton.h"
+	"wx/gtk/anybutton.h"
+	"wx/osx/anybutton.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\anybutton.h
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\anybutton.h
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\button.h
+	"wx/bitmap.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\button.h
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\hyperlink.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/gtk/hyperlink.h"
+	"wx/msw/hyperlink.h"
+	"wx/generic/hyperlink.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\hyperlink.h
+	"wx/generic/hyperlink.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\hyperlink.h
 
