@@ -28,7 +28,7 @@
 * Y - 1 means BETA release, otherwise FINAL
 * Z - Build number (04 means fourth released build)
 */
-const int prototype = 2111;
+const int prototype = 2112;
 
 // Required variables
 const float thPow3 = 1000000000;
@@ -519,10 +519,8 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
         switch (csMode) {
 
             case 0 : {
-                if (!validate(TextCtrl5->GetValue(), &rwWig) || !validate(TextCtrl6->GetValue(), &rcWig)){
-                    ThrowError(-300);
-                    return;
-                } else {
+                if (validate(TextCtrl5->GetValue(), &rwWig) && validate(TextCtrl6->GetValue(), &rcWig)){
+
                     parseThScale(&rwWig, Choice6->GetSelection());
 
                     if (!validate(TextCtrl7->GetValue(), &rcEur)
@@ -547,8 +545,40 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
                     if (Choice8->GetSelection() != 0) output /= rcEur;
                     rw << (output);
                     TextCtrl8->ChangeValue(rw);
+
+                    break;
+                } else if (validate(TextCtrl4->GetValue(), &rwCnt) && validate(TextCtrl9->GetValue(), &rcCnt)) {
+
+                    parseThScale(&rwCnt, Choice5->GetSelection());
+
+                    if (!validate(TextCtrl7->GetValue(), &rcEur)
+                        && (Choice4->GetSelection() > 1 || Choice9->GetSelection() > 1 || Choice8->GetSelection() != 0 )) {
+                        ThrowError(-400);
+                        return;
+                    }
+
+                    cparseThScale(&rcCnt, Choice9->GetSelection(), rcEur);
+
+                    output = rwCnt * rcCnt;
+
+                    if (validate(TextCtrl5->GetValue(), &rwWig)) {
+                        parseThScale(&rwWig, Choice6->GetSelection());
+                        wxString rc;
+                        double comOutput = output / rwWig;
+                        cparseThScale(&comOutput, -Choice4->GetSelection(), rcEur);
+                        rc << (comOutput);
+                        TextCtrl6->ChangeValue(rc);
+                    }
+
+                    if (Choice8->GetSelection() != 0) output /= rcEur;
+                    rw << (output);
+                    TextCtrl8->ChangeValue(rw);
+
+                    break;
+                } else {
+                    ThrowError(-300);
+                    return;
                 }
-                break;
             }
 
         }
@@ -732,7 +762,7 @@ void PaperCalcDV2Frame::OnClear(wxCommandEvent& event)
     TextCtrl4->Clear();
     TextCtrl5->Clear();
     TextCtrl6->Clear();
-    TextCtrl7->Clear();
+    TextCtrl7->ChangeValue(_("10"));
     TextCtrl8->Clear();
     TextCtrl9->Clear();
 }
