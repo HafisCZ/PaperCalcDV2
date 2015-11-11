@@ -294,23 +294,6 @@
 				<option>1</option>
 			</object>
 			<object class="sizeritem">
-				<object class="wxStaticText" name="ID_STATICTEXT6" variable="StaticText6" member="yes">
-					<label>Label</label>
-					<font>
-						<size>10</size>
-						<style>normal</style>
-						<weight>bold</weight>
-						<underlined>0</underlined>
-						<family>swiss</family>
-					</font>
-				</object>
-				<col>0</col>
-				<row>8</row>
-				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
-				<border>5</border>
-				<option>1</option>
-			</object>
-			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL6" variable="TextCtrl6" member="yes">
 					<value>Text</value>
 					<handler function="OnSolve" entry="EVT_TEXT" />
@@ -358,11 +341,12 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL7" variable="TextCtrl7" member="yes">
 					<value>Text</value>
+					<style>wxTE_READONLY</style>
 					<handler function="OnSolve" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
-				<row>10</row>
+				<row>9</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
@@ -372,7 +356,7 @@
 					<label>Label</label>
 				</object>
 				<col>4</col>
-				<row>10</row>
+				<row>9</row>
 				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
@@ -389,7 +373,7 @@
 					</font>
 				</object>
 				<col>0</col>
-				<row>10</row>
+				<row>9</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
@@ -406,7 +390,7 @@
 					</font>
 				</object>
 				<col>0</col>
-				<row>9</row>
+				<row>10</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
@@ -430,7 +414,7 @@
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
-				<row>9</row>
+				<row>10</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
@@ -460,7 +444,30 @@
 					<handler function="OnSolve" entry="EVT_CHOICE" />
 				</object>
 				<col>4</col>
-				<row>9</row>
+				<row>10</row>
+				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxChoice" name="ID_CHOICE10" variable="Choice10" member="yes">
+					<content>
+						<item>1</item>
+						<item>2</item>
+						<item>3</item>
+					</content>
+					<font>
+						<size>10</size>
+						<style>normal</style>
+						<weight>bold</weight>
+						<underlined>0</underlined>
+						<family>swiss</family>
+						<face></face>
+					</font>
+					<handler function="OnCostWayChanged" entry="EVT_CHOICE" />
+				</object>
+				<col>0</col>
+				<row>8</row>
 				<flag>wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 				<border>5</border>
 				<option>1</option>
@@ -496,14 +503,6 @@
 					<label>1</label>
 					<accel>F5</accel>
 					<handler function="OnCostEnabled" entry="EVT_MENU" />
-					<checkable>1</checkable>
-				</object>
-				<object class="separator" />
-				<object class="wxMenuItem" name="idChangeCostType" variable="MenuItem10" member="yes">
-					<label>2</label>
-					<accel>F6</accel>
-					<enabled>0</enabled>
-					<handler function="OnCostWayChanged" entry="EVT_MENU" />
 					<checkable>1</checkable>
 				</object>
 			</object>

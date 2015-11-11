@@ -78,7 +78,6 @@ class PaperCalcDV2Frame: public wxFrame
         static const long ID_STATICTEXT7;
         static const long ID_CHOICE7;
         static const long ID_STATICLINE2;
-        static const long ID_STATICTEXT6;
         static const long ID_TEXTCTRL6;
         static const long ID_CHOICE4;
         static const long ID_STATICTEXT8;
@@ -90,12 +89,12 @@ class PaperCalcDV2Frame: public wxFrame
         static const long ID_TEXTCTRL9;
         static const long ID_CHOICE8;
         static const long ID_CHOICE9;
+        static const long ID_CHOICE10;
         static const long idMenuHistory;
         static const long idMenuSolve;
         static const long idMenuUpdate;
         static const long idMenuQuit;
         static const long idMenuPriceEnabled;
-        static const long idChangeCostType;
         static const long idMenuLanguageEN;
         static const long idMenuLanguageCZ;
         static const long ID_MENUITEM1;
@@ -116,7 +115,6 @@ class PaperCalcDV2Frame: public wxFrame
         wxChoice* Choice3;
         wxGridBagSizer* GridBagSizer1;
         wxMenu* Menu3;
-        wxStaticText* StaticText6;
         wxTextCtrl* TextCtrl6;
         wxMenuItem* MenuItem1;
         wxMenuItem* MenuItem4;
@@ -127,7 +125,6 @@ class PaperCalcDV2Frame: public wxFrame
         wxMenu* Menu1;
         wxChoice* Choice7;
         wxChoice* Choice8;
-        wxMenuItem* MenuItem10;
         wxChoice* Choice9;
         wxStaticLine* StaticLine2;
         wxMenuItem* MenuItem3;
@@ -141,6 +138,7 @@ class PaperCalcDV2Frame: public wxFrame
         wxTextCtrl* TextCtrl2;
         wxChoice* Choice6;
         wxTextCtrl* TextCtrl7;
+        wxChoice* Choice10;
         wxTextCtrl* TextCtrl1;
         wxTextCtrl* TextCtrl9;
         wxMenuBar* MenuBar1;

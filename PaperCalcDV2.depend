@@ -879,7 +879,7 @@
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\theme.h
 	"wx/string.h"
 
-1446924292 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
+1447259882 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
 	<wx/stattext.h>
 	<wx/menu.h>
 	<wx/textctrl.h>
@@ -1362,7 +1362,7 @@
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\rcdefs.h
 
-1446925050 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
+1447177066 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
 	"PaperCalcDV2Main.h"
 	"PCDV2History.h"
 	<wx/msgdlg.h>
@@ -1424,17 +1424,17 @@
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\msgdlg.h
 
-1446925529 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.cpp
+1447184647 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.cpp
 	"PCDV2History.h"
+	<wx/bitmap.h>
 	<wx/settings.h>
 	<wx/intl.h>
+	<wx/image.h>
 	<wx/string.h>
 
-1446925529 c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.h
+1447184647 c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.h
 	<wx/menu.h>
-	<wx/textctrl.h>
-	<wx/statline.h>
-	<wx/hyperlink.h>
+	<wx/statbmp.h>
 	<wx/gbsizer.h>
 	<wx/frame.h>
 	<wx/statusbr.h>
@@ -1480,4 +1480,26 @@
 	"wx/generic/hyperlink.h"
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\hyperlink.h
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\statbmp.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/bitmap.h"
+	"wx/icon.h"
+	"wx/univ/statbmp.h"
+	"wx/msw/statbmp.h"
+	"wx/motif/statbmp.h"
+	"wx/gtk/statbmp.h"
+	"wx/gtk1/statbmp.h"
+	"wx/osx/statbmp.h"
+	"wx/cocoa/statbmp.h"
+	"wx/os2/statbmp.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\statbmp.h
+	"wx/bitmap.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\statbmp.h
+	"wx/control.h"
+	"wx/icon.h"
+	"wx/bitmap.h"
 
