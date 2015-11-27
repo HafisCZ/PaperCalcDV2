@@ -1362,9 +1362,10 @@
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\rcdefs.h
 
-1447177066 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
+1448656873 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
 	"PaperCalcDV2Main.h"
 	"PCDV2History.h"
+	"HTTPDownloadRequest.h"
 	<wx/msgdlg.h>
 	<stdio.h>
 	<string.h>
@@ -1424,18 +1425,16 @@
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\msgdlg.h
 
-1447184647 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.cpp
+1447844157 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.cpp
 	"PCDV2History.h"
-	<wx/bitmap.h>
 	<wx/settings.h>
 	<wx/intl.h>
-	<wx/image.h>
 	<wx/string.h>
 
-1447184647 c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.h
+1447844157 c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.h
 	<wx/menu.h>
-	<wx/statbmp.h>
 	<wx/gbsizer.h>
+	<wx/button.h>
 	<wx/frame.h>
 	<wx/statusbr.h>
 
@@ -1502,4 +1501,73 @@
 	"wx/control.h"
 	"wx/icon.h"
 	"wx/bitmap.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\listctrl.h
+	"wx/defs.h"
+	"wx/listbase.h"
+	"wx/msw/listctrl.h"
+	"wx/osx/listctrl.h"
+	"wx/generic/listctrl.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\listbase.h
+	"wx/colour.h"
+	"wx/font.h"
+	"wx/gdicmn.h"
+	"wx/event.h"
+	"wx/control.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\listctrl.h
+	"wx/textctrl.h"
+	"wx/dynarray.h"
+	"wx/vector.h"
+
+1412497150 c:\users\hafis\desktop\wxwid\include\wx\generic\listctrl.h
+	"wx/containr.h"
+	"wx/scrolwin.h"
+	"wx/textctrl.h"
+
+1448648703 c:\users\hafis\desktop\pcv2w\curl74\include\curl\curl.h
+	"curlver.h"
+	"curlbuild.h"
+	"curlrules.h"
+	<stdio.h>
+	<limits.h>
+	<osreldate.h>
+	<sys/types.h>
+	<time.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<sys/select.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<support/SupportDefs.h>
+	"easy.h"
+	"multi.h"
+	"typecheck-gcc.h"
+
+1448648703 c:\users\hafis\desktop\pcv2w\curl74\include\curl\curlver.h
+
+1448648703 c:\users\hafis\desktop\pcv2w\curl74\include\curl\curlbuild.h
+	<sys/types.h>
+	<sys/socket.h>
+
+1448648703 c:\users\hafis\desktop\pcv2w\curl74\include\curl\curlrules.h
+
+1448648703 c:\users\hafis\desktop\pcv2w\curl74\include\curl\easy.h
+
+1448648704 c:\users\hafis\desktop\pcv2w\curl74\include\curl\multi.h
+	"curl.h"
+
+1448648704 c:\users\hafis\desktop\pcv2w\curl74\include\curl\typecheck-gcc.h
+
+1448651100 c:\users\hafis\desktop\pcv2w\papercalcdv2\include\httpdownloadrequest.h
+	<string>
+
+1448654172 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\src\httpdownloadrequest.cpp
+	"HTTPDownloadRequest.h"
+	<iostream>
+	<sstream>
+	<C:\Users\Hafis\Desktop\PCV2W\cUrl74\include\curl\curl.h>
+	<C:\Users\Hafis\Desktop\PCV2W\cUrl74\include\curl\easy.h>
+	<C:\Users\Hafis\Desktop\PCV2W\cUrl74\include\curl\curlbuild.h>
 

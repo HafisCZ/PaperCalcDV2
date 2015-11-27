@@ -11,6 +11,7 @@
 
 #include "PaperCalcDV2Main.h"
 #include "PCDV2History.h"
+#include "HTTPDownloadRequest.h"
 #include <wx/msgdlg.h>
 #include <stdio.h>
 #include <string.h>
@@ -28,7 +29,7 @@
 * Y - 1 means BETA release, otherwise FINAL
 * Z - Build number (04 means fourth released build)
 */
-const int prototype = 2113;
+const int prototype = 2114;
 
 // Required variables
 const float thPow3 = 1000000000;
@@ -420,6 +421,15 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
 
     EnableCost(false);
 
+    HTTPDownloadRequest rq;
+    wxString euro;
+    wxString euroRaw = _(rq.request("http://www.cnb.cz/miranda2/m2/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/vybrane.txt?mena=EUR&od=06.11.2015&do=06.11.2015"));
+    euro = euroRaw.SubString(euroRaw.length()-8 ,euroRaw.length()-7);
+    euro << _(".");
+    euro << euroRaw.SubString(euroRaw.length()-5 ,euroRaw.length()-3);
+    TextCtrl7->ChangeValue(euro);
+    rq.~HTTPDownloadRequest();
+
     Fit();
 }
 
@@ -793,7 +803,18 @@ void PaperCalcDV2Frame::OnLanguageChanged(wxCommandEvent& event)
 // Check for update
 void PaperCalcDV2Frame::OnUpdate(wxCommandEvent& event)
 {
-
+    HTTPDownloadRequest rq;
+    double newest;
+    wxString newestVer = _(rq.request("http://raw.githubusercontent.com/HafisCZ/PaperCalc2/master/version.d"));
+    newestVer.ToDouble(&newest);
+    if (newest > prototype) {
+        wxString msgc;
+        msgc << _("Update V") << newest << _(" found. Current version is V") << prototype;
+        StatusBar1->SetLabelText(msgc);
+    } else {
+        StatusBar1->SetLabelText(_("No update found ..."));
+    }
+    rq.~HTTPDownloadRequest();
 }
 
 // Clear content of all used wxTextCtrls

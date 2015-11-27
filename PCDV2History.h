@@ -3,8 +3,8 @@
 
 //(*Headers(PCDV2History)
 #include <wx/menu.h>
-#include <wx/statbmp.h>
 #include <wx/gbsizer.h>
+#include <wx/button.h>
 #include <wx/frame.h>
 #include <wx/statusbr.h>
 //*)
@@ -17,7 +17,7 @@ class PCDV2History: public wxFrame
 		virtual ~PCDV2History();
 
 		//(*Declarations(PCDV2History)
-		wxStaticBitmap* StaticBitmap1;
+		wxButton* Button1;
 		wxMenuItem* MenuItem1;
 		wxMenu* Menu1;
 		wxStatusBar* StatusBar1;
@@ -27,7 +27,7 @@ class PCDV2History: public wxFrame
 	protected:
 
 		//(*Identifiers(PCDV2History)
-		static const long ID_STATICBITMAP1;
+		static const long ID_BUTTON1;
 		static const long ID_STATUSBAR1;
 		static const long ID_MENUITEM1;
 		//*)

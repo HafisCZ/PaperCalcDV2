@@ -39,6 +39,7 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="C:/Users/Hafis/Desktop/WXWID/lib/gcc_lib/mswu" />
+					<Add directory="include" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="C:/Users/Hafis/Desktop/WXWID/lib/gcc_lib/mswu" />
@@ -53,6 +54,14 @@
 					<Add library="libwxtiff.a" />
 					<Add library="libwxzlib.a" />
 					<Add library="C:\Users\Hafis\Desktop\WXWID\lib\gcc_lib\libwxmsw30u_adv.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libcurl.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libidn.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\librtmp.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libz.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libcurldll.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libcrypto.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libssh2.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libssl.a" />
 					<Add directory="C:/Users/Hafis/Desktop/WXWID/lib/gcc_lib" />
 				</Linker>
 			</Target>
@@ -95,8 +104,14 @@
 		<Unit filename="PaperCalcDV2App.h" />
 		<Unit filename="PaperCalcDV2Main.cpp" />
 		<Unit filename="PaperCalcDV2Main.h" />
+		<Unit filename="include/HTTPDownloadRequest.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="src/HTTPDownloadRequest.cpp">
+			<Option target="Release" />
 		</Unit>
 		<Unit filename="wxsmith/PCDV2History.wxs">
 			<Option target="Release" />
