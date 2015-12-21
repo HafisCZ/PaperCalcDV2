@@ -15,6 +15,8 @@
 #include <wx/msgdlg.h>
 #include <stdio.h>
 #include <string.h>
+#include <sstream>
+#include <ctime>
 
 //(*InternalHeaders(PaperCalcDV2Frame)
 #include <wx/settings.h>
@@ -34,11 +36,18 @@ const int prototype = 2114;
 // Required variables
 const float thPow3 = 1000000000;
 wxString ctrlTextDefault = _("");
-double rwLen, rwWid, rwGrm, rwCnt, rwWig, rcWig, rcCnt, rcEur, rcCst;
+wxString tmp;
+wxString fetch_eur;
+double rwLen, rwWid, rwGrm, rwCnt, rwWig;
+double rcWig, rcCnt, rcEur, rcCst;
 int clMode = 0;
 int csMode = 0;
-int ln = 0;
+int selectedLanguage = 1;
 bool costEnabled = false;
+
+std::string repositoryLink = "http://www.github.com/HafisCZ/PaperCalc2";
+std::string storeLink = "http://code.mar21.eu/PaperCalc2";
+std::string versionLink = "http://raw.githubusercontent.com/HafisCZ/PaperCalc2/master/version.d";
 
 // Language pack for EN and CZ, usage: langPack[1][language] return required
 wxString langPack[][2] = {
@@ -68,6 +77,9 @@ wxString langPack[][2] = {
     {_("Cost/Weight:"),_(L"Cena/V\u00E1ha:")},
     {_("Rate:"),_("Kurz:")},
     {_("Cost/Count:"),_(L"Cena/Po\u010Det:")}, //24
+    {_("Update found"),_("Nalezena aktualizace")},
+    {_("Open download page ..."),_(L"Otev\u0159\u00EDt str\u00E1nku s aktualizac\u00ED ...")},
+    {_("Custom"),_(L"Vlastn\u00ED")}
 };
 
 // Paper formats, in future maybe in .xml type file
@@ -386,6 +398,12 @@ PaperCalcDV2Frame::~PaperCalcDV2Frame()
     //*)
 }
 
+std::string iToS (int intg) {
+    std::stringstream stream;
+    stream << intg;
+    return stream.str();
+}
+
 void PaperCalcDV2Frame::RedrawOnLaunch() {
 
     PushObjects(Choice2, lengthUnits, 4);
@@ -396,7 +414,7 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     PushObjects(Choice9, costPerCountUnit, 4);
     PushObjects(Choice8, costCurr, 2);
 
-    ExchangeLanguage(langPack, 0);
+    ExchangeLanguage(langPack, selectedLanguage);
 
     Choice1->SetSelection(0);
     Choice2->SetSelection(0);
@@ -421,13 +439,17 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
 
     EnableCost(false);
 
+    time_t raw;
+    struct tm * prepTime;
+    time(&raw);
+    prepTime = localtime(&raw);
+    std::string todayDate = iToS(prepTime->tm_mday - 2 - 1) + '.' + iToS(prepTime->tm_mon + 1) + '.' + iToS(prepTime->tm_year + 1900);
+
     HTTPDownloadRequest rq;
-    wxString euro;
-    wxString euroRaw = _(rq.request("http://www.cnb.cz/miranda2/m2/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/vybrane.txt?mena=EUR&od=06.11.2015&do=06.11.2015"));
-    euro = euroRaw.SubString(euroRaw.length()-8 ,euroRaw.length()-7);
-    euro << _(".");
-    euro << euroRaw.SubString(euroRaw.length()-5 ,euroRaw.length()-3);
-    TextCtrl7->ChangeValue(euro);
+    wxString euroRaw = _(rq.request("http://www.cnb.cz/miranda2/m2/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/vybrane.txt?mena=EUR&od=" + todayDate + "&do=" + todayDate));
+    fetch_eur = euroRaw.SubString(euroRaw.length()-8 ,euroRaw.length()-7);
+    fetch_eur << _(".") << euroRaw.SubString(euroRaw.length()-5 ,euroRaw.length()-3);
+    TextCtrl7->ChangeValue(fetch_eur);
     rq.~HTTPDownloadRequest();
 
     Fit();
@@ -450,7 +472,7 @@ void PaperCalcDV2Frame::PushObjects(wxChoice *ch, wxString data[], int size)
 
 void PaperCalcDV2Frame::OnAbout(wxCommandEvent& event)
 {
-    wxMessageBox( langPack[19][ln], langPack[12][ln]);
+    wxMessageBox( langPack[19][selectedLanguage], langPack[12][selectedLanguage]);
 }
 
 bool PaperCalcDV2Frame::validate(wxString str, double *var)
@@ -707,18 +729,18 @@ double PaperCalcDV2Frame::calculate (double hLenght, double hWidth, double hGram
 
 void PaperCalcDV2Frame::ExchangeLanguage(wxString pack[][2], int l)
 {
-    ln = l;
+    selectedLanguage = l;
     //Labels
     StaticText1->SetLabel(pack[13][l]);
     StaticText2->SetLabel(pack[14][l]);
     StaticText3->SetLabel(pack[15][l]);
-    StaticText4->SetLabel(langPack[((clMode == 0 || clMode == 1) ? 16 : 18)][ln]);
-    StaticText5->SetLabel(langPack[((clMode == 1 || clMode == 2) ? 17 : 18)][ln]);
+    StaticText4->SetLabel(langPack[((clMode == 0 || clMode == 1) ? 16 : 18)][selectedLanguage]);
+    StaticText5->SetLabel(langPack[((clMode == 1 || clMode == 2) ? 17 : 18)][selectedLanguage]);
     StaticText7->SetLabel(_(L"g/m\u00B2"));
-    StaticText8->SetLabel(langPack[((csMode == 2) ? 24 : 21)][ln]);
+    StaticText8->SetLabel(langPack[((csMode == 2) ? 24 : 21)][selectedLanguage]);
     StaticText9->SetLabel(_(L"K\u010D/\u20AC"));
     StaticText10->SetLabel(pack[23][l]);
-    StaticText11->SetLabel(langPack[((csMode == 0) ? 24 : 22)][ln]);
+    StaticText11->SetLabel(langPack[((csMode == 0) ? 24 : 22)][selectedLanguage]);
 
     //Toolbar
     MenuBar1->SetMenuLabel(0, pack[1][l]);
@@ -744,6 +766,8 @@ void PaperCalcDV2Frame::ExchangeLanguage(wxString pack[][2], int l)
     Choice10->SetString(0, pack[22][l]);
     Choice10->SetString(1, pack[24][l]);
     Choice10->SetString(2, pack[21][l]);
+
+    Choice1->SetString(0, pack[27][l]);
 
     Fit();
 }
@@ -775,8 +799,8 @@ void PaperCalcDV2Frame::OnCalcTypeChanged(wxCommandEvent& event)
     PlaceToSizer(TextCtrl5, codTrans[2][clMode], 1);
     PlaceToSizer(Choice6, codTrans[2][clMode], 4);
 
-    StaticText4->SetLabel(langPack[((clMode == 0 || clMode == 1) ? 16 : 18)][ln]);
-    StaticText5->SetLabel(langPack[((clMode == 1 || clMode == 2) ? 17 : 18)][ln]);
+    StaticText4->SetLabel(langPack[((clMode == 0 || clMode == 1) ? 16 : 18)][selectedLanguage]);
+    StaticText5->SetLabel(langPack[((clMode == 1 || clMode == 2) ? 17 : 18)][selectedLanguage]);
 
     TextCtrl3->Show(true);
     StaticText7->Show(true);
@@ -805,12 +829,13 @@ void PaperCalcDV2Frame::OnUpdate(wxCommandEvent& event)
 {
     HTTPDownloadRequest rq;
     double newest;
-    wxString newestVer = _(rq.request("http://raw.githubusercontent.com/HafisCZ/PaperCalc2/master/version.d"));
+    wxString newestVer = _(rq.request(versionLink));
     newestVer.ToDouble(&newest);
     if (newest > prototype) {
-        wxString msgc;
-        msgc << _("Update V") << newest << _(" found. Current version is V") << prototype;
-        StatusBar1->SetLabelText(msgc);
+        //msgc << _("Update V") << newest << _(" found. Current version is V") << prototype;
+        if (wxMessageBox(langPack[26][selectedLanguage],langPack[25][selectedLanguage],wxYES_NO) == wxYES) {
+            ShellExecute(0, 0, L"http://code.mar21.eu/PaperCalc2", 0, 0 , SW_SHOW );
+        }
     } else {
         StatusBar1->SetLabelText(_("No update found ..."));
     }
@@ -826,7 +851,7 @@ void PaperCalcDV2Frame::OnClear(wxCommandEvent& event)
     TextCtrl4->Clear();
     TextCtrl5->Clear();
     TextCtrl6->Clear();
-    TextCtrl7->ChangeValue(_("10"));
+    TextCtrl7->ChangeValue(fetch_eur);
     TextCtrl8->Clear();
     TextCtrl9->Clear();
 }
@@ -885,8 +910,8 @@ void PaperCalcDV2Frame::OnCostWayChanged(wxCommandEvent& event)
     PlaceToSizer(TextCtrl8, codTrans2[2][csMode], 1);
     PlaceToSizer(Choice8, codTrans2[2][csMode], 4);
 
-    StaticText11->SetLabel(langPack[((csMode == 0) ? 24 : 22)][ln]);
-    StaticText8->SetLabel(langPack[((csMode == 2) ? 24 : 21)][ln]);
+    StaticText11->SetLabel(langPack[((csMode == 0) ? 24 : 22)][selectedLanguage]);
+    StaticText8->SetLabel(langPack[((csMode == 2) ? 24 : 21)][selectedLanguage]);
 
     TextCtrl6->Show(true);
     Choice4->Show(true);

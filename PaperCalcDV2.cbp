@@ -38,6 +38,7 @@
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-DCURL_STATICLIB" />
 					<Add directory="C:/Users/Hafis/Desktop/WXWID/lib/gcc_lib/mswu" />
 					<Add directory="include" />
 				</Compiler>
@@ -46,7 +47,7 @@
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
-					<Add option="-static-libgcc -static-libstdc++" />
+					<Add option="-static-libgcc -static-libstdc++ -static" />
 					<Add library="libwxmsw30u_core.a" />
 					<Add library="libwxbase30u.a" />
 					<Add library="libwxpng.a" />
@@ -54,14 +55,17 @@
 					<Add library="libwxtiff.a" />
 					<Add library="libwxzlib.a" />
 					<Add library="C:\Users\Hafis\Desktop\WXWID\lib\gcc_lib\libwxmsw30u_adv.a" />
-					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libcurl.a" />
-					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libidn.a" />
-					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\librtmp.a" />
-					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libz.a" />
-					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libcurldll.a" />
-					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libcrypto.a" />
-					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libssh2.a" />
-					<Add library="C:\Users\Hafis\Desktop\PCV2W\cUrl74\lib\libssl.a" />
+					<Add library="C:\Users\Hafis\Desktop\curl\lib\libcurl.a" />
+					<Add library="C:\Users\Hafis\Desktop\curl\lib\librtmp.a" />
+					<Add library="C:\Users\Hafis\Desktop\curl\lib\libidn.a" />
+					<Add library="C:\Users\Hafis\Desktop\curl\lib\libssl.a" />
+					<Add library="C:\Users\Hafis\Desktop\curl\lib\libssh2.a" />
+					<Add library="C:\Users\Hafis\Desktop\curl\lib\libcrypto.a" />
+					<Add library="C:\Users\Hafis\Desktop\curl\lib\libz.a" />
+					<Add library="ws2_32" />
+					<Add library="wldap32" />
+					<Add library="winmm" />
+					<Add library="gdi32" />
 					<Add directory="C:/Users/Hafis/Desktop/WXWID/lib/gcc_lib" />
 				</Linker>
 			</Target>
