@@ -1,0 +1,5 @@
+# IGNORE NOT NEEDED FILES FOR CODING #
+######################################
+*.o
+*.res
+*.layout

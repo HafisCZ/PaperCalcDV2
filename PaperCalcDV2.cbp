@@ -31,8 +31,8 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/PaperCalcDV2" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
+				<Option output="bin/PaperCalcDV2" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="2" />
@@ -55,13 +55,13 @@
 					<Add library="libwxtiff.a" />
 					<Add library="libwxzlib.a" />
 					<Add library="C:\Users\Hafis\Desktop\WXWID\lib\gcc_lib\libwxmsw30u_adv.a" />
-					<Add library="C:\Users\Hafis\Desktop\curl\lib\libcurl.a" />
-					<Add library="C:\Users\Hafis\Desktop\curl\lib\librtmp.a" />
-					<Add library="C:\Users\Hafis\Desktop\curl\lib\libidn.a" />
-					<Add library="C:\Users\Hafis\Desktop\curl\lib\libssl.a" />
-					<Add library="C:\Users\Hafis\Desktop\curl\lib\libssh2.a" />
-					<Add library="C:\Users\Hafis\Desktop\curl\lib\libcrypto.a" />
-					<Add library="C:\Users\Hafis\Desktop\curl\lib\libz.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\CURL\lib\libcurl.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\CURL\lib\librtmp.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\CURL\lib\libidn.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\CURL\lib\libssl.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\CURL\lib\libssh2.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\CURL\lib\libcrypto.a" />
+					<Add library="C:\Users\Hafis\Desktop\PCV2W\CURL\lib\libz.a" />
 					<Add library="ws2_32" />
 					<Add library="wldap32" />
 					<Add library="winmm" />

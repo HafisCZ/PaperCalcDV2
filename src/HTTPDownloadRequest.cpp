@@ -3,9 +3,9 @@
 #include <iostream>
 #include <sstream>
 
-#include "C:\Users\Hafis\Desktop\curl\include\curl\curl.h"
-#include "C:\Users\Hafis\Desktop\curl\include\curl\easy.h"
-#include "C:\Users\Hafis\Desktop\curl\include\curl\curlbuild.h"
+#include "C:\Users\Hafis\Desktop\PCV2W\CURL\include\curl\curl.h"
+#include "C:\Users\Hafis\Desktop\PCV2W\CURL\include\curl\easy.h"
+#include "C:\Users\Hafis\Desktop\PCV2W\CURL\include\curl\curlbuild.h"
 
 using namespace std;
 

@@ -1362,13 +1362,15 @@
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\rcdefs.h
 
-1449678872 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
+1450733744 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
 	"PaperCalcDV2Main.h"
 	"PCDV2History.h"
 	"HTTPDownloadRequest.h"
 	<wx/msgdlg.h>
 	<stdio.h>
 	<string.h>
+	<sstream>
+	<ctime>
 	<wx/settings.h>
 	<wx/font.h>
 	<wx/intl.h>
@@ -1563,13 +1565,13 @@
 1448657768 c:\users\hafis\desktop\pcv2w\papercalcdv2\include\httpdownloadrequest.h
 	<string>
 
-1450731064 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\src\httpdownloadrequest.cpp
+1451163150 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\src\httpdownloadrequest.cpp
 	"HTTPDownloadRequest.h"
 	<iostream>
 	<sstream>
-	"C:\Users\Hafis\Desktop\curl\include\curl\curl.h"
-	"C:\Users\Hafis\Desktop\curl\include\curl\easy.h"
-	"C:\Users\Hafis\Desktop\curl\include\curl\curlbuild.h"
+	"C:\Users\Hafis\Desktop\PCV2W\CURL\include\curl\curl.h"
+	"C:\Users\Hafis\Desktop\PCV2W\CURL\include\curl\easy.h"
+	"C:\Users\Hafis\Desktop\PCV2W\CURL\include\curl\curlbuild.h"
 
 1450726454 c:\program files (x86)\msys\local\include\curl\curl.h
 	"curlver.h"
@@ -1644,4 +1646,38 @@
 	"curl.h"
 
 1450730847 c:\users\hafis\desktop\curl\include\curl\typecheck-gcc.h
+
+1450730847 c:\users\hafis\desktop\pcv2w\curl\include\curl\curl.h
+	"curlver.h"
+	"curlbuild.h"
+	"curlrules.h"
+	<stdio.h>
+	<limits.h>
+	<osreldate.h>
+	<sys/types.h>
+	<time.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<sys/select.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<support/SupportDefs.h>
+	"easy.h"
+	"multi.h"
+	"typecheck-gcc.h"
+
+1450730847 c:\users\hafis\desktop\pcv2w\curl\include\curl\curlver.h
+
+1450730847 c:\users\hafis\desktop\pcv2w\curl\include\curl\curlbuild.h
+	<sys/types.h>
+	<sys/socket.h>
+
+1450730847 c:\users\hafis\desktop\pcv2w\curl\include\curl\curlrules.h
+
+1450730847 c:\users\hafis\desktop\pcv2w\curl\include\curl\easy.h
+
+1450730847 c:\users\hafis\desktop\pcv2w\curl\include\curl\multi.h
+	"curl.h"
+
+1450730847 c:\users\hafis\desktop\pcv2w\curl\include\curl\typecheck-gcc.h
 
