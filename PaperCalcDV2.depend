@@ -1362,11 +1362,12 @@
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\rcdefs.h
 
-1450733744 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
+1451322113 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
 	"PaperCalcDV2Main.h"
 	"PCDV2History.h"
 	"HTTPDownloadRequest.h"
 	<wx/msgdlg.h>
+	<wx/aboutdlg.h>
 	<stdio.h>
 	<string.h>
 	<sstream>
@@ -1565,13 +1566,13 @@
 1448657768 c:\users\hafis\desktop\pcv2w\papercalcdv2\include\httpdownloadrequest.h
 	<string>
 
-1451163150 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\src\httpdownloadrequest.cpp
+1451321557 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\src\httpdownloadrequest.cpp
 	"HTTPDownloadRequest.h"
 	<iostream>
 	<sstream>
-	"C:\Users\Hafis\Desktop\PCV2W\CURL\include\curl\curl.h"
-	"C:\Users\Hafis\Desktop\PCV2W\CURL\include\curl\easy.h"
-	"C:\Users\Hafis\Desktop\PCV2W\CURL\include\curl\curlbuild.h"
+	"C:\Program Files (x86)\msys\local\include\curl\curl.h"
+	"C:\Program Files (x86)\msys\local\include\curl\easy.h"
+	"C:\Program Files (x86)\msys\local\include\curl\curlbuild.h"
 
 1450726454 c:\program files (x86)\msys\local\include\curl\curl.h
 	"curlver.h"
@@ -1680,4 +1681,9 @@
 	"curl.h"
 
 1450730847 c:\users\hafis\desktop\pcv2w\curl\include\curl\typecheck-gcc.h
+
+1412497148 c:\users\hafis\desktop\wxwid\include\wx\aboutdlg.h
+	"wx/defs.h"
+	"wx/app.h"
+	"wx/icon.h"
 

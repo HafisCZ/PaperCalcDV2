@@ -13,6 +13,7 @@
 #include "PCDV2History.h"
 #include "HTTPDownloadRequest.h"
 #include <wx/msgdlg.h>
+#include <wx/aboutdlg.h>
 #include <stdio.h>
 #include <string.h>
 #include <sstream>
@@ -31,7 +32,7 @@
 * Y - 1 means BETA release, otherwise FINAL
 * Z - Build number (04 means fourth released build)
 */
-const int prototype = 2114;
+const int prototype = 2116;
 
 // Required variables
 const float thPow3 = 1000000000;
@@ -51,35 +52,39 @@ std::string versionLink = "http://raw.githubusercontent.com/HafisCZ/PaperCalc2/m
 
 // Language pack for EN and CZ, usage: langPack[1][language] return required
 wxString langPack[][2] = {
-    {_("#HAFISCZDEV"),_("#HAFISCZDEV")},
-    {_("File"),_("Soubor")},
-    {_("History"),_("Historie")},
-    {_("Solve"),_(L"Vypo\u010D\u00EDst")},
-    {_("Update"),_("Aktualizace")},
-    {_("Quit"),_("Konec")},
-    {_("Settings"),_(L"Nastaven\u00ED")},
-    {_("Enable price module"),_(L"Povolit cenov\u00FD modul")},
-    {_("Language"),_("Jazyk")},
-    {_("English"),_(L"Angli\u010Dtina")},
-    {_("Czech"),_(L"\u010Ce\u0161tina")},
-    {_("Help"),_(L"N\u00E1pov\u0115da")},
-    {_("About"),_("O programu")},
-    {_("Size:"),_("Velikost:")},
-    {_("Length:"),_(L"D\u00E9lka:")},
-    {_("Width:"),_(L"\u0160\u00ED\u0159ka:")},
-    {_("Gram:"),_(L"Gram\u00E1\u017E:")},
-    {_("Weight:"),_("Hmotnost:")},
-    {_("Count:"),_(L"Po\u010Det:")},
-    {_("PaperCalcV2\nAuthor: Martin 'Hafis' Halfar\nWebsite: http://code.mar21.eu/\nEmail: hafis@protonmail.com\nStability not guaranteed in Development state of this app\n\nLicense CC BY-NC-ND\nhttp://creativecommons.org/licenses/by-nc-nd/4.0/"),
-       _(L"PaperCalcV2\nAutor: Martin 'Hafis' Halfar\nWeb: http://code.mar21.eu/\nEmail: hafis@protonmail.com\nStabilita nen\u00ED v t\u00E9to f\u00E1zi v\u00FDvoje zaru\u010Dena\n\nLicence: CC BY-NC-ND\nhttp://creativecommons.org/licenses/by-nc-nd/4.0/")},
-    {_("Clear"),_(L"Vy\u010Distit")},
-    {_("Cost:"),_("Cena:")},
-    {_("Cost/Weight:"),_(L"Cena/V\u00E1ha:")},
-    {_("Rate:"),_("Kurz:")},
+    {_("#HAFISCZDEV"),_("#HAFISCZDEV")}, //0
+    {_("File"),_("Soubor")}, //1
+    {_("History"),_("Historie")}, //2
+    {_("Solve"),_(L"Vypo\u010D\u00EDst")}, //3
+    {_("Update"),_("Aktualizace")}, //4
+    {_("Quit"),_("Konec")}, //5
+    {_("Settings"),_(L"Nastaven\u00ED")}, //6
+    {_("Enable price module"),_(L"Povolit cenov\u00FD modul")}, //7
+    {_("Language"),_("Jazyk")}, //8
+    {_("English"),_(L"Angli\u010Dtina")}, //9
+    {_("Czech"),_(L"\u010Ce\u0161tina")}, //10
+    {_("Help"),_(L"N\u00E1pov\u0115da")}, //11
+    {_("About"),_("O programu")}, //12
+    {_("Size:"),_("Velikost:")}, //13
+    {_("Length:"),_(L"D\u00E9lka:")}, //14
+    {_("Width:"),_(L"\u0160\u00ED\u0159ka:")}, //15
+    {_("Gram:"),_(L"Gram\u00E1\u017E:")}, //16
+    {_("Weight:"),_("Hmotnost:")}, //17
+    {_("Count:"),_(L"Po\u010Det:")}, //18
+    {_("-"),_("-")}, //19
+    {_("Clear"),_(L"Vy\u010Distit")}, //20
+    {_("Cost:"),_("Cena:")}, //21
+    {_("Cost/Weight:"),_(L"Cena/V\u00E1ha:")}, //22
+    {_("Rate:"),_("Kurz:")}, //23
     {_("Cost/Count:"),_(L"Cena/Po\u010Det:")}, //24
-    {_("Update found"),_("Nalezena aktualizace")},
-    {_("Open download page ..."),_(L"Otev\u0159\u00EDt str\u00E1nku s aktualizac\u00ED ...")},
-    {_("Custom"),_(L"Vlastn\u00ED")}
+    {_("Update found"),_("Nalezena aktualizace")}, //25
+    {_("Open download page ..."),_(L"Otev\u0159\u00EDt str\u00E1nku s aktualizac\u00ED ...")}, //26
+    {_("Custom"),_(L"Vlastn\u00ED")}, //27
+    {_("PaperCalc 2 - Development Version"),_(L"PaperCalc 2 - V\u00FDvoj\u00E1\u0159sk\u00E1 verze")}, //28
+    {_("Application created for calculation of parameters of paper"),_(L"Aplikace vytvo\u0159en\u00E1 pro v\u00FDpo\u010Det parametr\u016F pap\u00EDru")}, //29
+    {_("(c)2016 Martin Halfar hafis\u0040protonmail.com"),_("(c)2016 Martin Halfar hafis\u0040protonmail.com")}, //30
+    {_("Unexpected error appeared !"),_(L"Nastala nezn\u00E1m\u00E1 chyba !")}, //31
+    {_("No update found ..."),_(L"\u017D\u00E1dn\u00E1 aktualizace nebyla nalezena ...")} //32
 };
 
 // Paper formats, in future maybe in .xml type file
@@ -414,6 +419,7 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     PushObjects(Choice9, costPerCountUnit, 4);
     PushObjects(Choice8, costCurr, 2);
 
+    MenuItem8->Check(true);
     ExchangeLanguage(langPack, selectedLanguage);
 
     Choice1->SetSelection(0);
@@ -443,10 +449,11 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     struct tm * prepTime;
     time(&raw);
     prepTime = localtime(&raw);
-    std::string todayDate = iToS(prepTime->tm_mday - 2 - 1) + '.' + iToS(prepTime->tm_mon + 1) + '.' + iToS(prepTime->tm_year + 1900);
+    std::string historyDate = "1.1." + iToS(prepTime->tm_year + 1900);
+    std::string todayDate = iToS(prepTime->tm_mday + 1) + '.' + iToS(prepTime->tm_mon + 1) + '.' + iToS(prepTime->tm_year + 1900);
 
     HTTPDownloadRequest rq;
-    wxString euroRaw = _(rq.request("http://www.cnb.cz/miranda2/m2/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/vybrane.txt?mena=EUR&od=" + todayDate + "&do=" + todayDate));
+    wxString euroRaw = _(rq.request("http://www.cnb.cz/miranda2/m2/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/vybrane.txt?mena=EUR&od=" + historyDate + "&do=" + todayDate));
     fetch_eur = euroRaw.SubString(euroRaw.length()-8 ,euroRaw.length()-7);
     fetch_eur << _(".") << euroRaw.SubString(euroRaw.length()-5 ,euroRaw.length()-3);
     TextCtrl7->ChangeValue(fetch_eur);
@@ -472,7 +479,13 @@ void PaperCalcDV2Frame::PushObjects(wxChoice *ch, wxString data[], int size)
 
 void PaperCalcDV2Frame::OnAbout(wxCommandEvent& event)
 {
-    wxMessageBox( langPack[19][selectedLanguage], langPack[12][selectedLanguage]);
+    wxAboutDialogInfo info;
+    info.SetName(langPack[28][selectedLanguage]);
+    info.SetVersion(_(iToS(prototype)));
+    info.SetDescription(langPack[29][selectedLanguage]);
+    info.SetCopyright(langPack[30][selectedLanguage]);
+    info.SetWebSite(_(storeLink));
+    wxAboutBox(info);
 }
 
 bool PaperCalcDV2Frame::validate(wxString str, double *var)
@@ -734,13 +747,13 @@ void PaperCalcDV2Frame::ExchangeLanguage(wxString pack[][2], int l)
     StaticText1->SetLabel(pack[13][l]);
     StaticText2->SetLabel(pack[14][l]);
     StaticText3->SetLabel(pack[15][l]);
-    StaticText4->SetLabel(langPack[((clMode == 0 || clMode == 1) ? 16 : 18)][selectedLanguage]);
-    StaticText5->SetLabel(langPack[((clMode == 1 || clMode == 2) ? 17 : 18)][selectedLanguage]);
+    StaticText4->SetLabel(pack[((clMode == 0 || clMode == 1) ? 16 : 18)][l]);
+    StaticText5->SetLabel(pack[((clMode == 1 || clMode == 2) ? 17 : 18)][l]);
     StaticText7->SetLabel(_(L"g/m\u00B2"));
-    StaticText8->SetLabel(langPack[((csMode == 2) ? 24 : 21)][selectedLanguage]);
+    StaticText8->SetLabel(pack[((csMode == 2) ? 24 : 21)][l]);
     StaticText9->SetLabel(_(L"K\u010D/\u20AC"));
     StaticText10->SetLabel(pack[23][l]);
-    StaticText11->SetLabel(langPack[((csMode == 0) ? 24 : 22)][selectedLanguage]);
+    StaticText11->SetLabel(pack[((csMode == 0) ? 24 : 22)][l]);
 
     //Toolbar
     MenuBar1->SetMenuLabel(0, pack[1][l]);
@@ -832,12 +845,13 @@ void PaperCalcDV2Frame::OnUpdate(wxCommandEvent& event)
     wxString newestVer = _(rq.request(versionLink));
     newestVer.ToDouble(&newest);
     if (newest > prototype) {
-        //msgc << _("Update V") << newest << _(" found. Current version is V") << prototype;
-        if (wxMessageBox(langPack[26][selectedLanguage],langPack[25][selectedLanguage],wxYES_NO) == wxYES) {
+        if (wxMessageBox(langPack[26][selectedLanguage],langPack[25][selectedLanguage], wxYES_NO | wxCENTRE) == wxYES) {
             ShellExecute(0, 0, L"http://code.mar21.eu/PaperCalc2", 0, 0 , SW_SHOW );
         }
+    } else if (newest == -1) {
+        StatusBar1->SetLabelText(langPack[31][selectedLanguage]);
     } else {
-        StatusBar1->SetLabelText(_("No update found ..."));
+        StatusBar1->SetLabelText(langPack[32][selectedLanguage]);
     }
     rq.~HTTPDownloadRequest();
 }
