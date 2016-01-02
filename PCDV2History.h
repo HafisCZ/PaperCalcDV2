@@ -2,11 +2,9 @@
 #define PCDV2HISTORY_H
 
 //(*Headers(PCDV2History)
-#include <wx/menu.h>
+#include <wx/stattext.h>
 #include <wx/gbsizer.h>
-#include <wx/button.h>
 #include <wx/frame.h>
-#include <wx/statusbr.h>
 //*)
 
 class PCDV2History: public wxFrame
@@ -17,22 +15,32 @@ class PCDV2History: public wxFrame
 		virtual ~PCDV2History();
 
 		//(*Declarations(PCDV2History)
-		wxButton* Button1;
-		wxMenuItem* MenuItem1;
-		wxMenu* Menu1;
-		wxStatusBar* StatusBar1;
-		wxMenuBar* MenuBar1;
+		wxStaticText* StaticText2;
+		wxStaticText* StaticText6;
+		wxStaticText* StaticText8;
+		wxStaticText* StaticText1;
+		wxStaticText* StaticText3;
+		wxStaticText* StaticText5;
+		wxStaticText* StaticText7;
+		wxStaticText* StaticText4;
 		//*)
 
 	protected:
 
 		//(*Identifiers(PCDV2History)
-		static const long ID_BUTTON1;
-		static const long ID_STATUSBAR1;
-		static const long ID_MENUITEM1;
+		static const long ID_STATICTEXT8;
+		static const long ID_STATICTEXT7;
+		static const long ID_STATICTEXT3;
+		static const long ID_STATICTEXT2;
+		static const long ID_STATICTEXT1;
+		static const long ID_STATICTEXT4;
+		static const long ID_STATICTEXT5;
+		static const long ID_STATICTEXT6;
 		//*)
 
 	private:
+
+	    int selectedLanguage;
 
 		//(*Handlers(PCDV2History)
 		void OnQuit(wxCommandEvent& event);

@@ -1,11 +1,11 @@
 #include "HTTPDownloadRequest.h"
 
+#include <stdlib.h>
 #include <iostream>
 #include <sstream>
+#include <string>
 
-#include "C:\Program Files (x86)\msys\local\include\curl\curl.h"
-#include "C:\Program Files (x86)\msys\local\include\curl\easy.h"
-#include "C:\Program Files (x86)\msys\local\include\curl\curlbuild.h"
+#include "curl\curl.h"
 
 using namespace std;
 
@@ -31,6 +31,11 @@ HTTPDownloadRequest::~HTTPDownloadRequest()
 string HTTPDownloadRequest::request(const std::string& url)
 {
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1);
+    curl_easy_setopt(curl, CURLOPT_ACCEPT_ENCODING, "deflate");
+    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
     stringstream output;
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeStream);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &output);

@@ -14,6 +14,8 @@
 #include "HTTPDownloadRequest.h"
 #include <wx/msgdlg.h>
 #include <wx/aboutdlg.h>
+#include <wx/textdlg.h>
+#include <wx/font.h>
 #include <stdio.h>
 #include <string.h>
 #include <sstream>
@@ -32,63 +34,96 @@
 * Y - 1 means BETA release, otherwise FINAL
 * Z - Build number (04 means fourth released build)
 */
-const int prototype = 2116;
+const int prototype = 2117;
 
 // Required variables
 const float thPow3 = 1000000000;
 wxString ctrlTextDefault = _("");
 wxString tmp;
 wxString fetch_eur;
-double rwLen, rwWid, rwGrm, rwCnt, rwWig;
-double rcWig, rcCnt, rcEur, rcCst;
-int clMode = 0;
-int csMode = 0;
-int selectedLanguage = 1;
+int modeParameter = 0;
+int modeCost = 0;
 bool costEnabled = false;
 
 std::string repositoryLink = "http://www.github.com/HafisCZ/PaperCalc2";
 std::string storeLink = "http://code.mar21.eu/PaperCalc2";
 std::string versionLink = "http://raw.githubusercontent.com/HafisCZ/PaperCalc2/master/version.d";
 
-// Language pack for EN and CZ, usage: langPack[1][language] return required
-wxString langPack[][2] = {
-    {_("#HAFISCZDEV"),_("#HAFISCZDEV")}, //0
-    {_("File"),_("Soubor")}, //1
-    {_("History"),_("Historie")}, //2
-    {_("Solve"),_(L"Vypo\u010D\u00EDst")}, //3
-    {_("Update"),_("Aktualizace")}, //4
-    {_("Quit"),_("Konec")}, //5
-    {_("Settings"),_(L"Nastaven\u00ED")}, //6
-    {_("Enable price module"),_(L"Povolit cenov\u00FD modul")}, //7
-    {_("Language"),_("Jazyk")}, //8
-    {_("English"),_(L"Angli\u010Dtina")}, //9
-    {_("Czech"),_(L"\u010Ce\u0161tina")}, //10
-    {_("Help"),_(L"N\u00E1pov\u0115da")}, //11
-    {_("About"),_("O programu")}, //12
-    {_("Size:"),_("Velikost:")}, //13
-    {_("Length:"),_(L"D\u00E9lka:")}, //14
-    {_("Width:"),_(L"\u0160\u00ED\u0159ka:")}, //15
-    {_("Gram:"),_(L"Gram\u00E1\u017E:")}, //16
-    {_("Weight:"),_("Hmotnost:")}, //17
-    {_("Count:"),_(L"Po\u010Det:")}, //18
-    {_("-"),_("-")}, //19
-    {_("Clear"),_(L"Vy\u010Distit")}, //20
-    {_("Cost:"),_("Cena:")}, //21
-    {_("Cost/Weight:"),_(L"Cena/V\u00E1ha:")}, //22
-    {_("Rate:"),_("Kurz:")}, //23
-    {_("Cost/Count:"),_(L"Cena/Po\u010Det:")}, //24
-    {_("Update found"),_("Nalezena aktualizace")}, //25
-    {_("Open download page ..."),_(L"Otev\u0159\u00EDt str\u00E1nku s aktualizac\u00ED ...")}, //26
-    {_("Custom"),_(L"Vlastn\u00ED")}, //27
-    {_("PaperCalc 2 - Development Version"),_(L"PaperCalc 2 - V\u00FDvoj\u00E1\u0159sk\u00E1 verze")}, //28
-    {_("Application created for calculation of parameters of paper"),_(L"Aplikace vytvo\u0159en\u00E1 pro v\u00FDpo\u010Det parametr\u016F pap\u00EDru")}, //29
-    {_("(c)2016 Martin Halfar hafis\u0040protonmail.com"),_("(c)2016 Martin Halfar hafis\u0040protonmail.com")}, //30
-    {_("Unexpected error appeared !"),_(L"Nastala nezn\u00E1m\u00E1 chyba !")}, //31
-    {_("No update found ..."),_(L"\u017D\u00E1dn\u00E1 aktualizace nebyla nalezena ...")} //32
-};
+const wxString langPack[35][2] = {
+        {wxString::FromUTF8("#HAFISCZDEV"), //0
+            wxString::FromUTF8("#HAFISCZDEV")},
+        {wxString::FromUTF8("File"),
+            wxString::FromUTF8("Soubor")},
+        {wxString::FromUTF8("History"),
+            wxString::FromUTF8("Historie")},
+        {wxString::FromUTF8("Solve"),
+            wxString::FromUTF8("Vypo\u010D\u00EDst")},
+        {wxString::FromUTF8("Update"),
+            wxString::FromUTF8("Aktualizace")},
+        {wxString::FromUTF8("Quit"), //5
+            wxString::FromUTF8("Konec")},
+        {wxString::FromUTF8("Settings"),
+            wxString::FromUTF8("Nastaven\u00ED")},
+        {wxString::FromUTF8("Enable price module"),
+            wxString::FromUTF8("Povolit cenov\u00FD modul")},
+        {wxString::FromUTF8("Language"),
+            wxString::FromUTF8("Jazyk")},
+        {wxString::FromUTF8("English"),
+            wxString::FromUTF8("Angli\u010Dtina")},
+        {wxString::FromUTF8("Czech"), //10
+            wxString::FromUTF8("\u010Ce\u0161tina")},
+        {wxString::FromUTF8("Help"),
+            wxString::FromUTF8("N\u00E1pov\u0115da")},
+        {wxString::FromUTF8("About"),
+            wxString::FromUTF8("O programu")},
+        {wxString::FromUTF8("Size:"),
+            wxString::FromUTF8("Velikost:")},
+        {wxString::FromUTF8("Length:"),
+            wxString::FromUTF8("D\u00E9lka:")},
+        {wxString::FromUTF8("Width:"), //15
+            wxString::FromUTF8("\u0160\u00ED\u0159ka:")},
+        {wxString::FromUTF8("Gram:"),
+            wxString::FromUTF8("Gram\u00E1\u017E:")},
+        {wxString::FromUTF8("Weight:"),
+            wxString::FromUTF8("Hmotnost:")},
+        {wxString::FromUTF8("Count:"),
+            wxString::FromUTF8("Po\u010Det:")},
+        {wxString::FromUTF8("Conversion rate not available"),
+            wxString::FromUTF8("Aktu\u00E1ln\u00ED kurz nen\u00ED dostupn\u00FD")},
+        {wxString::FromUTF8("Clear"), //20
+            wxString::FromUTF8("Vy\u010Distit")},
+        {wxString::FromUTF8("Cost:"),
+            wxString::FromUTF8("Cena:")},
+        {wxString::FromUTF8("Cost/Weight:"),
+            wxString::FromUTF8("Cena/V\u00E1ha:")},
+        {wxString::FromUTF8("Rate:"),
+            wxString::FromUTF8("Kurz:")},
+        {wxString::FromUTF8("Cost/Count:"),
+            wxString::FromUTF8("Cena/Po\u010Det:")},
+        {wxString::FromUTF8("Update found"), //25
+            wxString::FromUTF8("Nalezena aktualizace")},
+        {wxString::FromUTF8("Open download page ..."),
+            wxString::FromUTF8("Otev\u0159\u00EDt str\u00E1nku s aktualizac\u00ED ...")},
+        {wxString::FromUTF8("Custom"),
+            wxString::FromUTF8("Vlastn\u00ED")},
+        {wxString::FromUTF8("PaperCalc 2 - Development Version"),
+            wxString::FromUTF8("PaperCalc 2 - V\u00FDvoj\u00E1\u0159sk\u00E1 verze")},
+        {wxString::FromUTF8("Application created for calculation of parameters of paper"),
+            wxString::FromUTF8("Aplikace vytvo\u0159en\u00E1 pro v\u00FDpo\u010Det parametr\u016F pap\u00EDru")},
+        {wxString::FromUTF8("(c)2016 Martin Halfar hafis\u0040protonmail.com"), //30
+            wxString::FromUTF8("(c)2016 Martin Halfar hafis\u0040protonmail.com")},
+        {wxString::FromUTF8("Unexpected error appeared !"),
+            wxString::FromUTF8("Nastala nezn\u00E1m\u00E1 chyba !")},
+        {wxString::FromUTF8("No update found ..."),
+            wxString::FromUTF8("\u017D\u00E1dn\u00E1 aktualizace nebyla nalezena ...")},
+        {wxString::FromUTF8("Enter value or leave empty"),
+            wxString::FromUTF8("Vlo\u017Ete hodnotu nebo zanechte pr\u00E1zdn\u00E9")},
+        {wxString::FromUTF8("Font"),
+            wxString::FromUTF8("P\u00EDsmo")}
+    };
 
 // Paper formats, in future maybe in .xml type file
-double paperFormats[15][2] = {
+const double paperFormats[15][2] = {
     {0,0},
     {700,1000},
     {500,700},
@@ -105,41 +140,41 @@ double paperFormats[15][2] = {
     {215.9,279.4}
 };
 
-int codTrans[][3] = {
+const int codTrans[][3] = {
     {4, 4, 6},
     {5, 6, 4},
     {6, 5, 5}
 };
 
-int codTrans2[][3] = {
+const int codTrans2[][3] = {
     {8, 10, 10},
     {10, 8, 11},
     {11, 11, 8}
 };
 
 // Units
-wxString lengthUnits[] = {
+const wxString lengthUnits[] = {
     _("mm"), _("cm"), _("dm"), _("m")
 };
 
-wxString weightUnits[] = {
+const wxString weightUnits[] = {
     _("kg"), _("t")
 };
 
-wxString countUnits[] = {
+const wxString countUnits[] = {
     _("arc"), _("kArc")
 };
 
-wxString costCurr[] = {
+const wxString costCurr[] = {
     _(L"K\u010D"), _(L"\u20AC")
 };
 
-wxString costPerWeightUnit[] = {
+const wxString costPerWeightUnit[] = {
     _(L"K\u010D/kg"), _(L"K\u010D/t"),
     _(L"\u20AC/kg"), _(L"\u20AC/t")
 };
 
-wxString costPerCountUnit[] = {
+const wxString costPerCountUnit[] = {
      _(L"K\u010D/arc"), _(L"K\u010D/kArc"),
      _(L"\u20AC/arc"), _(L"\u20AC/kArc")
 };
@@ -181,9 +216,10 @@ const long PaperCalcDV2Frame::idMenuSolve = wxNewId();
 const long PaperCalcDV2Frame::idMenuUpdate = wxNewId();
 const long PaperCalcDV2Frame::idMenuQuit = wxNewId();
 const long PaperCalcDV2Frame::idMenuPriceEnabled = wxNewId();
+const long PaperCalcDV2Frame::idChangeFont = wxNewId();
 const long PaperCalcDV2Frame::idMenuLanguageEN = wxNewId();
 const long PaperCalcDV2Frame::idMenuLanguageCZ = wxNewId();
-const long PaperCalcDV2Frame::ID_MENUITEM1 = wxNewId();
+const long PaperCalcDV2Frame::idMenuClear = wxNewId();
 const long PaperCalcDV2Frame::idMenuAbout = wxNewId();
 const long PaperCalcDV2Frame::ID_STATUSBAR1 = wxNewId();
 //*)
@@ -340,6 +376,8 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Menu3 = new wxMenu();
     MenuItem4 = new wxMenuItem(Menu3, idMenuPriceEnabled, _("1\tF5"), wxEmptyString, wxITEM_CHECK);
     Menu3->Append(MenuItem4);
+    MenuItem10 = new wxMenuItem(Menu3, idChangeFont, _("2"), wxEmptyString, wxITEM_NORMAL);
+    Menu3->Append(MenuItem10);
     MenuBar1->Append(Menu3, _("2"));
     Menu4 = new wxMenu();
     MenuItem7 = new wxMenuItem(Menu4, idMenuLanguageEN, _("1"), wxEmptyString, wxITEM_RADIO);
@@ -348,7 +386,7 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Menu4->Append(MenuItem8);
     MenuBar1->Append(Menu4, _("3"));
     Menu2 = new wxMenu();
-    MenuItem9 = new wxMenuItem(Menu2, ID_MENUITEM1, _("2"), wxEmptyString, wxITEM_NORMAL);
+    MenuItem9 = new wxMenuItem(Menu2, idMenuClear, _("2"), wxEmptyString, wxITEM_NORMAL);
     Menu2->Append(MenuItem9);
     MenuItem5 = new wxMenuItem(Menu2, idMenuAbout, _("1\tF1"), wxEmptyString, wxITEM_NORMAL);
     Menu2->Append(MenuItem5);
@@ -388,12 +426,14 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Connect(idMenuUpdate,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnUpdate);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnQuit);
     Connect(idMenuPriceEnabled,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnCostEnabled);
+    Connect(idChangeFont,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnFontChanged);
     Connect(idMenuLanguageEN,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnLanguageChanged);
     Connect(idMenuLanguageCZ,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnLanguageChanged);
-    Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnClear);
+    Connect(idMenuClear,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnClear);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnAbout);
     //*)
 
+    selectedLanguage = 1;
     RedrawOnLaunch();
 }
 
@@ -420,7 +460,7 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     PushObjects(Choice8, costCurr, 2);
 
     MenuItem8->Check(true);
-    ExchangeLanguage(langPack, selectedLanguage);
+    ExchangeLanguage(selectedLanguage);
 
     Choice1->SetSelection(0);
     Choice2->SetSelection(0);
@@ -445,19 +485,7 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
 
     EnableCost(false);
 
-    time_t raw;
-    struct tm * prepTime;
-    time(&raw);
-    prepTime = localtime(&raw);
-    std::string historyDate = "1.1." + iToS(prepTime->tm_year + 1900);
-    std::string todayDate = iToS(prepTime->tm_mday + 1) + '.' + iToS(prepTime->tm_mon + 1) + '.' + iToS(prepTime->tm_year + 1900);
-
-    HTTPDownloadRequest rq;
-    wxString euroRaw = _(rq.request("http://www.cnb.cz/miranda2/m2/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/vybrane.txt?mena=EUR&od=" + historyDate + "&do=" + todayDate));
-    fetch_eur = euroRaw.SubString(euroRaw.length()-8 ,euroRaw.length()-7);
-    fetch_eur << _(".") << euroRaw.SubString(euroRaw.length()-5 ,euroRaw.length()-3);
-    TextCtrl7->ChangeValue(fetch_eur);
-    rq.~HTTPDownloadRequest();
+    LoadEuroRate();
 
     Fit();
 }
@@ -468,7 +496,28 @@ void PaperCalcDV2Frame::OnQuit(wxCommandEvent& event)
     Close();
 }
 
-void PaperCalcDV2Frame::PushObjects(wxChoice *ch, wxString data[], int size)
+void PaperCalcDV2Frame::LoadEuroRate(){
+    time_t raw;
+    struct tm * prepTime;
+    time(&raw);
+    prepTime = localtime(&raw);
+    std::string historyDate = "01.01." + iToS(prepTime->tm_year + 1899);
+    std::string todayDate = iToS(prepTime->tm_mday) + '.' + iToS(prepTime->tm_mon + 1) + '.' + iToS(prepTime->tm_year + 1900);
+    HTTPDownloadRequest* rq = new HTTPDownloadRequest();
+    wxString euroRaw = _(rq->request("http://www.cnb.cz/miranda2/m2/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/vybrane.txt?mena=EUR&od=" + historyDate + "&do=" + todayDate));
+    fetch_eur = euroRaw.SubString(euroRaw.length()-8 ,euroRaw.length()-7);
+    fetch_eur << _(".") << euroRaw.SubString(euroRaw.length()-5 ,euroRaw.length()-3);
+
+    double temp_eur;
+    if (!fetch_eur.ToDouble(&temp_eur)) {
+        fetch_eur = wxGetTextFromUser(langPack[33][selectedLanguage], langPack[19][selectedLanguage], _("27.000"));
+    }
+
+    TextCtrl7->ChangeValue(fetch_eur);
+    delete rq;
+}
+
+void PaperCalcDV2Frame::PushObjects(wxChoice *ch, const wxString data[], int size)
 {
     // For every wxString object in array
     for (int i = 0; i < size; i++) {
@@ -504,20 +553,20 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
 
     StatusBar1->SetLabel(ctrlTextDefault);
 
-    if (validate(TextCtrl1->GetValue(), &rwLen) && validate(TextCtrl2->GetValue(), &rwWid)) {
+    if (validate(TextCtrl1->GetValue(), &mod1Length) && validate(TextCtrl2->GetValue(), &mod1Width)) {
 
-        parseDecScale(&rwLen, Choice2->GetSelection());
-        parseDecScale(&rwWid, Choice3->GetSelection());
+        parseDecScale(&mod1Length, Choice2->GetSelection());
+        parseDecScale(&mod1Width, Choice3->GetSelection());
 
-        switch (clMode) {
+        switch (modeParameter) {
 
             case 0 : {
-                if (!validate(TextCtrl3->GetValue(), &rwGrm) || !validate(TextCtrl4->GetValue(), &rwCnt)) {
+                if (!validate(TextCtrl3->GetValue(), &mod1Grammage) || !validate(TextCtrl4->GetValue(), &mod1Count)) {
                     ThrowError(-200);
                     return;
                 } else {
-                    parseThScale(&rwCnt, Choice5->GetSelection());
-                    output = calculate(rwLen, rwWid, rwGrm, rwCnt, -1);
+                    parseThScale(&mod1Count, Choice5->GetSelection());
+                    output = calculate(mod1Length, mod1Width, mod1Grammage, mod1Count, -1);
                     parseThScale(&output, -Choice6->GetSelection());
                     rw << (output);
                     TextCtrl5->ChangeValue(rw);
@@ -526,12 +575,12 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
             }
 
             case 1 : {
-                if (!validate(TextCtrl3->GetValue(), &rwGrm) || !validate(TextCtrl5->GetValue(), &rwWig)) {
+                if (!validate(TextCtrl3->GetValue(), &mod1Grammage) || !validate(TextCtrl5->GetValue(), &mod1Weight)) {
                     ThrowError(-200);
                     return;
                 } else {
-                    parseThScale(&rwWig, Choice6->GetSelection());
-                    output = calculate(rwLen, rwWid, rwGrm, -1, rwWig);
+                    parseThScale(&mod1Weight, Choice6->GetSelection());
+                    output = calculate(mod1Length, mod1Width, mod1Grammage, -1, mod1Weight);
                     parseThScale(&output, -Choice5->GetSelection());
                     rw << (output);
                     TextCtrl4->ChangeValue(rw);
@@ -540,12 +589,12 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
             }
 
             case 2 : {
-                if (!validate(TextCtrl5->GetValue(), &rwWig) || !validate(TextCtrl4->GetValue(), &rwCnt)) {
+                if (!validate(TextCtrl5->GetValue(), &mod1Weight) || !validate(TextCtrl4->GetValue(), &mod1Count)) {
                     ThrowError(-200);
                     return;
                 } else {
-                    parseThScale(&rwWig, Choice6->GetSelection());
-                    output = calculate(rwLen, rwWid, -1, rwCnt, rwWig);
+                    parseThScale(&mod1Weight, Choice6->GetSelection());
+                    output = calculate(mod1Length, mod1Width, -1, mod1Count, mod1Weight);
                     rw << (output);
                     TextCtrl3->ChangeValue(rw);
                 }
@@ -557,33 +606,33 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
     rw = _("");
 
     if (costEnabled) {
-        switch (csMode) {
+        switch (modeCost) {
 
             case 0 : {
-                if (validate(TextCtrl5->GetValue(), &rwWig) && validate(TextCtrl6->GetValue(), &rcWig)){
+                if (validate(TextCtrl5->GetValue(), &mod1Weight) && validate(TextCtrl6->GetValue(), &mod2Weight)){
 
-                    parseThScale(&rwWig, Choice6->GetSelection());
+                    parseThScale(&mod1Weight, Choice6->GetSelection());
 
-                    if (!validate(TextCtrl7->GetValue(), &rcEur)
+                    if (!validate(TextCtrl7->GetValue(), &mod2EuroCR)
                         && (Choice4->GetSelection() > 1 || Choice9->GetSelection() > 1 || Choice8->GetSelection() != 0 )) {
                         ThrowError(-400);
                         return;
                     }
 
-                    cparseThScale(&rcWig, Choice4->GetSelection(), rcEur);
+                    cparseThScale(&mod2Weight, Choice4->GetSelection(), mod2EuroCR);
 
-                    output = rwWig * rcWig;
+                    output = mod1Weight * mod2Weight;
 
-                    if (validate(TextCtrl4->GetValue(), &rwCnt)) {
-                        parseThScale(&rwCnt, Choice5->GetSelection());
+                    if (validate(TextCtrl4->GetValue(), &mod1Count)) {
+                        parseThScale(&mod1Count, Choice5->GetSelection());
                         wxString rc;
-                        double comOutput = output / rwCnt;
-                        cparseThScale(&comOutput, -Choice9->GetSelection(), rcEur);
+                        double comOutput = output / mod1Count;
+                        cparseThScale(&comOutput, -Choice9->GetSelection(), mod2EuroCR);
                         rc << (comOutput);
                         TextCtrl9->ChangeValue(rc);
                     }
 
-                    if (Choice8->GetSelection() != 0) output /= rcEur;
+                    if (Choice8->GetSelection() != 0) output /= mod2EuroCR;
                     rw << (output);
                     TextCtrl8->ChangeValue(rw);
 
@@ -595,30 +644,30 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
             }
 
             case 1: {
-                if (validate(TextCtrl4->GetValue(), &rwCnt) && validate(TextCtrl9->GetValue(), &rcCnt)) {
+                if (validate(TextCtrl4->GetValue(), &mod1Count) && validate(TextCtrl9->GetValue(), &mod2Count)) {
 
-                    parseThScale(&rwCnt, Choice5->GetSelection());
+                    parseThScale(&mod1Count, Choice5->GetSelection());
 
-                    if (!validate(TextCtrl7->GetValue(), &rcEur)
+                    if (!validate(TextCtrl7->GetValue(), &mod2EuroCR)
                         && (Choice4->GetSelection() > 1 || Choice9->GetSelection() > 1 || Choice8->GetSelection() != 0 )) {
                         ThrowError(-400);
                         return;
                     }
 
-                    cparseThScale(&rcCnt, Choice9->GetSelection(), rcEur);
+                    cparseThScale(&mod2Count, Choice9->GetSelection(), mod2EuroCR);
 
-                    output = rwCnt * rcCnt;
+                    output = mod1Count * mod2Count;
 
-                    if (validate(TextCtrl5->GetValue(), &rwWig)) {
-                        parseThScale(&rwWig, Choice6->GetSelection());
+                    if (validate(TextCtrl5->GetValue(), &mod1Weight)) {
+                        parseThScale(&mod1Weight, Choice6->GetSelection());
                         wxString rc;
-                        double comOutput = output / rwWig;
-                        cparseThScale(&comOutput, -Choice4->GetSelection(), rcEur);
+                        double comOutput = output / mod1Weight;
+                        cparseThScale(&comOutput, -Choice4->GetSelection(), mod2EuroCR);
                         rc << (comOutput);
                         TextCtrl6->ChangeValue(rc);
                     }
 
-                    if (Choice8->GetSelection() != 0) output /= rcEur;
+                    if (Choice8->GetSelection() != 0) output /= mod2EuroCR;
                     rw << (output);
                     TextCtrl8->ChangeValue(rw);
 
@@ -631,30 +680,30 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
 
             case 2 : {
 
-                if (validate(TextCtrl8->GetValue(), &rcCst)) {
+                if (validate(TextCtrl8->GetValue(), &mod2Cost)) {
 
-					if (!validate(TextCtrl7->GetValue(), &rcEur)
+					if (!validate(TextCtrl7->GetValue(), &mod2EuroCR)
 						&& (Choice4->GetSelection() > 1 || Choice9->GetSelection() > 1 || Choice8->GetSelection() != 0 )) {
 						ThrowError(-400);
 						return;
 					}
 
-					if (Choice8->GetSelection() != 0) rcCst *= rcEur;
+					if (Choice8->GetSelection() != 0) mod2Cost *= mod2EuroCR;
 
-					if (validate(TextCtrl4->GetValue(), &rwCnt)) {
-						parseThScale(&rwCnt, Choice5->GetSelection());
+					if (validate(TextCtrl4->GetValue(), &mod1Count)) {
+						parseThScale(&mod1Count, Choice5->GetSelection());
 						wxString rc(_(""));
-						double comOutput1 = rcCst / rwCnt;
-						cparseThScale(&comOutput1, -Choice9->GetSelection(), rcEur);
+						double comOutput1 = mod2Cost / mod1Count;
+						cparseThScale(&comOutput1, -Choice9->GetSelection(), mod2EuroCR);
 						rc << (comOutput1);
 						TextCtrl9->ChangeValue(rc);
 					}
 
-					if (validate(TextCtrl5->GetValue(), &rwWig)) {
-						parseThScale(&rwWig, Choice6->GetSelection());
+					if (validate(TextCtrl5->GetValue(), &mod1Weight)) {
+						parseThScale(&mod1Weight, Choice6->GetSelection());
 						wxString rc(_(""));
-						double comOutput1 = rcCst / rwWig;
-						cparseThScale(&comOutput1, -Choice4->GetSelection(), rcEur);
+						double comOutput1 = mod2Cost / mod1Weight;
+						cparseThScale(&comOutput1, -Choice4->GetSelection(), mod2EuroCR);
 						rc << (comOutput1);
 						TextCtrl6->ChangeValue(rc);
 					}
@@ -740,54 +789,55 @@ double PaperCalcDV2Frame::calculate (double hLenght, double hWidth, double hGram
     }
 }
 
-void PaperCalcDV2Frame::ExchangeLanguage(wxString pack[][2], int l)
+void PaperCalcDV2Frame::ExchangeLanguage(int l)
 {
     selectedLanguage = l;
     //Labels
-    StaticText1->SetLabel(pack[13][l]);
-    StaticText2->SetLabel(pack[14][l]);
-    StaticText3->SetLabel(pack[15][l]);
-    StaticText4->SetLabel(pack[((clMode == 0 || clMode == 1) ? 16 : 18)][l]);
-    StaticText5->SetLabel(pack[((clMode == 1 || clMode == 2) ? 17 : 18)][l]);
+    StaticText1->SetLabel(langPack[13][l]);
+    StaticText2->SetLabel(langPack[14][l]);
+    StaticText3->SetLabel(langPack[15][l]);
+    StaticText4->SetLabel(langPack[((modeParameter == 0 || modeParameter == 1) ? 16 : 18)][l]);
+    StaticText5->SetLabel(langPack[((modeParameter == 1 || modeParameter == 2) ? 17 : 18)][l]);
     StaticText7->SetLabel(_(L"g/m\u00B2"));
-    StaticText8->SetLabel(pack[((csMode == 2) ? 24 : 21)][l]);
+    StaticText8->SetLabel(langPack[((modeCost == 2) ? 24 : 21)][l]);
     StaticText9->SetLabel(_(L"K\u010D/\u20AC"));
-    StaticText10->SetLabel(pack[23][l]);
-    StaticText11->SetLabel(pack[((csMode == 0) ? 24 : 22)][l]);
+    StaticText10->SetLabel(langPack[23][l]);
+    StaticText11->SetLabel(langPack[((modeCost == 0) ? 24 : 22)][l]);
 
     //Toolbar
-    MenuBar1->SetMenuLabel(0, pack[1][l]);
-    MenuBar1->SetMenuLabel(1, pack[6][l]);
-    MenuBar1->SetMenuLabel(2, pack[8][l]);
-    MenuBar1->SetMenuLabel(3, pack[11][l]);
+    MenuBar1->SetMenuLabel(0, langPack[1][l]);
+    MenuBar1->SetMenuLabel(1, langPack[6][l]);
+    MenuBar1->SetMenuLabel(2, langPack[8][l]);
+    MenuBar1->SetMenuLabel(3, langPack[11][l]);
 
     //Sub-Toolbar
-    MenuItem1->SetItemLabel(pack[3][l] + _("\tReturn"));
-    MenuItem2->SetItemLabel(pack[2][l] + _("\tF2"));
-    MenuItem3->SetItemLabel(pack[5][l] + _("\tAlt-F4"));
-    MenuItem4->SetItemLabel(pack[7][l] + _("\tF5"));
-    MenuItem5->SetItemLabel(pack[12][l] + _("\tF1"));
-    MenuItem6->SetItemLabel(pack[4][l]);
-    MenuItem7->SetItemLabel(pack[9][l]);
-    MenuItem8->SetItemLabel(pack[10][l]);
-    MenuItem9->SetItemLabel(pack[20][l]);
+    MenuItem1->SetItemLabel(langPack[3][l] + _("\tReturn"));
+    MenuItem2->SetItemLabel(langPack[2][l] + _("\tF2"));
+    MenuItem3->SetItemLabel(langPack[5][l] + _("\tAlt-F4"));
+    MenuItem4->SetItemLabel(langPack[7][l] + _("\tF5"));
+    MenuItem5->SetItemLabel(langPack[12][l] + _("\tF1"));
+    MenuItem6->SetItemLabel(langPack[4][l]);
+    MenuItem7->SetItemLabel(langPack[9][l]);
+    MenuItem8->SetItemLabel(langPack[10][l]);
+    MenuItem9->SetItemLabel(langPack[20][l]);
+    MenuItem10->SetItemLabel(langPack[34][l]);
 
-    Choice7->SetString(0, pack[17][l]);
-    Choice7->SetString(1, pack[18][l]);
-    Choice7->SetString(2, pack[16][l]);
+    Choice7->SetString(0, langPack[17][l]);
+    Choice7->SetString(1, langPack[18][l]);
+    Choice7->SetString(2, langPack[16][l]);
 
-    Choice10->SetString(0, pack[22][l]);
-    Choice10->SetString(1, pack[24][l]);
-    Choice10->SetString(2, pack[21][l]);
+    Choice10->SetString(0, langPack[22][l]);
+    Choice10->SetString(1, langPack[24][l]);
+    Choice10->SetString(2, langPack[21][l]);
 
-    Choice1->SetString(0, pack[27][l]);
+    Choice1->SetString(0, langPack[27][l]);
 
     Fit();
 }
 
 void PaperCalcDV2Frame::OnCalcTypeChanged(wxCommandEvent& event)
 {
-    clMode = Choice7->GetSelection();
+    modeParameter = Choice7->GetSelection();
 
     TextCtrl3->Show(false);
     StaticText7->Show(false);
@@ -805,15 +855,15 @@ void PaperCalcDV2Frame::OnCalcTypeChanged(wxCommandEvent& event)
 
     this->Fit();
 
-    PlaceToSizer(TextCtrl3, codTrans[0][clMode], 1);
-    PlaceToSizer(StaticText7, codTrans[0][clMode], 4);
-    PlaceToSizer(TextCtrl4, codTrans[1][clMode], 1);
-    PlaceToSizer(Choice5, codTrans[1][clMode], 4);
-    PlaceToSizer(TextCtrl5, codTrans[2][clMode], 1);
-    PlaceToSizer(Choice6, codTrans[2][clMode], 4);
+    PlaceToSizer(TextCtrl3, codTrans[0][modeParameter], 1);
+    PlaceToSizer(StaticText7, codTrans[0][modeParameter], 4);
+    PlaceToSizer(TextCtrl4, codTrans[1][modeParameter], 1);
+    PlaceToSizer(Choice5, codTrans[1][modeParameter], 4);
+    PlaceToSizer(TextCtrl5, codTrans[2][modeParameter], 1);
+    PlaceToSizer(Choice6, codTrans[2][modeParameter], 4);
 
-    StaticText4->SetLabel(langPack[((clMode == 0 || clMode == 1) ? 16 : 18)][selectedLanguage]);
-    StaticText5->SetLabel(langPack[((clMode == 1 || clMode == 2) ? 17 : 18)][selectedLanguage]);
+    StaticText4->SetLabel(langPack[((modeParameter == 0 || modeParameter == 1) ? 16 : 18)][selectedLanguage]);
+    StaticText5->SetLabel(langPack[((modeParameter == 1 || modeParameter == 2) ? 17 : 18)][selectedLanguage]);
 
     TextCtrl3->Show(true);
     StaticText7->Show(true);
@@ -834,26 +884,28 @@ bool PaperCalcDV2Frame::PlaceToSizer(wxControl *w, int x, int y)
 // Language exchange event
 void PaperCalcDV2Frame::OnLanguageChanged(wxCommandEvent& event)
 {
-    ExchangeLanguage(langPack, (MenuItem7->IsChecked() ? 0 : 1));
+    ExchangeLanguage((MenuItem7->IsChecked() ? 0 : 1));
 }
 
 // Check for update
 void PaperCalcDV2Frame::OnUpdate(wxCommandEvent& event)
 {
-    HTTPDownloadRequest rq;
     double newest;
-    wxString newestVer = _(rq.request(versionLink));
+    HTTPDownloadRequest* rq = new HTTPDownloadRequest();
+    wxString newestVer = _(rq->request(versionLink));
+    delete rq;
     newestVer.ToDouble(&newest);
     if (newest > prototype) {
-        if (wxMessageBox(langPack[26][selectedLanguage],langPack[25][selectedLanguage], wxYES_NO | wxCENTRE) == wxYES) {
-            ShellExecute(0, 0, L"http://code.mar21.eu/PaperCalc2", 0, 0 , SW_SHOW );
+        int openBrowser = wxMessageBox(langPack[26][selectedLanguage],langPack[25][selectedLanguage], wxYES_NO | wxICON_QUESTION);
+        if (openBrowser == wxYES) {
+            ShellExecute(0, L"open", L"http://code.mar21.eu/PaperCalc2", 0, 0 , SW_SHOW );
         }
     } else if (newest == -1) {
         StatusBar1->SetLabelText(langPack[31][selectedLanguage]);
     } else {
         StatusBar1->SetLabelText(langPack[32][selectedLanguage]);
     }
-    rq.~HTTPDownloadRequest();
+
 }
 
 // Clear content of all used wxTextCtrls
@@ -899,7 +951,7 @@ void PaperCalcDV2Frame::EnableCost(bool e)
 
 void PaperCalcDV2Frame::OnCostWayChanged(wxCommandEvent& event)
 {
-    csMode = Choice10->GetSelection();
+    modeCost = Choice10->GetSelection();
 
     TextCtrl6->Show(false);
     Choice4->Show(false);
@@ -917,15 +969,15 @@ void PaperCalcDV2Frame::OnCostWayChanged(wxCommandEvent& event)
 
     this->Fit();
 
-    PlaceToSizer(TextCtrl6, codTrans2[0][csMode], 1);
-    PlaceToSizer(Choice4, codTrans2[0][csMode], 4);
-    PlaceToSizer(TextCtrl9, codTrans2[1][csMode], 1);
-    PlaceToSizer(Choice9, codTrans2[1][csMode], 4);
-    PlaceToSizer(TextCtrl8, codTrans2[2][csMode], 1);
-    PlaceToSizer(Choice8, codTrans2[2][csMode], 4);
+    PlaceToSizer(TextCtrl6, codTrans2[0][modeCost], 1);
+    PlaceToSizer(Choice4, codTrans2[0][modeCost], 4);
+    PlaceToSizer(TextCtrl9, codTrans2[1][modeCost], 1);
+    PlaceToSizer(Choice9, codTrans2[1][modeCost], 4);
+    PlaceToSizer(TextCtrl8, codTrans2[2][modeCost], 1);
+    PlaceToSizer(Choice8, codTrans2[2][modeCost], 4);
 
-    StaticText11->SetLabel(langPack[((csMode == 0) ? 24 : 22)][selectedLanguage]);
-    StaticText8->SetLabel(langPack[((csMode == 2) ? 24 : 21)][selectedLanguage]);
+    StaticText11->SetLabel(langPack[((modeCost == 0) ? 24 : 22)][selectedLanguage]);
+    StaticText8->SetLabel(langPack[((modeCost == 2) ? 24 : 21)][selectedLanguage]);
 
     TextCtrl6->Show(true);
     Choice4->Show(true);
@@ -939,6 +991,13 @@ void PaperCalcDV2Frame::OnCostWayChanged(wxCommandEvent& event)
 
 void PaperCalcDV2Frame::OnHistoryOpened(wxCommandEvent& event)
 {
-	PCDV2History *sframe = new PCDV2History(NULL, 0);
-	sframe->Show(true);
+	PCDV2History *history = new PCDV2History(NULL, selectedLanguage);
+	history->Show(true);
+}
+
+void PaperCalcDV2Frame::OnFontChanged(wxCommandEvent& event)
+{
+    wxFont f(12, wxFONTFAMILY_DEFAULT,
+         wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, true, "Courier");
+    this->Refresh();
 }
