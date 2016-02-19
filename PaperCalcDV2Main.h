@@ -51,6 +51,7 @@ class PaperCalcDV2Frame: public wxFrame
         void ExchangeLanguage(int l);
         void cparseThScale (double *value, int scale, double eur);
         void PushObjects(wxChoice *ch, const wxString data[], int size);
+        int ProcessValues();
         bool validate(wxString str, double *var);
         bool PlaceToSizer(wxControl *w, int x, int y);
         double calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight);
@@ -68,7 +69,7 @@ class PaperCalcDV2Frame: public wxFrame
         void OnCostEnabled(wxCommandEvent& event);
         void OnCostWayChanged(wxCommandEvent& event);
         void OnHistoryOpened(wxCommandEvent& event);
-        void OnFontChanged(wxCommandEvent& event);
+        void OnValuesChanged(wxCommandEvent& event);
         //*)
 
         //(*Identifiers(PaperCalcDV2Frame)
@@ -108,7 +109,6 @@ class PaperCalcDV2Frame: public wxFrame
         static const long idMenuUpdate;
         static const long idMenuQuit;
         static const long idMenuPriceEnabled;
-        static const long idChangeFont;
         static const long idMenuLanguageEN;
         static const long idMenuLanguageCZ;
         static const long idMenuClear;
@@ -139,7 +139,6 @@ class PaperCalcDV2Frame: public wxFrame
         wxMenu* Menu1;
         wxChoice* Choice7;
         wxChoice* Choice8;
-        wxMenuItem* MenuItem10;
         wxChoice* Choice9;
         wxStaticLine* StaticLine2;
         wxMenuItem* MenuItem3;

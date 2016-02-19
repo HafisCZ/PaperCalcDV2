@@ -5,17 +5,26 @@
 		<centered>1</centered>
 		<size>254,282</size>
 		<bg>wxSYS_COLOUR_MENU</bg>
+		<font>
+			<size>11</size>
+			<style>normal</style>
+			<weight>normal</weight>
+			<underlined>0</underlined>
+			<family>swiss</family>
+			<face>Arial</face>
+		</font>
 		<id_arg>0</id_arg>
 		<object class="wxGridBagSizer" variable="GridBagSizer1" member="yes">
 			<object class="sizeritem">
 				<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
 					<label>Label</label>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 				</object>
 				<col>0</col>
@@ -28,11 +37,12 @@
 				<object class="wxStaticText" name="ID_STATICTEXT5" variable="StaticText5" member="yes">
 					<label>Label</label>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 				</object>
 				<col>0</col>
@@ -45,11 +55,12 @@
 				<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
 					<label>Label</label>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 				</object>
 				<col>1</col>
@@ -62,11 +73,12 @@
 				<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
 					<label>Label</label>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 				</object>
 				<col>1</col>
@@ -79,11 +91,12 @@
 				<object class="wxStaticText" name="ID_STATICTEXT4" variable="StaticText4" member="yes">
 					<label>Label</label>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 				</object>
 				<col>0</col>
@@ -146,7 +159,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextCtrl3" member="yes">
 					<value>Text</value>
-					<handler function="OnSolve" entry="EVT_TEXT" />
+					<handler function="OnValuesChanged" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -158,7 +171,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL4" variable="TextCtrl4" member="yes">
 					<value>Text</value>
-					<handler function="OnSolve" entry="EVT_TEXT" />
+					<handler function="OnValuesChanged" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -170,7 +183,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL5" variable="TextCtrl5" member="yes">
 					<value>Text</value>
-					<handler function="OnSolve" entry="EVT_TEXT" />
+					<handler function="OnValuesChanged" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -268,11 +281,12 @@
 						<item>3</item>
 					</content>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 					<handler function="OnCalcTypeChanged" entry="EVT_CHOICE" />
 				</object>
@@ -296,7 +310,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL6" variable="TextCtrl6" member="yes">
 					<value>Text</value>
-					<handler function="OnSolve" entry="EVT_TEXT" />
+					<handler function="OnValuesChanged" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -325,11 +339,12 @@
 				<object class="wxStaticText" name="ID_STATICTEXT8" variable="StaticText8" member="yes">
 					<label>Label</label>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 				</object>
 				<col>0</col>
@@ -342,7 +357,7 @@
 				<object class="wxTextCtrl" name="ID_TEXTCTRL7" variable="TextCtrl7" member="yes">
 					<value>Text</value>
 					<style>wxTE_READONLY</style>
-					<handler function="OnSolve" entry="EVT_TEXT" />
+					<handler function="OnValuesChanged" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -365,11 +380,12 @@
 				<object class="wxStaticText" name="ID_STATICTEXT10" variable="StaticText10" member="yes">
 					<label>Label</label>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 				</object>
 				<col>0</col>
@@ -382,11 +398,12 @@
 				<object class="wxStaticText" name="ID_STATICTEXT11" variable="StaticText11" member="yes">
 					<label>Label</label>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 				</object>
 				<col>0</col>
@@ -398,7 +415,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL8" variable="TextCtrl8" member="yes">
 					<value>Text</value>
-					<handler function="OnSolve" entry="EVT_TEXT" />
+					<handler function="OnValuesChanged" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -410,7 +427,7 @@
 			<object class="sizeritem">
 				<object class="wxTextCtrl" name="ID_TEXTCTRL9" variable="TextCtrl9" member="yes">
 					<value>Text</value>
-					<handler function="OnSolve" entry="EVT_TEXT" />
+					<handler function="OnValuesChanged" entry="EVT_TEXT" />
 				</object>
 				<colspan>3</colspan>
 				<col>1</col>
@@ -457,11 +474,12 @@
 						<item>3</item>
 					</content>
 					<font>
-						<size>10</size>
+						<size>11</size>
 						<style>normal</style>
 						<weight>bold</weight>
 						<underlined>0</underlined>
 						<family>swiss</family>
+						<face>Arial</face>
 					</font>
 					<handler function="OnCostWayChanged" entry="EVT_CHOICE" />
 				</object>
@@ -503,10 +521,6 @@
 					<accel>F5</accel>
 					<handler function="OnCostEnabled" entry="EVT_MENU" />
 					<checkable>1</checkable>
-				</object>
-				<object class="wxMenuItem" name="idChangeFont" variable="MenuItem10" member="yes">
-					<label>2</label>
-					<handler function="OnFontChanged" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu4" member="yes">
