@@ -498,6 +498,10 @@
 					<accel>F2</accel>
 					<handler function="OnHistoryOpened" entry="EVT_MENU" />
 				</object>
+				<object class="wxMenuItem" name="idMenuSave" variable="MenuItem10" member="yes">
+					<label>5</label>
+					<handler function="OnSaveSelected" entry="EVT_MENU" />
+				</object>
 				<object class="wxMenuItem" name="idMenuSolve" variable="MenuItem1" member="yes">
 					<label>2</label>
 					<accel>Return</accel>

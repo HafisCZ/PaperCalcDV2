@@ -879,7 +879,7 @@
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\univ\theme.h
 	"wx/string.h"
 
-1455901030 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
+1458493912 c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.h
 	<wx/stattext.h>
 	<wx/menu.h>
 	<wx/textctrl.h>
@@ -1362,17 +1362,20 @@
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\rcdefs.h
 
-1455901619 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
+1458497022 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\papercalcdv2main.cpp
 	"PaperCalcDV2Main.h"
 	"PCDV2History.h"
 	"HTTPDownloadRequest.h"
 	<wx/msgdlg.h>
 	<wx/aboutdlg.h>
+	<wx/filedlg.h>
 	<wx/textdlg.h>
 	<wx/font.h>
 	<stdio.h>
 	<string.h>
 	<sstream>
+	<fstream>
+	<iostream>
 	<ctime>
 	<typeinfo>
 	<wx/settings.h>
@@ -1431,7 +1434,7 @@
 
 1412497150 c:\users\hafis\desktop\wxwid\include\wx\msw\msgdlg.h
 
-1455904227 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.cpp
+1458496922 source:c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.cpp
 	"PCDV2History.h"
 	<wx/listctrl.h>
 	<wx/settings.h>
@@ -1439,7 +1442,7 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1455904227 c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.h
+1457731601 c:\users\hafis\desktop\pcv2w\papercalcdv2\pcdv2history.h
 	<wx/stattext.h>
 	<wx/statline.h>
 	<wx/gbsizer.h>
@@ -3173,4 +3176,64 @@
 1412497150 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\valtext.h
 	"wx/defs.h"
 	"wx/validate.h"
+
+1412497150 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\filedlg.h
+	"wx/defs.h"
+	"wx/dialog.h"
+	"wx/arrstr.h"
+	"wx/generic/filedlgg.h"
+	"wx/msw/filedlg.h"
+	"wx/motif/filedlg.h"
+	"wx/gtk/filedlg.h"
+	"wx/gtk1/filedlg.h"
+	"wx/osx/filedlg.h"
+	"wx/cocoa/filedlg.h"
+	"wx/os2/filedlg.h"
+
+1412497150 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\generic\filedlgg.h
+	"wx/listctrl.h"
+	"wx/datetime.h"
+	"wx/filefn.h"
+	"wx/artprov.h"
+	"wx/filedlg.h"
+	"wx/generic/filectrlg.h"
+
+1412497148 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\artprov.h
+	"wx/string.h"
+	"wx/bitmap.h"
+	"wx/icon.h"
+	"wx/iconbndl.h"
+
+1412497150 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\generic\filectrlg.h
+	"wx/containr.h"
+	"wx/listctrl.h"
+	"wx/filectrl.h"
+	"wx/filename.h"
+
+1412497150 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\filectrl.h
+	"wx/defs.h"
+	"wx/string.h"
+	"wx/event.h"
+	"wx/gtk/filectrl.h"
+	"wx/generic/filectrlg.h"
+
+1412497150 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\filename.h
+	"wx/arrstr.h"
+	"wx/filefn.h"
+	"wx/datetime.h"
+	"wx/intl.h"
+	"wx/longlong.h"
+	"wx/file.h"
+
+1412497150 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\file.h
+	"wx/defs.h"
+	"wx/string.h"
+	"wx/filefn.h"
+	"wx/convauto.h"
+
+1412497148 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\convauto.h
+	"wx/strconv.h"
+	"wx/fontenc.h"
+
+1412497150 c:\users\hafis\desktop\pcv2w\wxwid\include\wx\msw\filedlg.h
 

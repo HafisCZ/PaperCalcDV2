@@ -14,11 +14,14 @@
 #include "HTTPDownloadRequest.h"
 #include <wx/msgdlg.h>
 #include <wx/aboutdlg.h>
+#include <wx/filedlg.h>
 #include <wx/textdlg.h>
 #include <wx/font.h>
 #include <stdio.h>
 #include <string.h>
 #include <sstream>
+#include <fstream>
+#include <iostream>
 #include <ctime>
 #include <typeinfo>
 
@@ -35,7 +38,7 @@
 * Y - 1 means BETA release, otherwise FINAL
 * Z - Build number (04 means fourth released build)
 */
-const int prototype = 2118;
+const int prototype = 2019;
 
 // Required variables
 const float thPow3 = 1000000000;
@@ -121,6 +124,8 @@ const wxString langPack[35][2] = {
             wxString::FromUTF8("\u017D\u00E1dn\u00E1 aktualizace nebyla nalezena ...")},
         {wxString::FromUTF8("Enter value or leave empty"),
             wxString::FromUTF8("Vlo\u017Ete hodnotu nebo zanechte pr\u00E1zdn\u00E9")},
+        {wxString::FromUTF8("Save calculation"),
+            wxString::FromUTF8("Ulo\u017Eit v\u00FDpo\u010Det")},
     };
 
 // Paper formats, in future maybe in .xml type file
@@ -213,6 +218,7 @@ const long PaperCalcDV2Frame::ID_CHOICE8 = wxNewId();
 const long PaperCalcDV2Frame::ID_CHOICE9 = wxNewId();
 const long PaperCalcDV2Frame::ID_CHOICE10 = wxNewId();
 const long PaperCalcDV2Frame::idMenuHistory = wxNewId();
+const long PaperCalcDV2Frame::idMenuSave = wxNewId();
 const long PaperCalcDV2Frame::idMenuSolve = wxNewId();
 const long PaperCalcDV2Frame::idMenuUpdate = wxNewId();
 const long PaperCalcDV2Frame::idMenuQuit = wxNewId();
@@ -367,6 +373,8 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Menu1 = new wxMenu();
     MenuItem2 = new wxMenuItem(Menu1, idMenuHistory, _("1\tF2"), wxEmptyString, wxITEM_NORMAL);
     Menu1->Append(MenuItem2);
+    MenuItem10 = new wxMenuItem(Menu1, idMenuSave, _("5"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuItem10);
     MenuItem1 = new wxMenuItem(Menu1, idMenuSolve, _("2\tReturn"), wxEmptyString, wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
     MenuItem6 = new wxMenuItem(Menu1, idMenuUpdate, _("3"), wxEmptyString, wxITEM_NORMAL);
@@ -422,6 +430,7 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Connect(ID_CHOICE9,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(ID_CHOICE10,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnCostWayChanged);
     Connect(idMenuHistory,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnHistoryOpened);
+    Connect(idMenuSave,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSaveSelected);
     Connect(idMenuSolve,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnSolve);
     Connect(idMenuUpdate,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnUpdate);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnQuit);
@@ -555,7 +564,7 @@ bool PaperCalcDV2Frame::validate(wxString str, double *var)
 }
 
 void shuffleHistory() {
-    for (int i = 0; i < 9; i++) {
+    for (int i = 8; i >= 0; i--) {
         for (int y = 0; y < 9; y++) {
             historyArray[i+1][y] = historyArray[i][y];
         }
@@ -762,7 +771,7 @@ int PaperCalcDV2Frame::ProcessValues() {
 void PaperCalcDV2Frame::OnSizeSelect(wxCommandEvent& event)
 {
     // Get selected index
-    int formSz =  Choice1->GetSelection();
+    int formSz = Choice1->GetSelection();
     if (formSz != 0) {
         // Paste 'mm' size - length & width into proper cell from 2D array paperFormats
         TextCtrl1->ChangeValue(wxString::Format(wxT("%.2lf"), paperFormats[formSz][0]));
@@ -853,6 +862,7 @@ void PaperCalcDV2Frame::ExchangeLanguage(int l)
     MenuItem7->SetItemLabel(langPack[9][l]);
     MenuItem8->SetItemLabel(langPack[10][l]);
     MenuItem9->SetItemLabel(langPack[20][l]);
+    MenuItem10->SetItemLabel(langPack[34][l]);
 
     Choice7->SetString(0, langPack[17][l]);
     Choice7->SetString(1, langPack[18][l]);
@@ -1030,4 +1040,28 @@ void PaperCalcDV2Frame::OnHistoryOpened(wxCommandEvent& event)
 void PaperCalcDV2Frame::OnValuesChanged(wxCommandEvent& event)
 {
     ProcessValues();
+}
+
+void PaperCalcDV2Frame::OnSaveSelected(wxCommandEvent& event)
+{
+    if (ProcessValues() == 1) {
+        wxFileDialog saveLocation(this, langPack[34][selectedLanguage], "", "", "Text files (*.txt)|*.txt", wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+        if (saveLocation.ShowModal() == wxID_OK) {
+            std::ofstream saveFile(saveLocation.GetPath());
+            if (saveFile.is_open()) {
+                saveFile << langPack[14][selectedLanguage] << " " << mod1Length << " mm";
+                saveFile << "\n" << langPack[15][selectedLanguage] << " " << mod1Width << " mm";
+                saveFile << "\n" << langPack[16][selectedLanguage] << " " << mod1Grammage << " g/m^2";
+                saveFile << "\n" << langPack[18][selectedLanguage] << " " << mod1Count << " arc";
+                saveFile << "\n" << langPack[17][selectedLanguage] << " " << mod1Weight << " kg";
+                if (costEnabled) {
+                    saveFile << "\n" << langPack[22][selectedLanguage] << " " << mod2Weight << " czk/kg";
+                    saveFile << "\n" << langPack[24][selectedLanguage] << " " << mod2Count << " czk/arc";
+                    saveFile << "\n" << langPack[23][selectedLanguage] << " " << mod2EuroCR << " czk/eur";
+                    saveFile << "\n" << langPack[21][selectedLanguage] << " " << mod2Cost << " czk";
+                }
+                saveFile.close();
+            }
+        }
+    }
 }
