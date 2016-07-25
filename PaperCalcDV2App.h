@@ -2,8 +2,8 @@
  * Name:      PaperCalcDV2App.h
  * Purpose:   Defines Application Class
  * Author:    Martin 'Hafis' Halfar (hafis@protonmail.com)
- * Created:   2015-10-18
- * Copyright: Martin 'Hafis' Halfar (hafiscz.github.io)
+ * Created:
+ * Copyright:
  * License:
  **************************************************************/
 

@@ -2,9 +2,9 @@
  * Name:      PaperCalcDV2Main.h
  * Purpose:   Defines Application Frame
  * Author:    Martin 'Hafis' Halfar (hafis@protonmail.com)
- * Created:   2015-10-18
- * Copyright: Martin 'Hafis' Halfar (hafiscz.github.io)
- * License:   CC BY-NC-ND
+ * Created:
+ * Copyright:
+ * License:
  **************************************************************/
 
 #ifndef PAPERCALCDV2MAIN_H

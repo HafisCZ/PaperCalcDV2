@@ -2,12 +2,10 @@
  * Name:      PaperCalcDV2Main.cpp
  * Purpose:   Code for Application Frame
  * Author:    Martin 'Hafis' Halfar (hafis@protonmail.com)
- * Created:   2015-10-18
- * Copyright: Martin 'Hafis' Halfar (hafiscz.github.io)
+ * Created:
+ * Copyright:
  * License:
- ***************************************************************
- * Euro: http://www.cnb.cz/miranda2/m2/cs/financni_trhy/devizovy_trh/kurzy_devizoveho_trhu/vybrane.txt?mena=EUR&od=06.11.2015&do=06.11.2015
- **************************************************************/
+ ***************************************************************/
 
 #include "PaperCalcDV2Main.h"
 #include "PCDV2History.h"
@@ -38,9 +36,9 @@
 * Y - 1 means BETA release, otherwise FINAL
 * Z - Build number (04 means fourth released build)
 */
-const int prototype = 2019;
+const int prototype = 2220;
 
-// Required variables
+// Dùležité promìnné
 const float thPow3 = 1000000000;
 wxString ctrlTextDefault = _("");
 wxString tmp;
@@ -49,12 +47,15 @@ int modeParameter = 0;
 int modeCost = 0;
 bool costEnabled = false;
 
+// Odkazy
 std::string repositoryLink = "http://www.github.com/HafisCZ/PaperCalc2";
 std::string storeLink = "http://code.mar21.eu/PaperCalc2";
 std::string versionLink = "http://raw.githubusercontent.com/HafisCZ/PaperCalc2/master/version.d";
 
+// Pole obsahující historii
 wxString historyArray[10][9];
 
+// Jazykové pole
 const wxString langPack[35][2] = {
         {wxString::FromUTF8("#HAFISCZDEV"), //0
             wxString::FromUTF8("#HAFISCZDEV")},
@@ -128,7 +129,7 @@ const wxString langPack[35][2] = {
             wxString::FromUTF8("Ulo\u017Eit v\u00FDpo\u010Det")},
     };
 
-// Paper formats, in future maybe in .xml type file
+// Pole s rozmìry, jednotkami
 const double paperFormats[15][2] = {
     {0,0},
     {700,1000},
@@ -158,7 +159,6 @@ const int codTrans2[][3] = {
     {11, 11, 8}
 };
 
-// Units
 const wxString lengthUnits[] = {
     _("mm"), _("cm"), _("dm"), _("m")
 };
@@ -238,7 +238,7 @@ END_EVENT_TABLE()
 PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
 {
     //(*Initialize(PaperCalcDV2Frame)
-    Create(parent, wxID_ANY, _("PaperCalc 2 Development Version "), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    Create(parent, wxID_ANY, _("PaperCalc 2 "), wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(254,282));
     SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_MENU));
     wxFont thisFont(11,wxSWISS,wxFONTSTYLE_NORMAL,wxNORMAL,false,_T("Arial"),wxFONTENCODING_DEFAULT);
@@ -441,6 +441,7 @@ PaperCalcDV2Frame::PaperCalcDV2Frame(wxWindow* parent,wxWindowID id)
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&PaperCalcDV2Frame::OnAbout);
     //*)
 
+    // Vyplnit celou historii znakem '-'
     for (int i = 0; i < 90; i++) {
         historyArray[i/9][i%9] = wxString::FromUTF8("-");
     }
@@ -455,18 +456,21 @@ PaperCalcDV2Frame::~PaperCalcDV2Frame()
     //*)
 }
 
+// Pøevod INT na STRING
 std::string iToS (int intg) {
     std::stringstream stream;
     stream << intg;
     return stream.str();
 }
 
+// Pøevod DOUBLE na STRING
 std::string dToS (double intg) {
     std::stringstream stream;
     stream << intg;
     return stream.str();
 }
 
+// Nastavení zobrazení programu
 void PaperCalcDV2Frame::RedrawOnLaunch() {
 
     PushObjects(Choice2, lengthUnits, 4);
@@ -508,12 +512,13 @@ void PaperCalcDV2Frame::RedrawOnLaunch() {
     Fit();
 }
 
+// Událost: Vypnutí
 void PaperCalcDV2Frame::OnQuit(wxCommandEvent& event)
 {
-    // Close window
     Close();
 }
 
+// Naètení hodnoty kurzu eura
 void PaperCalcDV2Frame::LoadEuroRate(){
     time_t raw;
     struct tm * prepTime;
@@ -535,15 +540,15 @@ void PaperCalcDV2Frame::LoadEuroRate(){
     delete rq;
 }
 
+// Funkce pro vložení hodnot do výbìrových menu
 void PaperCalcDV2Frame::PushObjects(wxChoice *ch, const wxString data[], int size)
 {
-    // For every wxString object in array
     for (int i = 0; i < size; i++) {
-        // Rename item on position i with matching string
         ch->SetString(i, data[i]);
     }
 }
 
+// Událost: O programu
 void PaperCalcDV2Frame::OnAbout(wxCommandEvent& event)
 {
     wxAboutDialogInfo info;
@@ -555,6 +560,7 @@ void PaperCalcDV2Frame::OnAbout(wxCommandEvent& event)
     wxAboutBox(info);
 }
 
+// Kontrola a uložení hodnoty vstupního pole
 bool PaperCalcDV2Frame::validate(wxString str, double *var)
 {
     if (!(str).ToDouble(var) || (*var) <= 0){
@@ -563,6 +569,7 @@ bool PaperCalcDV2Frame::validate(wxString str, double *var)
     return true;
 }
 
+// Posun záznamù v historii (dolù)
 void shuffleHistory() {
     for (int i = 8; i >= 0; i--) {
         for (int y = 0; y < 9; y++) {
@@ -574,7 +581,7 @@ void shuffleHistory() {
     }
 }
 
-// EVENT :: Solve
+// Událost: Vypoèítat a uložit do historie
 void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
 {
     if (ProcessValues() == 1) {
@@ -593,6 +600,7 @@ void PaperCalcDV2Frame::OnSolve(wxCommandEvent& event)
     }
 }
 
+// Funkce pro zpracování všech parametrických údajù
 int PaperCalcDV2Frame::ProcessValues() {
     double output;
     wxString rw (ctrlTextDefault);
@@ -767,39 +775,37 @@ int PaperCalcDV2Frame::ProcessValues() {
     return 0;
 }
 
-// EVENT :: Selecting size presets
+// Událost: Výbìr formátu
 void PaperCalcDV2Frame::OnSizeSelect(wxCommandEvent& event)
 {
-    // Get selected index
     int formSz = Choice1->GetSelection();
     if (formSz != 0) {
-        // Paste 'mm' size - length & width into proper cell from 2D array paperFormats
         TextCtrl1->ChangeValue(wxString::Format(wxT("%.2lf"), paperFormats[formSz][0]));
         TextCtrl2->ChangeValue(wxString::Format(wxT("%.2lf"), paperFormats[formSz][1]));
-        // Reset scaling to default 'mm' value
         Choice2->SetSelection(0);
         Choice3->SetSelection(0);
     }
 }
 
-// EVENT :: Changing size preset to custom when W and H are changed by user
+// Událost: Zmìna rozmìrù
 void PaperCalcDV2Frame::OnSizeChanged(wxCommandEvent& event)
 {
     Choice1->SetSelection(0);
 }
 
-// Scaling to 'mm' in 10s
+// Funkce pro pøevod jednotek
 void PaperCalcDV2Frame::parseDecScale (double *value, int scale)
 {
     *value = ((*value) * pow(10, scale));
 }
 
-// Scaling to 'mm' in 1000s
+// Funkce pro pøevod jednotek
 void PaperCalcDV2Frame::parseThScale (double *value, int scale)
 {
     *value = ((*value) * pow(1000, scale));
 }
 
+// Funkce pro pøevod jednotek (ceny)
 void PaperCalcDV2Frame::cparseThScale (double *value, int scale, double eur)
 {
     if (scale < 0) {
@@ -813,7 +819,7 @@ void PaperCalcDV2Frame::cparseThScale (double *value, int scale, double eur)
     *value = (((*value) / pow(1000, scale % 2)) * (scale > 1 ? eur : 1));
 }
 
-// Solve function, take -1 as output parameter type & value >= 0 for valid input
+// Funkce využitá pøi výpoètu pro zjednodušení zápisu
 double PaperCalcDV2Frame::calculate (double hLenght, double hWidth, double hGram, double hCount, double hWeight)
 {
     if (hLenght == -1) {
@@ -831,10 +837,11 @@ double PaperCalcDV2Frame::calculate (double hLenght, double hWidth, double hGram
     }
 }
 
+// Funkce pro zmìnu jazyka aplikace
 void PaperCalcDV2Frame::ExchangeLanguage(int l)
 {
     selectedLanguage = l;
-    //Labels
+
     StaticText1->SetLabel(langPack[13][l]);
     StaticText2->SetLabel(langPack[14][l]);
     StaticText3->SetLabel(langPack[15][l]);
@@ -846,13 +853,11 @@ void PaperCalcDV2Frame::ExchangeLanguage(int l)
     StaticText10->SetLabel(langPack[23][l]);
     StaticText11->SetLabel(langPack[((modeCost == 0) ? 24 : 22)][l]);
 
-    //Toolbar
     MenuBar1->SetMenuLabel(0, langPack[1][l]);
     MenuBar1->SetMenuLabel(1, langPack[6][l]);
     MenuBar1->SetMenuLabel(2, langPack[8][l]);
     MenuBar1->SetMenuLabel(3, langPack[11][l]);
 
-    //Sub-Toolbar
     MenuItem1->SetItemLabel(langPack[3][l] + _("\tReturn"));
     MenuItem2->SetItemLabel(langPack[2][l] + _("\tF2"));
     MenuItem3->SetItemLabel(langPack[5][l] + _("\tAlt-F4"));
@@ -877,6 +882,7 @@ void PaperCalcDV2Frame::ExchangeLanguage(int l)
     Fit();
 }
 
+// Událost: Zmìna modulu
 void PaperCalcDV2Frame::OnCalcTypeChanged(wxCommandEvent& event)
 {
     modeParameter = Choice7->GetSelection();
@@ -917,19 +923,19 @@ void PaperCalcDV2Frame::OnCalcTypeChanged(wxCommandEvent& event)
     this->Fit();
 }
 
-// Move any widget to X Y coordinates
+// Funkce pro pøesun objektu na danou pozici
 bool PaperCalcDV2Frame::PlaceToSizer(wxControl *w, int x, int y)
 {
     return (GridBagSizer1->SetItemPosition(w, *(new wxGBPosition(x,y))));
 }
 
-// Language exchange event
+// Událost: Zmìna jazyka
 void PaperCalcDV2Frame::OnLanguageChanged(wxCommandEvent& event)
 {
     ExchangeLanguage((MenuItem7->IsChecked() ? 0 : 1));
 }
 
-// Check for update
+// Událost: Kontrola dostupných aktualizací
 void PaperCalcDV2Frame::OnUpdate(wxCommandEvent& event)
 {
     double newest;
@@ -950,7 +956,7 @@ void PaperCalcDV2Frame::OnUpdate(wxCommandEvent& event)
 
 }
 
-// Clear content of all used wxTextCtrls
+// Událost: Vymazání všech vstupních polí
 void PaperCalcDV2Frame::OnClear(wxCommandEvent& event)
 {
     TextCtrl1->Clear();
@@ -964,12 +970,14 @@ void PaperCalcDV2Frame::OnClear(wxCommandEvent& event)
     TextCtrl9->Clear();
 }
 
+// Událost: Povolení cenového modulu
 void PaperCalcDV2Frame::OnCostEnabled(wxCommandEvent& event)
 {
     bool costE = MenuItem4->IsChecked();
     EnableCost(costE);
 }
 
+// Funkce pro zobrazení cenového modulu
 void PaperCalcDV2Frame::EnableCost(bool e)
 {
     costEnabled = e;
@@ -991,6 +999,7 @@ void PaperCalcDV2Frame::EnableCost(bool e)
     Fit();
 }
 
+// Událost: Zmìna zobrazení modulu 2
 void PaperCalcDV2Frame::OnCostWayChanged(wxCommandEvent& event)
 {
     modeCost = Choice10->GetSelection();
@@ -1031,17 +1040,20 @@ void PaperCalcDV2Frame::OnCostWayChanged(wxCommandEvent& event)
     this->Fit();
 }
 
+// Událost: Zobrazení historie
 void PaperCalcDV2Frame::OnHistoryOpened(wxCommandEvent& event)
 {
 	PCDV2History *history = new PCDV2History(NULL, selectedLanguage, historyArray);
 	history->Show(true);
 }
 
+// Událost: Zmìna vstupních hodnot
 void PaperCalcDV2Frame::OnValuesChanged(wxCommandEvent& event)
 {
     ProcessValues();
 }
 
+// Událost: Uložení výpoètu
 void PaperCalcDV2Frame::OnSaveSelected(wxCommandEvent& event)
 {
     if (ProcessValues() == 1) {

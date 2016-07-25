@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <wxsmith>
 	<object class="wxFrame" name="PaperCalcDV2Frame">
-		<title>PaperCalc 2 Development Version </title>
+		<title>PaperCalc 2 </title>
 		<centered>1</centered>
 		<size>254,282</size>
 		<bg>wxSYS_COLOUR_MENU</bg>

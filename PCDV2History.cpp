@@ -9,6 +9,7 @@
 #include <wx/string.h>
 //*)
 
+// Jazykové pole
 const wxString langPack[12][2] = {
     {wxString::FromUTF8("#HAFISCZDEV"), //0
         wxString::FromUTF8("#HAFISCZDEV")},
